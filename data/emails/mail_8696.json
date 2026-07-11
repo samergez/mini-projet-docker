@@ -1,0 +1,9 @@
+{
+    "id_email": "mail_8696",
+    "timestamp": "2026-07-08 18:09:11",
+    "expediteur": "support@hebergement-cloud.net",
+    "sujet": "Alerte de sécurité - Activité suspecte détectée sur le réseau",
+    "corps": "ATTENTION : Notre système de monitoring a détecté 3 tentatives de connexion infructueuses sur l'accès administrateur de votre conteneur de base de données principal. Veuillez consulter le rapport technique joint pour vérifier les adresses IP d'origine.",
+    "categorie_metier": "Technique",
+    "piece_jointe_associee": "243_facture_2026.pdf"
+}

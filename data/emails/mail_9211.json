@@ -1,0 +1,9 @@
+{
+    "id_email": "mail_9211",
+    "timestamp": "2026-07-08 18:08:41",
+    "expediteur": "logistique@fournisseur-global.fr",
+    "sujet": "Avis de virement SEPA reçu - Ref #89210",
+    "corps": "Bonjour Samer,\n\nNous vous informons qu'un virement de 12 450,00 EUR en provenance de la direction financière a été validé et crédité sur votre compte pro ce matin. Vous trouverez l'avis d'opération bancaire officiel en pièce jointe.\n\nCordialement,\nLe service Clientèle Entreprises.",
+    "categorie_metier": "Banque",
+    "piece_jointe_associee": "647_avis_virement.pdf"
+}

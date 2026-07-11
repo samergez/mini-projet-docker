@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  db_service:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data  
+
+  # generateur de mail
+  email_generator:
+    image: python:3.10-slim
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - .:/app
+      - data_volume:/app/data
+    working_dir: /app
+    command: python generate_emails.py
+    restart: always
+    
+  # api de chat
+  api_chat:
+    image: python:3.10-slim
+    environment:
+      - PYTHONUNBUFFERED=1
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    volumes:
+      - ./api_chat:/app
+    working_dir: /app
+    ports:
+      - "8000:8000"
+    command: sh -c "pip install --default-timeout=1000 fastapi uvicorn jinja2 groq && uvicorn main:app --host 0.0.0.0 --port 8000"
+    restart: always
+
+volumes:
+  db_data:
+  data_volume:

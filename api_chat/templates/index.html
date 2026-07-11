@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent IA - Gestion d'E-mails</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f4f6f9; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .chat-container { width: 100%; max-width: 600px; height: 80vh; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; overflow: hidden; }
+        .chat-header { background: #007bff; color: white; padding: 20px; font-size: 1.2rem; font-weight: bold; text-align: center; }
+        .chat-messages { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
+        .message { max-width: 75%; padding: 12px 16px; border-radius: 8px; line-height: 1.4; font-size: 0.95rem; }
+        .user-message { background: #007bff; color: white; align-self: flex-end; border-bottom-right-radius: 2px; }
+        .bot-message { background: #e9ecef; color: #333; align-self: flex-start; border-bottom-left-radius: 2px; white-space: pre-line; }
+        .chat-input-area { padding: 15px; background: #f8f9fa; border-top: 1px solid #dee2e6; display: flex; gap: 10px; }
+        input { flex: 1; padding: 12px; border: 1px solid #ced4da; border-radius: 6px; font-size: 1rem; outline: none; }
+        input:focus { border-color: #007bff; }
+        button { background: #007bff; color: white; border: none; padding: 12px 20px; border-radius: 6px; font-size: 1rem; cursor: pointer; transition: background 0.2s; }
+        button:hover { background: #0056b3; }
+        button:disabled { background: #6c757d; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">🤖 Agent IA Email - Assistant de Synthèse</div>
+    <div class="chat-messages" id="chatMessages">
+        <div class="message bot-message">Bonjour Samer ! Je suis ton assistant IA. Comment puis-je t'aider avec tes e-mails aujourd'hui ?</div>
+    </div>
+    <div class="chat-input-area">
+        <input type="text" id="userInput" placeholder="Posez une question ou demandez une synthèse..." onkeypress="if(event.key === 'Enter') sendMessage()">
+        <button id="sendBtn" onclick="sendMessage()">Envoyer</button>
+    </div>
+</div>
+
+<script>
+    async function sendMessage() {
+        const input = document.getElementById('userInput');
+        const button = document.getElementById('sendBtn');
+        const chatMessages = document.getElementById('chatMessages');
+        const text = input.value.trim();
+
+        if (!text) return;
+
+        // Désactiver l'input pendant l'envoi
+        input.value = '';
+        input.disabled = true;
+        button.disabled = true;
+
+        // Afficher le message de l'utilisateur
+        chatMessages.innerHTML += `<div class="message user-message">${text}</div>`;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        // Afficher un indicateur de chargement temporaire
+        const loadingId = 'loading-' + Date.now();
+        chatMessages.innerHTML += `<div class="message bot-message" id="${loadingId}">En train de réfléchir...</div>`;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        try {
+            // Appel AJAX vers notre API FastAPI
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: text })
+            });
+            
+            const data = await response.json();
+            
+            // Remplacer le chargement par la vraie réponse de Gemini
+            document.getElementById(loadingId).innerText = data.response;
+        } catch (error) {
+            document.getElementById(loadingId).innerText = "Désolé, une erreur est survenue lors de la communication avec l'IA.";
+        }
+
+        // Réactiver l'input
+        input.disabled = false;
+        button.disabled = false;
+        input.focus();
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+</script>
+
+</body>
+</html>docker-compose up -d

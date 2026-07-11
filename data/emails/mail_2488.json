@@ -1,0 +1,9 @@
+{
+    "id_email": "mail_2488",
+    "timestamp": "2026-07-08 18:09:41",
+    "expediteur": "facturation@operateur-telecom.com",
+    "sujet": "Demande de devis - Intégration API de messagerie",
+    "corps": "Bonjour,\n\nNous aimerions intégrer un agent intelligent capable de trier et de répondre à nos e-mails clients automatiquement. Pouvez-vous nous envoyer vos tarifs et vos disponibilités pour une réunion technique la semaine prochaine ?\n\nMerci d'avance,\nResponsable Innovation.",
+    "categorie_metier": "Client",
+    "piece_jointe_associee": null
+}

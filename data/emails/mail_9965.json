@@ -1,0 +1,9 @@
+{
+    "id_email": "mail_9965",
+    "timestamp": "2026-07-08 18:09:26",
+    "expediteur": "service.client@banque-entreprise.com",
+    "sujet": "Demande de devis - Intégration API de messagerie",
+    "corps": "Bonjour,\n\nNous aimerions intégrer un agent intelligent capable de trier et de répondre à nos e-mails clients automatiquement. Pouvez-vous nous envoyer vos tarifs et vos disponibilités pour une réunion technique la semaine prochaine ?\n\nMerci d'avance,\nResponsable Innovation.",
+    "categorie_metier": "Client",
+    "piece_jointe_associee": "575_avis_virement.pdf"
+}
