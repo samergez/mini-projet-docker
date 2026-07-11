@@ -194,7 +194,7 @@ try:
         id_initial = send_smtp_email(SMTP_EMAIL, mail['sujet'], corps_complet)
         
         if id_initial:
-            log_status_db(custom_id, SMTP_EMAIL, "sent")
+            log_email_status(custom_id, SMTP_EMAIL, "sent")
             print(f"✅ E-mail initial envoyé avec succès !")
             
             time.sleep(2) # Pause de sécurité
@@ -207,7 +207,7 @@ try:
             id_reply = send_smtp_email(SMTP_EMAIL, sujet_reply, corps_reply, reply_to_id=id_initial)
             
             if id_reply:
-                log_status_db(custom_id, SMTP_EMAIL, "replied")
+                log_email_status(custom_id, SMTP_EMAIL, "replied")
                 print("🏁 Fil de discussion (Mail + Reply) validé en BDD !")
 
         # 5. Cadence imposée par le tuteur : 1 minute (Tâche 10)
