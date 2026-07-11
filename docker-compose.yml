@@ -11,18 +11,28 @@ services:
       - "${DB_PORT}:5432"
     volumes:
       - db_data:/var/lib/postgresql/data  
+      - ./init-db:/docker-entrypoint-initdb.d # <--- Magie Docker : charge ton init.sql automatiquement
 
   # generateur de mail
   email_generator:
     image: python:3.10-slim
     environment:
       - PYTHONUNBUFFERED=1
+      - SMTP_EMAIL=${SMTP_EMAIL}       # <--- Donne accès à ton Gmail de test
+      - SMTP_PASSWORD=${SMTP_PASSWORD} # <--- Donne accès à ton mot de passe d'application
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - DB_PORT=${DB_PORT}
     volumes:
       - .:/app
       - data_volume:/app/data
     working_dir: /app
-    command: python generate_emails.py
+    # On ajoute un petit pip install psycopg2-binary au cas où ton script doive parler à la BDD plus tard
+    command: sh -c "pip install --default-timeout=1000 psycopg2-binary && python generate_emails.py"
     restart: always
+    depends_on:
+      - db_service # <--- Attend que la BDD soit lancée avant de démarrer le worker
     
   # api de chat
   api_chat:
@@ -37,6 +47,8 @@ services:
       - "8000:8000"
     command: sh -c "pip install --default-timeout=1000 fastapi uvicorn jinja2 groq && uvicorn main:app --host 0.0.0.0 --port 8000"
     restart: always
+    depends_on:
+      - db_service
 
 volumes:
   db_data:
