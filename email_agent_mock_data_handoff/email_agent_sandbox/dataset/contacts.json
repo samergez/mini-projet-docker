@@ -1,0 +1,346 @@
+[
+ {
+  "contact_id": "inbox",
+  "name": "Operations Inbox",
+  "email": "operations@demo-lab.example.test",
+  "role": "shared mailbox",
+  "company_id": "demo_lab",
+  "language": "fr/en"
+ },
+ {
+  "contact_id": "lead",
+  "name": "Nadia Ferjani",
+  "email": "nadia.ferjani@demo-lab.example.test",
+  "role": "Project Lead",
+  "company_id": "demo_lab",
+  "language": "fr"
+ },
+ {
+  "contact_id": "buy",
+  "name": "Karim Dali",
+  "email": "karim.dali@demo-lab.example.test",
+  "role": "Purchasing",
+  "company_id": "demo_lab",
+  "language": "fr"
+ },
+ {
+  "contact_id": "fin",
+  "name": "Lina Haddad",
+  "email": "lina.haddad@demo-lab.example.test",
+  "role": "Finance",
+  "company_id": "demo_lab",
+  "language": "fr"
+ },
+ {
+  "contact_id": "dev",
+  "name": "Rami Kallel",
+  "email": "rami.kallel@demo-lab.example.test",
+  "role": "Developer",
+  "company_id": "demo_lab",
+  "language": "fr/en"
+ },
+ {
+  "contact_id": "orion",
+  "name": "Maya Anton",
+  "email": "maya.anton@orion-line.example.test",
+  "role": "Process Engineer",
+  "company_id": "orion_line",
+  "language": "en"
+ },
+ {
+  "contact_id": "cobalt",
+  "name": "Youssef Kacem",
+  "email": "youssef.kacem@cobalt-assembly.example.test",
+  "role": "Maintenance Coordinator",
+  "company_id": "cobalt_assembly",
+  "language": "fr"
+ },
+ {
+  "contact_id": "vertex",
+  "name": "Elena Rossi",
+  "email": "elena.rossi@vertex-vision.example.test",
+  "role": "Sales Engineer",
+  "company_id": "vertex_vision",
+  "language": "en"
+ },
+ {
+  "contact_id": "north",
+  "name": "Samir Nouri",
+  "email": "samir.nouri@northbridge-sensor.example.test",
+  "role": "Account Manager",
+  "company_id": "northbridge_sensor",
+  "language": "fr"
+ },
+ {
+  "contact_id": "freight",
+  "name": "Dina Salem",
+  "email": "dina.salem@medroute-sim.example.test",
+  "role": "Freight Agent",
+  "company_id": "medroute_freight",
+  "language": "fr"
+ },
+ {
+  "contact_id": "customs",
+  "name": "Desk 04",
+  "email": "desk04@customs-test.example.test",
+  "role": "Document Control",
+  "company_id": "customs_test",
+  "language": "fr"
+ },
+ {
+  "contact_id": "fiscal",
+  "name": "Fiscal Service",
+  "email": "service@fiscal-test.example.test",
+  "role": "Tax Service",
+  "company_id": "fiscal_test",
+  "language": "fr"
+ },
+ {
+  "contact_id": "bank",
+  "name": "Transfer Desk",
+  "email": "transfers@clearbank-demo.example.test",
+  "role": "Bank Transfer Desk",
+  "company_id": "clearbank_demo",
+  "language": "fr"
+ },
+ {
+  "contact_id": "dir",
+  "name": "Sami Ben Romdhane",
+  "email": "sami.ben.romdhane@demo-lab.example.test",
+  "role": "Managing Director",
+  "company_id": "demo_lab",
+  "language": "fr"
+ },
+ {
+  "contact_id": "logi",
+  "name": "Amine Trabelsi",
+  "email": "amine.trabelsi@demo-lab.example.test",
+  "role": "Logistics Coordinator",
+  "company_id": "demo_lab",
+  "language": "fr"
+ },
+ {
+  "contact_id": "auto",
+  "name": "Ines Chaabane",
+  "email": "ines.chaabane@demo-lab.example.test",
+  "role": "Automation Engineer",
+  "company_id": "demo_lab",
+  "language": "fr/en"
+ },
+ {
+  "contact_id": "supp",
+  "name": "Omar Gharbi",
+  "email": "omar.gharbi@demo-lab.example.test",
+  "role": "Support Technician",
+  "company_id": "demo_lab",
+  "language": "fr"
+ },
+ {
+  "contact_id": "adm",
+  "name": "Salma Riahi",
+  "email": "salma.riahi@demo-lab.example.test",
+  "role": "Office Administrator",
+  "company_id": "demo_lab",
+  "language": "fr"
+ },
+ {
+  "contact_id": "acc2",
+  "name": "Hedi Mansour",
+  "email": "hedi.mansour@demo-lab.example.test",
+  "role": "Junior Accountant",
+  "company_id": "demo_lab",
+  "language": "fr"
+ },
+ {
+  "contact_id": "sales",
+  "name": "Yasmine Belhaj",
+  "email": "yasmine.belhaj@demo-lab.example.test",
+  "role": "Sales Manager",
+  "company_id": "demo_lab",
+  "language": "fr/en"
+ },
+ {
+  "contact_id": "helios1",
+  "name": "Petra Novak",
+  "email": "petra.novak@helios-pack.example.test",
+  "role": "Production Manager",
+  "company_id": "helios_pack",
+  "language": "en"
+ },
+ {
+  "contact_id": "helios2",
+  "name": "Tomas Dvorak",
+  "email": "tomas.dvorak@helios-pack.example.test",
+  "role": "Plant Buyer",
+  "company_id": "helios_pack",
+  "language": "en"
+ },
+ {
+  "contact_id": "atlas1",
+  "name": "Mohamed Ayari",
+  "email": "mohamed.ayari@atlas-dairy.example.test",
+  "role": "Plant Engineer",
+  "company_id": "atlas_dairy",
+  "language": "fr"
+ },
+ {
+  "contact_id": "atlas2",
+  "name": "Sonia Meddeb",
+  "email": "sonia.meddeb@atlas-dairy.example.test",
+  "role": "Quality Lead",
+  "company_id": "atlas_dairy",
+  "language": "fr"
+ },
+ {
+  "contact_id": "ferro1",
+  "name": "Walid Msakni",
+  "email": "walid.msakni@ferro-forge.example.test",
+  "role": "Workshop Manager",
+  "company_id": "ferro_forge",
+  "language": "fr"
+ },
+ {
+  "contact_id": "quantum1",
+  "name": "Aida Bouzid",
+  "email": "aida.bouzid@quantum-textile.example.test",
+  "role": "Quality Manager",
+  "company_id": "quantum_textile",
+  "language": "fr/en"
+ },
+ {
+  "contact_id": "solaris1",
+  "name": "Nabil Jemli",
+  "email": "nabil.jemli@solaris-agro.example.test",
+  "role": "Operations Director",
+  "company_id": "solaris_agro",
+  "language": "fr"
+ },
+ {
+  "contact_id": "nordwind1",
+  "name": "Lukas Meier",
+  "email": "lukas.meier@nordwind-auto.example.test",
+  "role": "Procurement Lead",
+  "company_id": "nordwind_auto",
+  "language": "en"
+ },
+ {
+  "contact_id": "nordwind2",
+  "name": "Anna Fischer",
+  "email": "anna.fischer@nordwind-auto.example.test",
+  "role": "IT Coordinator",
+  "company_id": "nordwind_auto",
+  "language": "en"
+ },
+ {
+  "contact_id": "cedar1",
+  "name": "Rania Khoury",
+  "email": "rania.khoury@cedar-pharma.example.test",
+  "role": "Validation Engineer",
+  "company_id": "cedar_pharma",
+  "language": "en"
+ },
+ {
+  "contact_id": "bluewave1",
+  "name": "Sofien Gara",
+  "email": "sofien.gara@bluewave-bottling.example.test",
+  "role": "Line Supervisor",
+  "company_id": "bluewave_bottling",
+  "language": "fr"
+ },
+ {
+  "contact_id": "granite1",
+  "name": "Habib Sassi",
+  "email": "habib.sassi@granite-cement.example.test",
+  "role": "Maintenance Chief",
+  "company_id": "granite_cement",
+  "language": "fr"
+ },
+ {
+  "contact_id": "delta1",
+  "name": "Jonas Weber",
+  "email": "jonas.weber@delta-drives.example.test",
+  "role": "Sales Engineer",
+  "company_id": "delta_drives",
+  "language": "en"
+ },
+ {
+  "contact_id": "lumina1",
+  "name": "Chen Wei",
+  "email": "chen.wei@lumina-optics.example.test",
+  "role": "Export Manager",
+  "company_id": "lumina_optics",
+  "language": "en"
+ },
+ {
+  "contact_id": "robust1",
+  "name": "Marco Bellini",
+  "email": "marco.bellini@robust-robotics.example.test",
+  "role": "Area Sales Manager",
+  "company_id": "robust_robotics",
+  "language": "en"
+ },
+ {
+  "contact_id": "padlock1",
+  "name": "Fatma Zouari",
+  "email": "fatma.zouari@padlock-plc.example.test",
+  "role": "Distributor Sales",
+  "company_id": "padlock_plc",
+  "language": "fr"
+ },
+ {
+  "contact_id": "iron1",
+  "name": "Adel Bacha",
+  "email": "adel.bacha@iron-cable.example.test",
+  "role": "Sales Representative",
+  "company_id": "iron_cable",
+  "language": "fr"
+ },
+ {
+  "contact_id": "prime1",
+  "name": "Ingrid Olsen",
+  "email": "ingrid.olsen@prime-pack.example.test",
+  "role": "Key Account Manager",
+  "company_id": "prime_pack",
+  "language": "en"
+ },
+ {
+  "contact_id": "swift1",
+  "name": "Tarek Louati",
+  "email": "tarek.louati@swiftcargo-sim.example.test",
+  "role": "Operations Agent",
+  "company_id": "swiftcargo",
+  "language": "fr"
+ },
+ {
+  "contact_id": "social1",
+  "name": "Declarations Desk",
+  "email": "declarations@social-fund-test.example.test",
+  "role": "Contributions Office",
+  "company_id": "social_fund_test",
+  "language": "fr"
+ },
+ {
+  "contact_id": "news1",
+  "name": "TechLine Editorial",
+  "email": "newsletter@techline-news.example.test",
+  "role": "Newsletter",
+  "company_id": "techline_news",
+  "language": "en"
+ },
+ {
+  "contact_id": "expo1",
+  "name": "Expo Registration",
+  "email": "registration@expo-events.example.test",
+  "role": "Events Team",
+  "company_id": "expo_events",
+  "language": "fr/en"
+ },
+ {
+  "contact_id": "shop1",
+  "name": "OfficeSupply Orders",
+  "email": "orders@officesup-demo.example.test",
+  "role": "Web Store",
+  "company_id": "officesup_demo",
+  "language": "fr"
+ }
+]

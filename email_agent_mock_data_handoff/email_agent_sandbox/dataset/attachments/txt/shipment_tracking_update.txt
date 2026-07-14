@@ -1,0 +1,4 @@
+FICTIONAL TEST DOCUMENT
+Tracking reference: MRF-SIM-117
+Status: Waiting for import document validation.
+Next action: provide invoice, packing list, and HS confirmation.

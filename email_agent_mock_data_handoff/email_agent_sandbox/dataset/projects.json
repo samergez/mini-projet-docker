@@ -1,0 +1,135 @@
+[
+ {
+  "project_id": "vision_counter_pilot",
+  "name": "Vision Counter Pilot",
+  "category": "industrial_vision",
+  "client_company_id": "orion_line",
+  "fictional": true
+ },
+ {
+  "project_id": "sensor_import",
+  "name": "Sensor Import Case",
+  "category": "import_export",
+  "client_company_id": "demo_lab",
+  "fictional": true
+ },
+ {
+  "project_id": "monthly_finance",
+  "name": "Monthly Finance Workflow",
+  "category": "accounting",
+  "client_company_id": "demo_lab",
+  "fictional": true
+ },
+ {
+  "project_id": "station_monitor",
+  "name": "Blue Cell Station Monitor",
+  "category": "software_support",
+  "client_company_id": "cobalt_assembly",
+  "fictional": true
+ },
+ {
+  "project_id": "helios_case_packer",
+  "name": "Helios Case Packer Retrofit",
+  "category": "industrial_automation",
+  "client_company_id": "helios_pack",
+  "fictional": true
+ },
+ {
+  "project_id": "atlas_cip_upgrade",
+  "name": "Atlas CIP Skid Upgrade",
+  "category": "process_control",
+  "client_company_id": "atlas_dairy",
+  "fictional": true
+ },
+ {
+  "project_id": "ferro_saw_line",
+  "name": "FerroForge Cut Line Automation",
+  "category": "industrial_automation",
+  "client_company_id": "ferro_forge",
+  "fictional": true
+ },
+ {
+  "project_id": "quantum_inspection",
+  "name": "Quantum Fabric Inspection",
+  "category": "industrial_vision",
+  "client_company_id": "quantum_textile",
+  "fictional": true
+ },
+ {
+  "project_id": "solaris_sorting",
+  "name": "Solaris Grain Sorting Unit",
+  "category": "industrial_vision",
+  "client_company_id": "solaris_agro",
+  "fictional": true
+ },
+ {
+  "project_id": "nordwind_trace",
+  "name": "Nordwind Traceability System",
+  "category": "software",
+  "client_company_id": "nordwind_auto",
+  "fictional": true
+ },
+ {
+  "project_id": "cedar_env_monitor",
+  "name": "Cedar Cleanroom Monitoring",
+  "category": "iot_monitoring",
+  "client_company_id": "cedar_pharma",
+  "fictional": true
+ },
+ {
+  "project_id": "bluewave_labeler",
+  "name": "BlueWave Labeler Integration",
+  "category": "industrial_automation",
+  "client_company_id": "bluewave_bottling",
+  "fictional": true
+ },
+ {
+  "project_id": "granite_kiln_sensors",
+  "name": "Granite Kiln Sensor Refit",
+  "category": "iot_monitoring",
+  "client_company_id": "granite_cement",
+  "fictional": true
+ },
+ {
+  "project_id": "orion_line_ext",
+  "name": "Orion Counter Line Extension",
+  "category": "industrial_vision",
+  "client_company_id": "orion_line",
+  "fictional": true
+ },
+ {
+  "project_id": "cobalt_press_monitor",
+  "name": "Cobalt Press Monitoring",
+  "category": "software_support",
+  "client_company_id": "cobalt_assembly",
+  "fictional": true
+ },
+ {
+  "project_id": "drives_import",
+  "name": "Drive Units Import Case",
+  "category": "import_export",
+  "client_company_id": "demo_lab",
+  "fictional": true
+ },
+ {
+  "project_id": "optics_import",
+  "name": "Optics Import Case",
+  "category": "import_export",
+  "client_company_id": "demo_lab",
+  "fictional": true
+ },
+ {
+  "project_id": "q3_finance",
+  "name": "Q3 Finance Workflow",
+  "category": "accounting",
+  "client_company_id": "demo_lab",
+  "fictional": true
+ },
+ {
+  "project_id": "office_admin",
+  "name": "Office Admin and Notices",
+  "category": "admin",
+  "client_company_id": "demo_lab",
+  "fictional": true
+ }
+]

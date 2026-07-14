@@ -1,0 +1,3 @@
+reference,counterparty,amount,currency,status
+INV-SIM-106,Orion Line Components,4200,EUR,pending
+BILL-SIM-077,Vertex Vision Parts,1960,EUR,to_pay

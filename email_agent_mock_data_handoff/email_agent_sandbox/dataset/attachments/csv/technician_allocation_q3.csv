@@ -1,0 +1,14 @@
+person,week,project,days_allocated
+Ines,W28,helios_case_packer,5
+Ines,W29,nordwind_trace,1
+Ines,W30,quantum_inspection,3
+Rami,W28,helios_case_packer,1
+Rami,W29,quantum_inspection,3
+Rami,W30,nordwind_trace,5
+Omar,W28,quantum_inspection,3
+Omar,W29,quantum_inspection,3
+Omar,W30,support,3
+Amine,W28,helios_case_packer,1
+Amine,W29,support,3
+Amine,W30,helios_case_packer,1
+# fictional sandbox data

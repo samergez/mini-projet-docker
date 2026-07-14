@@ -8,14 +8,14 @@ from datetime import datetime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-# Configuration des dossiers
+
 EMAILS_DIR = "./data/emails"
 ATTACHMENTS_DIR = "./data/attachments"
 
 os.makedirs(EMAILS_DIR, exist_ok=True)
 os.makedirs(ATTACHMENTS_DIR, exist_ok=True)
 
-# Configuration SMTP et Base de Données (Injectés par Docker)
+
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 SMTP_EMAIL = os.getenv("SMTP_EMAIL")
@@ -64,7 +64,7 @@ PIECES_JOINTES_TYPES = [
     {"nom": "logs_erreur.txt", "contenu": "FAUX TEXTE: Journal des erreurs serveurs."}
 ]
 
-# --- FONCTIONS DE LA BASE DE DONNÉES (Tâche 11) ---
+
 def get_db_connection():
     return psycopg2.connect(
         host="db_service",
@@ -109,20 +109,16 @@ def log_email_status(custom_id, recipient, status):
     except Exception as e:
         print(f"⚠️ Erreur enregistrement BDD : {e}")
 
-# --- FONCTION D'ENVOI SMTP MAIL ET REPLY (Tâche 10 & 12) ---
+
 def send_smtp_email(to_email, subject, body_content, reply_to_id=None):
     """Envoie un véritable e-mail et retourne son Message-ID en-tête."""
     msg = MIMEMultipart()
     msg['From'] = SMTP_EMAIL
     msg['To'] = to_email
     msg['Subject'] = subject
-    
-    # Génération d'un ID de message unique pour le protocole de messagerie
     domain = SMTP_EMAIL.split('@')[-1]
     msg_id = f"<{time.time()}--worker@{domain}>"
     msg['Message-ID'] = msg_id
-    
-    # 🔗 Correction : Utilisation du bon nom de variable (reply_to_id) pour lier le fil
     if reply_to_id:
         msg['In-Reply-To'] = reply_to_id
         msg['References'] = reply_to_id
