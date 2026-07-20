@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "130",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: Traceability phase 1 - integration requirements",
+    "Date": "Tue, 14 Jul 2026 12:20:52 -0700 (PDT)",
+    "Corps": "Hello Anna,\r\n\r\nThanks for the summary. Our recommendation is a hybrid setup: REST for scan and genealogy events into ProdCore, and OPC UA only for the line status signals we read directly from the PLCs. This keeps the event model clean and avoids duplicating logic in the controllers.\r\n\r\nI suggest a joint API workshop on Wednesday 15 July at 10:00 (remote) to freeze the payload structure and authentication model. Would that slot work for your controls team?\r\n\r\nBest regards,\r\nRami Kallel\r\nDeveloper, Demo Engineering Lab"
+}

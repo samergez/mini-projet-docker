@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "278",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: Sprint S29 - board updated + one blocker",
+    "Date": "Tue, 14 Jul 2026 13:37:35 -0700 (PDT)",
+    "Corps": "Hi both,\r\n\r\nBoard is updated with the agreed priorities. Progress is fine on the event API, but I hit a blocker on the report module: the PDF export library we prototyped with is GPL-licensed, so we cannot ship it in the client build. The commercial alternative costs EUR 380 per year per deployment.\r\n\r\nNadia, can you approve the license purchase? Otherwise I lose two days rewriting the export around the system print stack.\r\n\r\nRami"
+}

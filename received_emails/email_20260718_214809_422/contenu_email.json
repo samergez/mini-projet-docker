@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "422",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Offre OF-2214 - question compatibilite firmware",
+    "Date": "Tue, 14 Jul 2026 14:14:30 -0700 (PDT)",
+    "Corps": "Bonjour Fatma,\r\n\r\nAvant de valider OF-2214, une question technique : les PL-IO16 livres actuellement sont-ils retrocompatibles avec un rack PL-R8 de generation 2 ? Le skid CIP du client tourne encore avec ce chassis et une mise a jour complete n'est pas prevue dans ce lot.\r\n\r\nMerci de confirmer aussi la version firmware minimale requise cote CPU.\r\n\r\nCordialement,\r\nKarim Dali"
+}

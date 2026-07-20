@@ -1,0 +1,15 @@
+invoice,supplier_or_client,amount_eur,status,due_date
+INV-453,party A,33734,open,2026-09-23
+INV-467,party B,26871,overdue,2026-08-27
+INV-365,party C,13072,open,2026-09-22
+INV-389,party D,40838,overdue,2026-08-22
+INV-580,party E,55139,paid,2026-08-19
+INV-407,party F,28673,overdue,2026-09-20
+INV-538,party G,29452,open,2026-09-16
+INV-561,party H,31510,overdue,2026-07-12
+INV-445,party I,34280,overdue,2026-09-20
+INV-347,party J,54136,paid,2026-09-19
+INV-415,party K,53358,paid,2026-07-10
+INV-323,party L,16546,open,2026-09-12
+INV-533,party M,27660,overdue,2026-09-16
+# fictional sandbox data

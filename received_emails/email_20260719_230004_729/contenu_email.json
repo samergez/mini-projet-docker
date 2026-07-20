@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "729",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Questions techniques CPU PL-500 - conversion programmes PL-40",
+    "Date": "Sat, 18 Jul 2026 02:08:48 -0700 (PDT)",
+    "Corps": "Bonjour Madame Zouari,\n\nKarim Dali m'a transmis la fiche technique du CPU PL-500. Avant de figer notre architecture, deux questions :\n1. Existe-t-il un outil de conversion des programmes PL-40 vers PL-500 ? Nous devons reprendre 12 recettes de nettoyage existantes.\n2. Les blocs de régulation PID du PL-40 sont-ils repris à l'identique ou faut-il les réécrire ?\n\nMerci de votre retour, c'est un point clé de notre planning.\n\nCordialement,\nInes Chaabane\nIngénieure automatisme - Demo Engineering Lab"
+}

@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "602",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: Traceability phase 1 - API workshop notes",
+    "Date": "Tue, 14 Jul 2026 23:46:54 -0700 (PDT)",
+    "Corps": "Hello Rami,\r\n\r\nThe notes match my understanding, no corrections from our side. Our network team has scheduled the test VLAN for Monday, ahead of the 20 July target.\r\n\r\nTwo requests: please send the staging environment credentials once it is up, and give us a sizing recommendation for the production server so we can order hardware in the same purchasing round as the VLAN switches.\r\n\r\nThanks,\r\nAnna Fischer\r\nNordwind Automotive Parts"
+}

@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "819",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Questions techniques CPU PL-500 - conversion programmes PL-40",
+    "Date": "Sat, 18 Jul 2026 02:30:23 -0700 (PDT)",
+    "Corps": "Bonjour Madame Chaabane,\n\nVoici les réponses :\n1. Oui, notre outil PL-Convert v2 migre automatiquement les programmes PL-40 : logique ladder, temporisations et tables de recettes sont reprises telles quelles.\n2. Les blocs PID de l'ancienne génération sont convertis vers les nouveaux blocs de régulation, mais un recalage des paramètres est recommandé ; comptez une reprise manuelle d'environ 10% du programme.\n\nJe reste disponible pour un point téléphonique si besoin.\n\nCordialement,\nFatma Zouari\nPadLock PLC Components"
+}

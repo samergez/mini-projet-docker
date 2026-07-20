@@ -30,14 +30,38 @@ services:
     volumes:
       - ./api_chat:/app
       - ./email_agent_mock_data_handoff/email_agent_sandbox/dataset:/app/dataset
+      - ./logs:/app/logs
+      - ./received_emails:/app/received_emails
     working_dir: /app
     ports:
       - "8000:8000"
     # Installation de cron à la volée, attribution des droits à l'entrypoint, puis démarrage
-    entrypoint: sh -c "apt-get update && apt-get install -y cron && chmod +x /app/entrypoint.sh && /app/entrypoint.sh"
+    entrypoint: sh /app/entrypoint.sh
     restart: always
     depends_on:
       - db_service
 
+  # Serveur de mail fictif local pour intercepter et lire les e-mails
+  mailserver:
+    image: axllent/mailpit
+    container_name: mail_sandbox
+    ports:
+      - "8025:8025" # Interface web de Mailpit accessible sur Windows (http://localhost:8025)
+      - "1025:1025" # Port SMTP pour envoyer les e-mails localement
+    restart: always
+
+  # --- INFRASTRUCTURE IA LOCALE (BLOC 3) ---
+  ollama:
+    container_name: ollama_local
+    build:
+      context: .
+      dockerfile: Dockerfile.ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_storage:/root/.ollama  # Volume persistant pour sauvegarder le modèle d'embedding
+    restart: unless-stopped
+
 volumes:
   db_data:
+  ollama_storage:  # Déclaration du volume pour Ollama

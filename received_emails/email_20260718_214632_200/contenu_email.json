@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "200",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: FerroForge - faisabilité automatisation scie BS-350",
+    "Date": "Tue, 14 Jul 2026 12:53:19 -0700 (PDT)",
+    "Corps": "Bonjour,\n\nSur le principe c'est tout à fait faisable : chargeur de barres 2 axes en amont, convoyeur d'évacuation en aval, enceinte de sécurité à créer autour de la scie. Nous avons déjà réalisé une architecture similaire l'an dernier.\n\nPoints à vérifier sur place : le réseau pneumatique, l'implantation disponible côté chargement et l'état de l'armoire électrique. Je suis disponible lundi après-midi pour l'audit.\n\nInes"
+}

@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "109",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Automatic fabric inspection for our finishing line",
+    "Date": "Mon, 13 Jul 2026 14:03:35 -0700 (PDT)",
+    "Corps": "Dear Aida,\r\n\r\nThank you for thinking of us - fabric inspection at 45 m/min is well within what line-scan vision can do. To scope it properly, could you tell us:\r\n\r\n1. Which defect types matter most (broken picks, holes, oil stains, slubs)?\r\n2. The smallest defect size you need to catch reliably.\r\n3. Ambient light conditions around the line.\r\n4. Whether results should feed your MES or just trigger a marker/alarm.\r\n\r\nWith these answers we can assess feasibility and give you a first budget range.\r\n\r\nBest regards,\r\nYasmine Belhaj\r\nSales Manager\r\nDemo Engineering Lab"
+}

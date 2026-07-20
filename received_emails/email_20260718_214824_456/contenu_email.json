@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "456",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: Cleanroom monitoring for two ISO 7 rooms - request",
+    "Date": "Tue, 14 Jul 2026 23:13:25 -0700 (PDT)",
+    "Corps": "Dear Ines,\r\n\r\nThe wired architecture suits us; QA specifically prefers RS-485 over anything wireless. Please proceed to a formal quotation.\r\n\r\nOne structural request: we want to start with a pilot in Room B only (six points plus one pressure pair), validate it, then extend to Room A. Budget for the pilot should land in Q3. Please structure the quotation so the pilot and the extension are separable line items.\r\n\r\nBest regards,\r\nRania Khoury\r\nCedar Pharma Labs"
+}

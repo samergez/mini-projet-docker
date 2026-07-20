@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "259",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: URGENT - station 2 camera freeze, line stopped",
+    "Date": "Tue, 14 Jul 2026 13:31:39 -0700 (PDT)",
+    "Corps": "Hello Maya,\r\n\r\nTaking this now. To diagnose remotely I need a VPN session to the station 2 industrial PC and, if possible, the camera event log from the vision runtime (Menu > Diagnostics > Export). The \"acquisition timeout\" message points either to the GigE link or the camera firmware, both of which I can check from the logs.\r\n\r\nUntil then, please leave the camera powered after the next freeze instead of cycling it, so I can read the fault state live.\r\n\r\nBest regards,\r\nOmar Gharbi\r\nSupport Technician, Demo Engineering Lab"
+}

@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "462",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: Sprint S29 - demo build deployed",
+    "Date": "Tue, 14 Jul 2026 23:14:47 -0700 (PDT)",
+    "Corps": "Hi both,\r\n\r\nDemo build v0.9 is deployed on staging. Event ingestion, genealogy view and the first two batch reports are working end to end with the simulator data. Screenshot of the dashboard attached so you can see the layout before I show it to Nordwind.\r\n\r\nPlease have a critical look at the navigation and the KPI tiles; I would rather rework them now than after the client demo on the 29th.\r\n\r\nRami"
+}

@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "158",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Order O-2288 - RG-40 gripper kits for Helios retrofit",
+    "Date": "Tue, 14 Jul 2026 12:28:02 -0700 (PDT)",
+    "Corps": "Dear Marco,\r\n\r\nFollowing your offer of last month, we hereby place order O-2288 for four RG-40 gripper kits with mounting flanges, for the Helios case packer retrofit.\r\n\r\nPlease confirm the order, the shipping week and, importantly, the controller firmware version installed. Our PLC communication library is v2.1 and we had compatibility remarks from your release notes.\r\n\r\nBest regards,\r\nKarim Dali\r\nPurchasing - Demo Engineering Lab"
+}

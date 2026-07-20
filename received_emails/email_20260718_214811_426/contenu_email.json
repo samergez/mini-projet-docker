@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "426",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Sprint 14 kickoff - Nordwind traceability",
+    "Date": "Tue, 14 Jul 2026 14:15:25 -0700 (PDT)",
+    "Corps": "Hi Nadia, hi Ines,\r\n\r\nSprint 14 starts today and runs until Friday. The backlog export is attached: 14 tickets, with the batch genealogy view, the OPC-UA collector hardening and the audit log export as main items. Nadia, please confirm the priority order by tomorrow so we can lock the sprint scope.\r\n\r\nBest,\r\nRami Kallel\r\nDemo Engineering Lab"
+}

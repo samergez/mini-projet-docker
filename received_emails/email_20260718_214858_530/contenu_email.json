@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "530",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Sprint 14 kickoff - CI pipeline red since NW-227 merge",
+    "Date": "Tue, 14 Jul 2026 23:30:12 -0700 (PDT)",
+    "Corps": "Hi Ines,\r\n\r\nSince I merged NW-227 this morning the CI pipeline fails at the integration test stage, screenshot attached. Unit tests pass, so I suspect the test environment rather than the code. Could you have a look with me after lunch? It blocks every merge, including the NW-231 work for the demo.\r\n\r\nThanks,\r\nRami Kallel\r\nDemo Engineering Lab"
+}

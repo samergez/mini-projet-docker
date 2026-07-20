@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "15",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Alerte de sécurité - Activité suspecte détectée sur le réseau",
+    "Date": "Sat, 11 Jul 2026 14:51:09 -0700 (PDT)",
+    "Corps": "Provenance simulée: support@hebergement-cloud.net\n\nATTENTION : Notre système de monitoring a détecté 3 tentatives de connexion infructueuses sur l'accès administrateur de votre conteneur de base de données principal. Veuillez consulter le rapport technique joint pour vérifier les adresses IP d'origine."
+}

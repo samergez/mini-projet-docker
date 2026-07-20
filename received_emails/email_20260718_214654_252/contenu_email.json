@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "252",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "URGENT - station 2 camera freeze, line stopped",
+    "Date": "Tue, 14 Jul 2026 13:29:47 -0700 (PDT)",
+    "Corps": "Hello Omar,\r\n\r\nThe counting camera on station 2 of the pilot line froze twice this morning. Each freeze stops the line until an operator power-cycles the camera, and we lost about 40 minutes of production so far. The other stations are unaffected.\r\n\r\nThe HMI shows \"acquisition timeout\" just before each freeze. We are running the pilot at full takt this week for a customer audit, so this is urgent. Please advise as soon as possible.\r\n\r\nBest regards,\r\nMaya Anton\r\nProcess Engineer, Orion Line Components"
+}

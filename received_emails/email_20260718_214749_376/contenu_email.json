@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "376",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: URGENT - station 2 camera freeze - workaround applied",
+    "Date": "Tue, 14 Jul 2026 14:03:18 -0700 (PDT)",
+    "Corps": "Hello Omar,\r\n\r\nUpdate after one night of production: the camera froze once more around 03:15, but the watchdog recovered it in about 40 seconds without operator action, so the impact was negligible. The customer audit went fine, thank you for the fast reaction.\r\n\r\nWhen do you expect the validated 2.1.6 firmware? We can offer the Tuesday 06:00 shift change as an update window if that suits your team.\r\n\r\nBest regards,\r\nMaya"
+}

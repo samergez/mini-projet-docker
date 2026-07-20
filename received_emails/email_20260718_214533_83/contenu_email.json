@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "83",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Problème export rapport batch",
+    "Date": "Mon, 13 Jul 2026 13:57:52 -0700 (PDT)",
+    "Corps": "Bonjour,\nL export du rapport batch ne correspond pas au filtre affiché. L écran montre zéro ligne, mais le CSV exporté contient des données. Pouvez-vous vérifier rapidement?\nYoussef"
+}

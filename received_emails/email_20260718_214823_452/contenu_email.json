@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "452",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Sprint 14 kickoff - Nordwind traceability",
+    "Date": "Tue, 14 Jul 2026 23:12:31 -0700 (PDT)",
+    "Corps": "Hi Rami,\r\n\r\nFor the integration tests on my side I still need the OPC-UA endpoint mapping for the press line PLC data: node identifiers, sampling rates and which events feed the genealogy view. Could you send the mapping document before Thursday? Otherwise the collector tests will slip out of the sprint.\r\n\r\nThanks,\r\nInes Chaabane\r\nDemo Engineering Lab"
+}

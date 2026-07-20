@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "506",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Fabric inspection POC - false positives?",
+    "Date": "Tue, 14 Jul 2026 23:24:44 -0700 (PDT)",
+    "Corps": "Dear Yasmine,\r\n\r\n96.8% is impressive, thank you. Two questions before I brief my management:\r\n\r\n1. What false positive rate did you see? If the system flags good fabric too often, operators will stop trusting it.\r\n2. About 20% of our production is printed fabric. Does the detection still work on patterned material, or does it need a different approach?\r\n\r\nBest regards,\r\nAida Bouzid\r\nQuantum Textile Group"
+}

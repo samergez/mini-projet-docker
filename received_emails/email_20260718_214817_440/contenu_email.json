@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "440",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Fabric inspection POC - first detection results",
+    "Date": "Tue, 14 Jul 2026 23:09:49 -0700 (PDT)",
+    "Corps": "Dear Aida,\r\n\r\nGood news: your samples arrived in perfect condition and our lab ran a first detection pass yesterday. Across the eight defective samples we reached 96.8% detection against your defect maps, including all holes down to 0.3 mm.\r\n\r\nI attach a screenshot from the detection software showing a typical result with defect overlays. A full written summary will follow once we finish the second pass on the printed samples.\r\n\r\nBest regards,\r\nYasmine Belhaj\r\nDemo Engineering Lab"
+}

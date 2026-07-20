@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "272",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: Invoice INV-421 - discrepancy with delivered quantity",
+    "Date": "Tue, 14 Jul 2026 13:35:51 -0700 (PDT)",
+    "Corps": "Dear Mr Weber,\r\n\r\nYour invoice INV-421 (EUR 23,800) covers the full fourteen units of PO-510, but our goods receipt shows only twelve units delivered; two are still on backorder. Please either issue a credit note for the undelivered units or confirm a firm delivery date. Until then the invoice is on hold in our payment workflow.\r\n\r\nBest regards,\r\nHedi Mansour\r\nAccounting - Demo Engineering Lab"
+}

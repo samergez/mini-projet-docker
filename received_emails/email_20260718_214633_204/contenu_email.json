@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "204",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Cleanroom monitoring for two ISO 7 rooms - request",
+    "Date": "Tue, 14 Jul 2026 12:54:46 -0700 (PDT)",
+    "Corps": "Dear Ines,\r\n\r\nWe are looking for a continuous environmental monitoring solution for two ISO 7 cleanrooms at our Cedar Pharma site. Scope: twelve measurement points covering temperature and relative humidity, plus differential pressure across the airlocks.\r\n\r\nA full audit trail is mandatory for our quality system: user actions, alarm acknowledgements and raw data must be retained and tamper-evident. Could you outline a suitable architecture and indicative budget? Our validation team would join a call once we see your first proposal.\r\n\r\nBest regards,\r\nRania Khoury\r\nValidation Engineer, Cedar Pharma Labs"
+}

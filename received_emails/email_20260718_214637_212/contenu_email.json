@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "212",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: Traceability phase 1 - integration requirements",
+    "Date": "Tue, 14 Jul 2026 12:58:40 -0700 (PDT)",
+    "Corps": "Hello Anna,\r\n\r\nDraft as promised. Scan event payload (JSON): station_id, part_serial, operation_code, result, operator_badge, timestamp in ISO 8601 UTC. Batch genealogy links are resolved server-side, so stations only send flat events.\r\n\r\nAuthentication: machine tokens (JWT) issued per station, 24h validity with automatic rotation, all traffic over TLS on your internal VLAN. No credentials stored on the line PCs.\r\n\r\nHappy to adjust naming to your ProdCore conventions during the workshop.\r\n\r\nBest regards,\r\nRami"
+}

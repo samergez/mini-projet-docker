@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "646",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: Traceability phase 1 - OPC UA gateway sizing",
+    "Date": "Tue, 14 Jul 2026 23:57:09 -0700 (PDT)",
+    "Corps": "Salut Ines,\r\n\r\nQuick one for the Nordwind staging setup: can you send me the OPC UA gateway configuration you used on the line 2 test rack? I need the resource footprint (CPU, RAM, port assignments) to size their staging VM and to give Anna a production hardware recommendation.\r\n\r\nIf you have the certificate handling notes from that rack too, even better.\r\n\r\nThanks,\r\nRami"
+}

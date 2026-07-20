@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "656",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Panne alimentation banc de test - essais Cobalt bloqués",
+    "Date": "Tue, 14 Jul 2026 23:59:28 -0700 (PDT)",
+    "Corps": "Bonjour Omar,\n\nLe banc de test est hors service depuis ce matin : l'alimentation 24V ne démarre plus, voyant défaut allumé en permanence. Tous les essais de la solution de surveillance presse Cobalt sont bloqués, et la fenêtre de tests avant livraison est courte. Peux-tu diagnostiquer en priorité aujourd'hui ?\n\nMerci d'avance,\nInes Chaabane\nDemo Engineering Lab"
+}

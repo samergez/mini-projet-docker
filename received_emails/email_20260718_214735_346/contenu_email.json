@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "346",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: POC Quantum - faux positifs chiffres",
+    "Date": "Tue, 14 Jul 2026 13:54:54 -0700 (PDT)",
+    "Corps": "Salut Ines,\r\n\r\nBien vu : 1,2% de faux positifs au total, dont plus des trois quarts sur les lisieres, exactement comme sur la capture annotee que je joins. Le reste vient de plis temporaires sur deux echantillons mal tendus.\r\n\r\nSolution simple : masque de region d'interet excluant 15 mm de chaque bord, deja teste ce matin, on tombe sous 1% sans perte de detection. Ce sera dans la config de reference.\r\n\r\nRami"
+}

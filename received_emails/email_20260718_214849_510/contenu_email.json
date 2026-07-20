@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "510",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: OF-2214 - compatibilite confirmee",
+    "Date": "Tue, 14 Jul 2026 23:25:38 -0700 (PDT)",
+    "Corps": "Bonjour Karim,\r\n\r\nOui, les PL-IO16 actuels restent totalement retrocompatibles avec le rack PL-R8 generation 2. Cote CPU, la PL-CPU300 requiert le firmware 3.1 minimum, livre preinstalle ; la notice de migration est fournie avec chaque unite.\r\n\r\nAucun surcout ni adaptation materielle a prevoir. L'offre OF-2214 reste inchangee a EUR 9,850 HT.\r\n\r\nCordialement,\r\nFatma Zouari\r\nPadLock PLC Components"
+}

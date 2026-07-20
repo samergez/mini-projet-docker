@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "667",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Panne alimentation banc de test - essais Cobalt bloqués",
+    "Date": "Sat, 18 Jul 2026 01:54:03 -0700 (PDT)",
+    "Corps": "Bonjour Ines,\n\nPremier diagnostic fait : j'ai remplacé le fusible d'entrée, mais le module 24V retombe en défaut dès qu'on charge au-delà de 5 ampères. Cela ressemble à un étage de sortie fatigué. Je poursuis les mesures cet après-midi et je vous fais un point avec un rapport écrit demain matin.\n\nOmar Gharbi\nDemo Engineering Lab"
+}

@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "140",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Sprint S29 - module tracabilite Nordwind",
+    "Date": "Tue, 14 Jul 2026 12:23:08 -0700 (PDT)",
+    "Corps": "Bonjour a toutes les deux,\r\n\r\nProposition de contenu pour le sprint S29 sur la tracabilite Nordwind : tickets NT-201 a NT-214. Je prends l'API evenements et la genealogie des lots (NT-201 a 206), Ines la passerelle OPC UA et le banc de test (NT-207 a 210). Restent les rapports PDF et l'ecran de supervision, a repartir selon vos disponibilites.\r\n\r\nMerci de me confirmer la repartition avant jeudi pour que je fige le board.\r\n\r\nRami"
+}

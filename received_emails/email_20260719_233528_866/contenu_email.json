@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "866",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Grippers RG-40 : erreur firmware au demarrage",
+    "Date": "Sun, 19 Jul 2026 16:35:08 -0700 (PDT)",
+    "Corps": "Bonjour Karim,\r\n\r\nLes quatre kits RG-40 de la commande O-2288 sont arrives et montes sur le banc. Probleme : erreur E-217 a l'initialisation sur les quatre controleurs, la communication avec notre librairie PLC v2.1 tombe systematiquement.\r\n\r\nCapture d'ecran jointe. J'ai reproduit le defaut trois fois, ce n'est pas un cas isole. Peux-tu ouvrir un ticket chez Robust en urgence ? Le banc Helios est bloque tant qu'on n'a pas de correctif.\r\n\r\nMerci,\r\nInes"
+}

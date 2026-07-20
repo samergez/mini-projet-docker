@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "103",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Bug rapport batch - analyse",
+    "Date": "Mon, 13 Jul 2026 14:02:17 -0700 (PDT)",
+    "Corps": "Bonjour Nadia,\nJ ai reproduit le bug: le filtre date est appliqué sur l écran mais pas transmis à l endpoint export. Correctif en préparation.\nRami"
+}

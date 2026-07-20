@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "182",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: Traceability phase 1 - integration requirements",
+    "Date": "Tue, 14 Jul 2026 12:48:09 -0700 (PDT)",
+    "Corps": "Hello Rami,\r\n\r\nWednesday 15 July at 10:00 works, our controls engineer will join as well. I am adding Lukas in copy since he follows the commercial side.\r\n\r\nTwo points to prepare before the workshop: could you share a draft of the scan event payload (fields and formats), and a short description of the authentication model you plan to use? We need to run both past our IT security group in advance.\r\n\r\nThanks,\r\nAnna Fischer\r\nNordwind Automotive Parts"
+}

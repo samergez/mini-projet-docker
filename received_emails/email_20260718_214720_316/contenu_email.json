@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "316",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: URGENT - station 2 camera freeze - workaround applied",
+    "Date": "Tue, 14 Jul 2026 13:47:35 -0700 (PDT)",
+    "Corps": "Hello Maya,\r\n\r\nRoot cause identified: a buffer handling bug in the camera firmware 2.1.4 that triggers under sustained full takt. Fix is contained in firmware 2.1.6, which our development team is validating against your runtime version now.\r\n\r\nAs an immediate workaround I have deployed a watchdog on the station 2 PC that detects the fault state and restarts acquisition automatically within about 30 seconds, so no operator intervention is needed. Firmware update to be scheduled once validation completes, ideally during a shift change.\r\n\r\nBest regards,\r\nOmar"
+}

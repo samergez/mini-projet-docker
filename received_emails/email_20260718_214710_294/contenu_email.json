@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "294",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: Cleanroom monitoring for two ISO 7 rooms - request",
+    "Date": "Tue, 14 Jul 2026 13:42:03 -0700 (PDT)",
+    "Corps": "Dear Ines,\r\n\r\nAnswers: thresholds 20.0 to 24.0 C and 35 to 55 percent RH with a 5-minute delay before alarm; differential pressure minimum 12.5 Pa. Calibration will be quarterly. Sensors must stay on a segregated bus, and the server must be on premise; hosted is not acceptable to QA. Out-of-hours alarms go to the site facility team by SMS.\r\n\r\nOne addition: we will need a validation documentation package (IQ/OQ protocols) as part of the delivery. Please confirm you can provide it.\r\n\r\nBest regards,\r\nRania"
+}

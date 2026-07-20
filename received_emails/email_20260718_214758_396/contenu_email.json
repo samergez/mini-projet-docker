@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "396",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: FerroForge - debrief audit sur site",
+    "Date": "Tue, 14 Jul 2026 14:08:19 -0700 (PDT)",
+    "Corps": "Bonjour,\n\nDebrief de l'audit de cet après-midi, notes complètes en pièce jointe (version envoyée au client).\n\nÀ retenir pour le chiffrage :\n- réseau pneumatique à 6 bars, un surpresseur sera ajouté par le client ;\n- implantation suffisante côté chargement, mais l'armoire devra être déportée de 4 m ;\n- environ 60 m de chemin de câbles à prévoir, Karim, c'est la base pour ta consultation.\n\nLe client a corrigé la cadence de pointe à 45 barres/heure, j'en tiens compte dans le dimensionnement.\n\nInes"
+}

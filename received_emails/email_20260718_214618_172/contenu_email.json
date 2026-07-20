@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "172",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: Sprint S29 - module tracabilite Nordwind",
+    "Date": "Tue, 14 Jul 2026 12:45:32 -0700 (PDT)",
+    "Corps": "Bonjour Rami,\r\n\r\nOK pour NT-207 a 210. J'estime la passerelle OPC UA a trois jours en reutilisant la config du rack ligne 2, et j'ai reserve le banc d'essai du 15 au 17 juillet pour les tests de charge.\r\n\r\nJe peux aussi prendre l'ecran de supervision (NT-213) si personne ne s'en charge, mais pas les rapports PDF, je n'ai jamais touche a cette librairie.\r\n\r\nInes"
+}

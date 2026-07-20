@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "69",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Traceability phase 1 - integration requirements",
+    "Date": "Mon, 13 Jul 2026 13:45:06 -0700 (PDT)",
+    "Corps": "Hello Rami,\r\n\r\nFollowing our kickoff, here are the phase 1 requirements for the traceability system. We need to track component serials across our four assembly stations and push events into our ProdCore MES. Data retention must be five years, and reports should be exportable per production batch.\r\n\r\nMain question from our side: do you recommend a REST interface or OPC UA for the station events? Our controls team can support either, but we want a single documented approach before development starts.\r\n\r\nBest regards,\r\nAnna Fischer\r\nIT Coordinator, Nordwind Automotive Parts"
+}

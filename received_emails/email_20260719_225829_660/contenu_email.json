@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "660",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Sprint 14 kickoff - CI pipeline green again",
+    "Date": "Wed, 15 Jul 2026 00:00:25 -0700 (PDT)",
+    "Corps": "Hi both,\r\n\r\nPipeline is green again after pinning the simulator image v2.3, merges are unblocked and NW-231 is back on track. I am re-attaching the screenshot of the failing stage for the sprint retro notes, so we remember to add an image version check to the pipeline template.\r\n\r\nBest,\r\nRami Kallel\r\nDemo Engineering Lab"
+}

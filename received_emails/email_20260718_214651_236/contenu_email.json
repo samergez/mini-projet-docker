@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "236",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: Cleanroom monitoring for two ISO 7 rooms - request",
+    "Date": "Tue, 14 Jul 2026 13:15:40 -0700 (PDT)",
+    "Corps": "Dear Rania,\r\n\r\nThank you for the enquiry, this is well within our scope. To shape the proposal I need a few details: alarm thresholds and delay times per room, your expected calibration cadence (annual or quarterly), whether the sensors may join your IT network or need a segregated bus, and who acknowledges alarms outside working hours.\r\n\r\nAlso, do you require the monitoring server on premise, or is a hosted setup acceptable to your quality group?\r\n\r\nBest regards,\r\nInes Chaabane\r\nAutomation Engineer, Demo Engineering Lab"
+}

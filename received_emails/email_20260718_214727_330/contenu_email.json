@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "330",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Virement PAY-910 suspendu - coordonnees beneficiaire a verifier",
+    "Date": "Tue, 14 Jul 2026 13:51:03 -0700 (PDT)",
+    "Corps": "Bonjour Madame Haddad,\r\n\r\nLors du controle de votre ordre PAY-910, notre service international a releve une incoherence : le code BIC communique ne correspond pas a l'IBAN du beneficiaire Delta Drives GmbH.\r\n\r\nLe virement est suspendu dans l'attente de votre confirmation. Merci de nous transmettre les coordonnees exactes avant le jeudi 16 juillet, faute de quoi l'ordre sera annule.\r\n\r\nCordialement,\r\nTransfer Desk\r\nClearBank Demo"
+}

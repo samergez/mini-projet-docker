@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "284",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: IT notice - mail server migration - archives comptables ?",
+    "Date": "Tue, 14 Jul 2026 13:39:12 -0700 (PDT)",
+    "Corps": "Bonjour Hedi,\r\n\r\nLes archives stockees sur le serveur sont migrees automatiquement, verification d'integrite comprise. Seuls les fichiers d'archives enregistres uniquement sur ton poste ne sont pas concernes par la migration.\r\n\r\nPar precaution, copie ces fichiers locaux sur le lecteur partage avant vendredi 17 juillet au soir ; je les verifierai apres la bascule.\r\n\r\nA plus,\r\nRami Kallel\r\nIT - Demo Engineering Lab"
+}

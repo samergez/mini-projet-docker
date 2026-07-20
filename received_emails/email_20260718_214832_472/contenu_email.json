@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "472",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Sprint 14 kickoff - Nordwind traceability",
+    "Date": "Tue, 14 Jul 2026 23:17:02 -0700 (PDT)",
+    "Corps": "Hi Ines,\r\n\r\nThe mapping is already on the shared drive under nordwind/specs/opcua_mapping_v3. In short: press events are exposed on /api/v1/plc-events, sampled at 500 ms, and the genealogy view consumes the batch-start and batch-end events only. Ping me if any node id looks wrong, the PLC naming changed in June.\r\n\r\nBest,\r\nRami Kallel\r\nDemo Engineering Lab"
+}

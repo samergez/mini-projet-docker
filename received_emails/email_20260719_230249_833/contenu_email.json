@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "833",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Rapport d'incident SR-54 - replacement proposal",
+    "Date": "Sat, 18 Jul 2026 12:18:25 -0700 (PDT)",
+    "Corps": "Hello,\r\n\r\nMy proposal: replace the failed unit with a 24V/40A dual-channel supply, which also gives us headroom for future bench loads. A local distributor has it in stock for around EUR 480, and installation takes half a day. With a 48-hour delivery we would be testing again well before the 24 July deadline. Karim, can you handle the order?\r\n\r\nRegards,\r\nOmar Gharbi\r\nDemo Engineering Lab"
+}

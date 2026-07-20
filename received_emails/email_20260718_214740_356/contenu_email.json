@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "356",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: Cleanroom monitoring for two ISO 7 rooms - request",
+    "Date": "Tue, 14 Jul 2026 13:57:32 -0700 (PDT)",
+    "Corps": "Dear Rania,\r\n\r\nConfirmed: the IQ/OQ documentation package is part of our standard delivery for regulated environments, written against your URS and executed jointly on site.\r\n\r\nProposed architecture: wired RS-485 sensor bus fully segregated from IT, a redundant on-premise logger pair, and an alarm relay to your facility team's SMS gateway. All audit trail entries are hash-chained, so tampering is detectable. Quarterly calibration is offered as an option with certificates per point.\r\n\r\nFormal quotation will follow from Yasmine this week.\r\n\r\nBest regards,\r\nInes"
+}

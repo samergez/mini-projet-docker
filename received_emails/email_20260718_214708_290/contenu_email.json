@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "290",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Orion station 2 - analyse log camera",
+    "Date": "Tue, 14 Jul 2026 13:40:59 -0700 (PDT)",
+    "Corps": "Salut Rami,\r\n\r\nJ'ai la main sur la station 2 d'Orion. Le log montre une rafale d'erreurs \"packet resend exhausted\" sur le lien GigE juste avant chaque gel, toujours quand le buffer d'acquisition depasse 85 %. La camera est en firmware 2.1.4 ; la release note du 2.1.6 mentionne justement un correctif de gestion du buffer sous forte cadence.\r\n\r\nTu confirmes que le 2.1.6 est valide avec notre runtime vision avant que je planifie la mise a jour chez le client ?\r\n\r\nOmar"
+}

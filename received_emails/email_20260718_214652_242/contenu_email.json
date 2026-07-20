@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "242",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Automatic fabric inspection - budget range and POC proposal",
+    "Date": "Tue, 14 Jul 2026 13:26:02 -0700 (PDT)",
+    "Corps": "Dear Aida,\r\n\r\n0.3 mm at 45 m/min over 2.4 m is feasible with four 8k line-scan cameras and pulsed LED bars. Based on similar systems, you should plan a budget in the range of EUR 70,000 to 80,000 including software, installation and commissioning.\r\n\r\nBefore any firm offer we propose a free proof of concept: send us 10-12 fabric samples with typical defects and our lab will run detection tests within a week.\r\n\r\nWould that work for you?\r\n\r\nBest regards,\r\nYasmine Belhaj\r\nDemo Engineering Lab"
+}

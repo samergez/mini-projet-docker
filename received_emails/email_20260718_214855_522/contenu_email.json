@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "522",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: Traceability phase 1 - API workshop notes",
+    "Date": "Tue, 14 Jul 2026 23:28:22 -0700 (PDT)",
+    "Corps": "Hello Anna, Lukas,\r\n\r\nThank you for a productive workshop this morning. The notes are attached, including the agreed payload structure, the JWT rotation scheme and the open points list.\r\n\r\nKey actions: Nordwind provides the test VLAN and firewall rules by 20 July; we deliver payload specification v1 and the staging environment in the same week. Please review the notes and flag anything I misrecorded by Friday.\r\n\r\nBest regards,\r\nRami Kallel\r\nDemo Engineering Lab"
+}

@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "773",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: Traceability phase 1 - staging ready",
+    "Date": "Sat, 18 Jul 2026 02:19:21 -0700 (PDT)",
+    "Corps": "Hello Anna,\r\n\r\nThe staging environment is up. Credentials are waiting for you in the secure portal (link sent separately by SMS as agreed). For production we recommend 4 vCPU, 8 GB RAM and 500 GB storage, which covers four stations plus report exports with comfortable headroom for five-year retention.\r\n\r\nI am also attaching the revised workshop notes with the sizing annex added, so everything sits in one document for your security review.\r\n\r\nBest regards,\r\nRami"
+}

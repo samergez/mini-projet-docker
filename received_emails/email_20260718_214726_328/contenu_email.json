@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "328",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Consultation - capteurs environnement salles propres",
+    "Date": "Tue, 14 Jul 2026 13:50:27 -0700 (PDT)",
+    "Corps": "Bonjour Samir,\r\n\r\nNouvelle consultation pour un projet pharmaceutique : six sondes combinees temperature/humidite (plage 15-30 C, 20-70 %HR) et une paire de transmetteurs de pression differentielle 0-50 Pa, sortie RS-485, pour deux salles ISO 7. Precision demandee : +/-0,2 C et +/-2 %HR.\r\n\r\nMerci de chiffrer avec certificats d'etalonnage initiaux. Le client exige une tracabilite metrologique complete, c'est un critere de selection.\r\n\r\nCordialement,\r\nInes Chaabane\r\nDemo Engineering Lab"
+}

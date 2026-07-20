@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "224",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Order O-2288 - confirmation",
+    "Date": "Tue, 14 Jul 2026 13:11:31 -0700 (PDT)",
+    "Corps": "Dear Karim,\r\n\r\nWe confirm order O-2288: four RG-40 gripper kits with flanges, shipping in week 30 from our Modena warehouse. The controllers come with firmware v4.2, which is the current stable release.\r\n\r\nRegarding your PLC library v2.1, we have no open issues reported in combination with v4.2. Commissioning guides are available in the partner portal.\r\n\r\nKind regards,\r\nMarco Bellini\r\nRobust Robotics SRL"
+}

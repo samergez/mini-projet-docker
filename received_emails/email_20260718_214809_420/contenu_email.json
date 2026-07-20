@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "420",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: URGENT - station 2 camera freeze - patch scheduled",
+    "Date": "Tue, 14 Jul 2026 14:14:01 -0700 (PDT)",
+    "Corps": "Hello Maya,\r\n\r\nGood news on both counts. Firmware 2.1.6 passed our validation on the test bench with your exact runtime version, eight hours at full takt without a single timeout. Tuesday 06:00 works: I will connect at 05:45, update the station 2 camera, verify acquisition and remove the watchdog once we see a clean hour of production.\r\n\r\nExpected downtime is under 15 minutes. I will send a short closure report afterwards for your maintenance file.\r\n\r\nBest regards,\r\nOmar Gharbi\r\nDemo Engineering Lab"
+}

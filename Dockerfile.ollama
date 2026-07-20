@@ -1,0 +1,12 @@
+FROM ollama/ollama:latest
+
+# Installer curl pour le script de vérification
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
+# Copier le script spécifique à Ollama
+COPY entrypoint_ollama.sh /entrypoint_ollama.sh
+
+# Donner les droits d'exécution
+RUN chmod +x /entrypoint_ollama.sh
+
+ENTRYPOINT ["/entrypoint_ollama.sh"]

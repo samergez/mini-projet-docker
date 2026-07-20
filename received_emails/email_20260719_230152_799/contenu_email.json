@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "799",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Demo prep - Nordwind on-site demo 5 August",
+    "Date": "Sat, 18 Jul 2026 02:25:31 -0700 (PDT)",
+    "Corps": "Hi Nadia,\r\n\r\nItem 5 is done: the press line test dataset is loaded into staging, 4,200 events covering three production shifts, including two deliberate batch anomalies for the demo storyline. Rami, please verify that the event mapping renders correctly in the genealogy view before I run the collector dry run on Monday.\r\n\r\nBest,\r\nInes Chaabane\r\nDemo Engineering Lab"
+}

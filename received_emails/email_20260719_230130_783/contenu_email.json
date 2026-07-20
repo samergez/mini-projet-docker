@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "783",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Demo prep - Nordwind on-site demo 5 August",
+    "Date": "Sat, 18 Jul 2026 02:21:43 -0700 (PDT)",
+    "Corps": "Hi Nadia,\r\n\r\nStatus on my checklist items: staging environment deployed, demo data seeded and the dashboard walkthrough script drafted, so items 1, 2 and 4 are done. For item 3 I still need the client-side VPN credentials that Nordwind sent to you last week. Could you forward them so I can test the remote access path?\r\n\r\nBest,\r\nRami Kallel\r\nDemo Engineering Lab"
+}

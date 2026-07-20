@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "206",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "IT notice - mail server migration, weekend of 18-19 July",
+    "Date": "Tue, 14 Jul 2026 12:55:33 -0700 (PDT)",
+    "Corps": "Hello everyone,\r\n\r\nWe will migrate our mail server to the new infrastructure over the weekend of 18-19 July. Mailboxes will be in read-only mode from Saturday 20:00 until Sunday 08:00.\r\n\r\nNo message will be lost: anything sent to us during the window will be delivered once the migration completes. No action is required on your side.\r\n\r\nThanks,\r\nRami Kallel\r\nIT - Demo Engineering Lab"
+}

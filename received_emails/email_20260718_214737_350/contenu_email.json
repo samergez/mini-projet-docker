@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "350",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Virement PAY-910 suspendu - coordonnees beneficiaire a verifier",
+    "Date": "Tue, 14 Jul 2026 13:55:53 -0700 (PDT)",
+    "Corps": "Bonjour Madame Haddad,\r\n\r\nL'IBAN fourni est valide, mais le BIC indique correspond a un autre etablissement que celui qui detient le compte. Il s'agit probablement d'un ancien code repris d'un document perime.\r\n\r\nMerci de demander au beneficiaire son BIC actuel et de nous le confirmer par retour, avec la mention de la reference PAY-910.\r\n\r\nCordialement,\r\nTransfer Desk\r\nClearBank Demo"
+}

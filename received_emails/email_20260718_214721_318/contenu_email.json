@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "318",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: POC Quantum - question faux positifs",
+    "Date": "Tue, 14 Jul 2026 13:48:05 -0700 (PDT)",
+    "Corps": "Salut Rami,\r\n\r\nBeau score. Une question avant d'aller plus loin : quel taux de faux positifs observes-tu, et ou se concentrent-ils ? Sur la capture, je vois deux marquages en bord de laize qui ressemblent a des lisieres normales plutot qu'a des defauts.\r\n\r\nSi c'est bien ca, il faudra le traiter avant la demo client, sinon on va se faire challenger sur la fiabilite.\r\n\r\nInes Chaabane\r\nDemo Engineering Lab"
+}
