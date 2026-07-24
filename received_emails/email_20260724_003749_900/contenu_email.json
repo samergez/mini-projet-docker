@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "900",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: Traceability phase 1 - staging ready",
+    "Date": "Mon, 20 Jul 2026 14:55:09 -0700 (PDT)",
+    "Corps": "Hello Anna,\r\n\r\nBoth auditor accounts are created with the read-only role; invitations went out a few minutes ago.\r\n\r\nOn the retry policy: failed webhook deliveries are retried three times with exponential backoff (1, 5, then 25 minutes), after which events queue locally and flush automatically once ProdCore responds again. Nothing is lost during your nightly maintenance window; the queue simply drains afterwards. This is now documented in the staging wiki under Integration > Delivery guarantees.\r\n\r\nBest regards,\r\nRami"
+}

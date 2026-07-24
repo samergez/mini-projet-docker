@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "596",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Fabric inspection POC - false positives and printed fabric",
+    "Date": "Tue, 14 Jul 2026 23:45:31 -0700 (PDT)",
+    "Corps": "Dear Aida,\r\n\r\nOn your two points:\r\n\r\n1. False positives were 1.2% overall, concentrated on selvedges. A region-of-interest mask on the edges brings this well under 1%.\r\n2. Printed fabric needs a reference-pattern comparison mode. Our tests on your four printed samples show it works, and we would offer it as a software option.\r\n\r\nFor reference I also attach the datasheet of the telecentric lens used in the POC, since your engineers asked about optics.\r\n\r\nBest regards,\r\nYasmine Belhaj\r\nDemo Engineering Lab"
+}

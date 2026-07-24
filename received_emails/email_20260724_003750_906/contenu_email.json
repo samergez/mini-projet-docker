@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "906",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Solaris - contraintes eclairage du hall et approche capot",
+    "Date": "Mon, 20 Jul 2026 15:10:09 -0700 (PDT)",
+    "Corps": "Bonjour,\r\n\r\nSuite aux echanges de Yasmine avec Solaris : leur hall a de grandes verrieres et la lumiere naturelle varie fortement. Mon approche : capot opaque complet autour de la chute de tri et LED pulsees synchronisees, ce qui rend la scene independante de l'ambiance.\r\n\r\nJe joins la trame d'essai realisee sur le ble de reference ; le contraste bon grain / grain casse est net. Vos avis sur l'approche avant que je dimensionne le capot ?\r\n\r\nInes Chaabane\r\nDemo Engineering Lab"
+}

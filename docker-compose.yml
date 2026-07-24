@@ -13,11 +13,15 @@ services:
       - db_data:/var/lib/postgresql/data  
       - ./init-db:/docker-entrypoint-initdb.d
     restart: always
+    networks:
+      - app-network
 
-  # api de chat + worker (fusionnés via entrypoint)
   api_chat:
     image: python:3.10-slim
-    user: root # Requis pour pouvoir installer et lancer le service de planification système (cron)
+    user: root
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
     environment:
       - PYTHONUNBUFFERED=1
       - GROQ_API_KEY=${GROQ_API_KEY}
@@ -27,6 +31,7 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=${DB_NAME}
       - DB_PORT=${DB_PORT}
+      - OLLAMA_URL=http://ollama:11434
     volumes:
       - ./api_chat:/app
       - ./email_agent_mock_data_handoff/email_agent_sandbox/dataset:/app/dataset
@@ -35,22 +40,35 @@ services:
     working_dir: /app
     ports:
       - "8000:8000"
-    # Installation de cron à la volée, attribution des droits à l'entrypoint, puis démarrage
     entrypoint: sh /app/entrypoint.sh
     restart: always
     depends_on:
       - db_service
+      - ollama
+    networks:
+      - app-network
 
-  # Serveur de mail fictif local pour intercepter et lire les e-mails
   mailserver:
     image: axllent/mailpit
     container_name: mail_sandbox
     ports:
-      - "8025:8025" # Interface web de Mailpit accessible sur Windows (http://localhost:8025)
-      - "1025:1025" # Port SMTP pour envoyer les e-mails localement
+      - "8025:8025"
+      - "1025:1025"
     restart: always
+    networks:
+      - app-network
 
-  # --- INFRASTRUCTURE IA LOCALE (BLOC 3) ---
+  adminer:
+    image: adminer
+    container_name: adminer_gui
+    restart: always
+    ports:
+      - "8085:8080"
+    depends_on:
+      - db_service
+    networks:
+      - app-network
+
   ollama:
     container_name: ollama_local
     build:
@@ -59,9 +77,15 @@ services:
     ports:
       - "11434:11434"
     volumes:
-      - ollama_storage:/root/.ollama  # Volume persistant pour sauvegarder le modèle d'embedding
+      - ollama_storage:/root/.ollama
     restart: unless-stopped
+    networks:
+      - app-network
 
 volumes:
   db_data:
-  ollama_storage:  # Déclaration du volume pour Ollama
+  ollama_storage:
+
+networks:
+  app-network:
+    driver: bridge

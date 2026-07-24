@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "781",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Rapport d'incident SR-54 - alimentation banc de test",
+    "Date": "Sat, 18 Jul 2026 02:21:15 -0700 (PDT)",
+    "Corps": "Bonjour Omar,\n\nMerci pour le rapport SR-54, très clair. Avant de valider le remplacement : quel modèle proposes-tu, sous quel délai peut-on l'avoir, et quel impact sur le planning des essais Cobalt ? Si on dépasse une semaine d'indisponibilité, il faudra prévenir le client d'un glissement.\n\nCordialement,\nNadia Ferjani\nDemo Engineering Lab"
+}

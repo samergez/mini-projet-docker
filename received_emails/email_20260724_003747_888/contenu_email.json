@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "888",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Exigences qualité - data retention details (group template)",
+    "Date": "Mon, 20 Jul 2026 14:04:32 -0700 (PDT)",
+    "Corps": "Dear Ms Meddeb,\r\n\r\nPlease find the confirmations for your QA template:\r\n- cycle records are retained locally for 12 months, with automatic monthly archiving to your network share for long-term storage;\r\n- the audit trail covers recipe changes, alarm events and acknowledgments, and operator actions, each entry carrying user ID and timestamp.\r\n\r\nFeel free to quote this message in the qualification file.\r\n\r\nBest regards,\r\nInes Chaabane\r\nAutomation Engineer - Demo Engineering Lab"
+}

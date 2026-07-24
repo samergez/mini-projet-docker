@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "1007",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Solaris - parametres d'exposition",
+    "Date": "Thu, 23 Jul 2026 13:15:10 -0700 (PDT)",
+    "Corps": "Salut Rami,\r\n\r\nReponses :\r\n\r\n1. Exposition a 800 microsecondes sur la trame jointe precedemment, aucun flou visible sur les grains de 2 mm. On garde de la marge.\r\n2. Synchro par controleur de strobe externe, declenche par le signal de la camera ; c'est plus stable pour piloter trois barres en parallele.\r\n\r\nJe pars donc sur un controleur quatre canaux dans la nomenclature, ce qui laisse un canal libre pour une extension.\r\n\r\nInes"
+}

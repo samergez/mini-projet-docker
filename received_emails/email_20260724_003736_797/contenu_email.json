@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "797",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Rapport d'incident SR-54 - impact on Cobalt release",
+    "Date": "Sat, 18 Jul 2026 02:25:03 -0700 (PDT)",
+    "Corps": "Hi both,\r\n\r\nJust to size the impact: the staging tests for the Cobalt press monitoring data collector are scheduled against that bench, and the release candidate must be validated by 24 July. If the bench is back before then we lose nothing; beyond that, the whole Cobalt delivery slips week for week.\r\n\r\nBest,\r\nRami Kallel\r\nDemo Engineering Lab"
+}

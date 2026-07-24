@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "701",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Exigences qualité - mise à niveau NEP ligne 2",
+    "Date": "Sat, 18 Jul 2026 02:02:11 -0700 (PDT)",
+    "Corps": "Bonjour Madame Meddeb,\n\nVoici la couverture prévue :\n1. chaque cycle NEP est historisé avec horodatage : consignes, mesures, durées de chaque étape ;\n2. les courbes sont consultables sur l'IHM et un export CSV automatique quotidien est prévu vers votre réseau ;\n3. les accès sont gérés par profils (opérateur, qualité, maintenance), toute modification de recette est journalisée.\n\nMerci de me confirmer que ce dispositif répond à vos attentes.\n\nCordialement,\nInes Chaabane\nIngénieure automatisme - Demo Engineering Lab"
+}

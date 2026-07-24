@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "705",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: Traceability phase 1 - OPC UA gateway sizing",
+    "Date": "Sat, 18 Jul 2026 02:03:08 -0700 (PDT)",
+    "Corps": "Salut Rami,\r\n\r\nOn the line 2 rack the gateway runs comfortably on 2 vCPU / 4 GB with 60 monitored nodes at 500 ms sampling. Endpoint on port 4840, security policy Basic256Sha256, and we auto-renew the application certificate every 90 days via the maintenance script.\r\n\r\nFor Nordwind production with four stations I would double it: 4 vCPU / 8 GB leaves headroom for the report exports. Config export is on the shared drive under /gateways/line2/.\r\n\r\nInes"
+}

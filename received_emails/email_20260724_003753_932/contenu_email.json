@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "932",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "IT notice - new password policy effective 1 August",
+    "Date": "Wed, 22 Jul 2026 13:05:07 -0700 (PDT)",
+    "Corps": "Hello everyone,\r\n\r\nFollowing the mail migration, we are tightening the password policy: minimum 14 characters, at least one digit and one symbol, renewal every 12 months.\r\n\r\nPlease change your password before 2026-08-01 via the self-service portal. Accounts not updated by then will be prompted to change at next login and locked after three failed attempts.\r\n\r\nThanks,\r\nRami Kallel\r\nIT - Demo Engineering Lab"
+}

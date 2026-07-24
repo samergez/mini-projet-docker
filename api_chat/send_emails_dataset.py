@@ -3,6 +3,7 @@ import json
 import time
 import psycopg2
 import smtplib
+import ssl  # Ajouté pour la connexion SSL native
 import mimetypes
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -94,11 +95,15 @@ def send_email(subject, body, msg_id=None, thread_id=None, attachments=None):
             msg.attach(part)
             print(f"📎 Pièce jointe ajoutée avec succès : {filename}")
     
-    # Envoi sécurisé via Gmail
-    with smtplib.SMTP("smtp.gmail.com", 587) as server:
-        server.starttls()
-        server.login(SMTP_EMAIL, SMTP_PASSWORD)
-        server.send_message(msg)
+    # --- MODIFICATION ICI : Passage sur le port SSL 465 ---
+    context = ssl.create_default_context()
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+            server.login(SMTP_EMAIL, SMTP_PASSWORD)
+            server.send_message(msg)
+    except Exception as e:
+        print(f"❌ Échec critique de l'envoi de l'e-mail : {e}")
+        raise e  # On propage l'erreur pour que process_single_email la gère s'il le faut
 
 def find_attachment_path(filename):
     dataset_dir = os.path.dirname(DATASET_FILE)
@@ -158,18 +163,27 @@ def process_single_email():
 
         print(f"📬 E-mail sélectionné : {custom_id} (Sujet : {subject})")
         
-        send_email(subject, body, msg_id=custom_id, attachments=attachment_paths)
-        print(f"✅ E-mail initial envoyé avec succès !")
+        try:
+            # Envoi initial
+            send_email(subject, body, msg_id=custom_id, attachments=attachment_paths)
+            print(f"✅ E-mail initial envoyé avec succès !")
 
-        time.sleep(2)
-        reply_id = f"reply_{custom_id}"
-        reply_body = "Bonjour, \n\nCeci est le suivi automatique pour simuler un échange continu.\n\nCordialement."
-        send_email(f"Re: {subject}", reply_body, msg_id=reply_id, thread_id=custom_id)
-        print(f"🔄 Envoi de la réponse chaînée (Reply)...")
+            time.sleep(2)
+            
+            # Envoi de la réponse (Reply)
+            reply_id = f"reply_{custom_id}"
+            reply_body = "Bonjour, \n\nCeci est le suivi automatique pour simuler un échange continu.\n\nCordialement."
+            send_email(f"Re: {subject}", reply_body, msg_id=reply_id, thread_id=custom_id)
+            print(f"🔄 Envoi de la réponse chaînée (Reply)...")
 
-        save_to_db(custom_id, SMTP_EMAIL)
-        print(f"🏁 Traitement validé en BDD pour {custom_id} !")
-        return
+            # Validation BDD si tout s'est bien passé
+            save_to_db(custom_id, SMTP_EMAIL)
+            print(f"🏁 Traitement validé en BDD pour {custom_id} !")
+            return  # Arrêt après un e-mail traité conformément à ta logique initiale
+
+        except Exception as err:
+            print(f"💥 Erreur durant l'exécution du traitement pour {custom_id}: {err}")
+            return
 
     print("🎉 Tous les e-mails du dataset ont été traités !")
 

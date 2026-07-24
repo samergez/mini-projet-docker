@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "524",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: POC Quantum - remarque eclairage pour le systeme final",
+    "Date": "Tue, 14 Jul 2026 23:28:50 -0700 (PDT)",
+    "Corps": "Bonjour,\r\n\r\nPour info, en refaisant les essais j'ai constate que l'angle des barres LED joue beaucoup sur les taches d'huile : a 45 degres, le contraste est nettement meilleur qu'en eclairage rasant.\r\n\r\nPour le systeme final chez Quantum, il faudra prevoir des supports orientables et un variateur d'intensite par barre. Je l'ajoute au cahier de conception, rien a faire pour vous a ce stade.\r\n\r\nInes"
+}

@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "572",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Sprint 14 kickoff - CI pipeline red since NW-227 merge",
+    "Date": "Tue, 14 Jul 2026 23:39:57 -0700 (PDT)",
+    "Corps": "Hi Rami,\r\n\r\nFound it: the integration stage still pulls the OPC-UA simulator image v2.1, but NW-227 requires the v2.3 event schema. That is why the collector tests time out. Update the CI configuration to pin simulator image v2.3 and the stage should go green again. No code change needed on your branch.\r\n\r\nBest,\r\nInes Chaabane\r\nDemo Engineering Lab"
+}

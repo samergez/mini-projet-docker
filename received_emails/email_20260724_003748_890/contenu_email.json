@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "890",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Payment confirmation PAY-914 - allocate to Nordwind receivables",
+    "Date": "Mon, 20 Jul 2026 14:05:08 -0700 (PDT)",
+    "Corps": "Hi Lina,\r\n\r\nAllocation done, but there is a small gap: the net credit on the account is EUR 38,460, meaning EUR 40 was deducted somewhere in transit. The Nordwind invoice therefore still shows an open balance of EUR 40.\r\n\r\nShould I query the bank about the deduction, or do we write it off as bank charges?\r\n\r\nRegards,\r\nHedi Mansour\r\nAccounting - Demo Engineering Lab"
+}

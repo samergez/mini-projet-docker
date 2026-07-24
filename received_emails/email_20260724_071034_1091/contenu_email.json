@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "1091",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Incident banc de test - synthèse et validation dépense",
+    "Date": "Fri, 24 Jul 2026 00:10:09 -0700 (PDT)",
+    "Corps": "Bonjour Sami,\n\nSynthèse de l'incident banc de test : alimentation 24V défaillante, rapport SR-54 joint. Nous avons commandé un module de remplacement à EUR 480, livraison sous 48 heures, installation par Omar en une demi-journée. Les essais Cobalt restent tenables pour le 24/07. Merci de valider la dépense sur le budget maintenance.\n\nCordialement,\nNadia Ferjani\nDemo Engineering Lab"
+}

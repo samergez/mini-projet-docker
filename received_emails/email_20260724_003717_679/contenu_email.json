@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "679",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Demo prep - Nordwind on-site demo 5 August",
+    "Date": "Sat, 18 Jul 2026 01:56:55 -0700 (PDT)",
+    "Corps": "Hi Rami, hi Ines,\r\n\r\nGood news on the pipeline. Next milestone: the on-site demo at Nordwind on 5 August. I attached the preparation checklist. Rami, you own items 1 to 4 (staging environment, demo data, API keys, dashboard walkthrough); Ines, items 5 and 6 (press line dataset and collector dry run). Please report progress by Friday.\r\n\r\nThanks,\r\nNadia Ferjani\r\nDemo Engineering Lab"
+}

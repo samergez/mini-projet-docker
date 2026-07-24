@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "512",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: Sprint S29 - demo build deployed",
+    "Date": "Tue, 14 Jul 2026 23:26:06 -0700 (PDT)",
+    "Corps": "Bonjour Rami,\r\n\r\nBonne impression d'ensemble, la vue genealogie est tres lisible. Deux remarques avant la demo : la legende des couleurs (conforme / non conforme / en attente) n'est pas visible sur l'ecran principal, et les horodatages s'affichent en UTC alors que Nordwind travaille en heure locale.\r\n\r\nJe te renvoie la capture annotee avec ces deux points. Corrige au moins le fuseau horaire avant le 29, c'est le genre de detail qu'ils remarquent.\r\n\r\nNadia"
+}

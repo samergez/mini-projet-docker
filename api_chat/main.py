@@ -1,18 +1,14 @@
 import os
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
-from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
-from groq import Groq
+
+# On importe notre fonction RAG centralisée et le logger
+from chat_agent import run_chat_agent
+from logger_config import logger, log_exception_with_traceback
 
 app = FastAPI(title="IA Email Agent - Chat Interface")
-
-
-GROQ_KEY = os.getenv("GROQ_API_KEY")
-client = Groq(api_key=GROQ_KEY)
-
-
 templates = Jinja2Templates(directory="templates")
 
 class ChatMessage(BaseModel):
@@ -29,18 +25,15 @@ async def get_chat_page(request: Request):
 
 @app.post("/api/chat", response_model=ChatResponse)
 async def chat_with_ai(payload: ChatMessage):
+    logger.info(f"📥 Reçu depuis l'interface graphique : '{payload.message}'")
+    
     try:
-        master_prompt = (
-            "Tu es l'assistant IA expert en gestion d'e-mails de l'entreprise. "
-            "Réponds de manière concise, professionnelle et structure tes réponses. "
-            f"Voici la demande de l'utilisateur : {payload.message}"
-        )
-        current_model = os.getenv("AI_MODEL", "llama-3.1-8b-instant")
-        completion = client.chat.completions.create(
-            model=current_model,
-            messages=[{"role": "user", "content": master_prompt}]
-        )
+        # On passe la main au moteur de chat RAG
+        ai_response = run_chat_agent(payload.message)
+        logger.info("📤 Réponse renvoyée avec succès à l'interface HTML.")
+        return ChatResponse(response=ai_response)
         
-        return ChatResponse(response=completion.choices[0].message.content)
     except Exception as e:
-        return ChatResponse(response=f"Erreur avec l'API : {str(e)}")
+        # Si un plantage imprévu arrive ici, le trustbag s'active
+        log_exception_with_traceback(e, f"Erreur critique dans le point d'accès API pour : '{payload.message}'")
+        return ChatResponse(response="Une erreur interne est survenue. Consultez reception.log pour le rapport complet.")

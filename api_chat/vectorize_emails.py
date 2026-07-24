@@ -6,8 +6,30 @@ import psycopg2
 from psycopg2.extras import execute_values
 import requests
 from pypdf import PdfReader
+import logging
+import traceback
 
-# --- CONFIGURATION ---
+# --- CONFIGURATION STRICTE DES LOGS (Tâche 1) ---
+logger = logging.getLogger("vectorizer_logger")
+logger.setLevel(logging.DEBUG)
+
+# Format précis : Date, Heure exacte avec millisecondes, Niveau de log, Message
+log_format = logging.Formatter('%(asctime)s.%(msecs)03d | %(levelname)s | %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+
+# Sécurité : Création du dossier logs s'il n'existe pas encore
+os.makedirs('/app/logs', exist_ok=True)
+
+# Option A : Écriture dans TON fichier logs/reception.log
+file_handler = logging.FileHandler('/app/logs/reception.log', encoding='utf-8')
+file_handler.setFormatter(log_format)
+logger.addHandler(file_handler)
+
+# Option B : Affichage simultané en console
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(log_format)
+logger.addHandler(stream_handler)
+
+# --- CONFIGURATION BDD & OLLAMA ---
 DB_CONFIG = {
     "host": "db_service",
     "user": os.getenv("DB_USER", "postgres"),
@@ -48,7 +70,8 @@ def get_ollama_embedding(text):
         response.raise_for_status()
         return response.json()["embedding"]
     except Exception as e:
-        print(f"❌ Erreur Ollama sur le chunk : {e}")
+        error_details = traceback.format_exc()
+        logger.error(f"❌ Erreur Ollama sur le chunk :\n{error_details}")
         return None
 
 # --- EXTRACTION DES PIÈCES JOINTES ---
@@ -61,7 +84,8 @@ def extract_text_from_pdf(pdf_path):
             if content:
                 text += content + "\n"
     except Exception as e:
-        print(f"❌ Impossible de lire le PDF {pdf_path}: {e}")
+        error_details = traceback.format_exc()
+        logger.error(f"❌ Impossible de lire le PDF {pdf_path} :\n{error_details}")
     return text
 
 def extract_text_from_csv(csv_path):
@@ -72,31 +96,46 @@ def extract_text_from_csv(csv_path):
             for row in reader:
                 text += " ".join(row) + "\n"
     except Exception as e:
-        print(f"❌ Impossible de lire le CSV {csv_path}: {e}")
+        error_details = traceback.format_exc()
+        logger.error(f"❌ Impossible de lire le CSV {csv_path} :\n{error_details}")
+    return text
+
+def extract_text_from_txt(txt_path):
+    text = ""
+    try:
+        with open(txt_path, mode='r', encoding='utf-8', errors='ignore') as f:
+            text = f.read()
+    except Exception as e:
+        error_details = traceback.format_exc()
+        logger.error(f"❌ Impossible de lire le fichier TXT {txt_path} :\n{error_details}")
     return text
 
 # --- INITIALISATION DE LA TABLE ---
 def init_vector_table():
-    conn = psycopg2.connect(**DB_CONFIG)
-    cur = conn.cursor()
-    cur.execute("CREATE EXTENSION IF NOT EXISTS vector;")
-    
-    cur.execute("""
-        CREATE TABLE IF NOT EXISTS email_embeddings (
-            id SERIAL PRIMARY KEY,
-            email_id VARCHAR(100),
-            source_type VARCHAR(20), 
-            file_name VARCHAR(255),
-            chunk_index INT,
-            chunk_text TEXT,
-            content_hash VARCHAR(32) UNIQUE,
-            embedding vector(768),
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        );
-    """)
-    conn.commit()
-    cur.close()
-    conn.close()
+    try:
+        conn = psycopg2.connect(**DB_CONFIG)
+        cur = conn.cursor()
+        cur.execute("CREATE EXTENSION IF NOT EXISTS vector;")
+        
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS email_embeddings (
+                id SERIAL PRIMARY KEY,
+                email_id VARCHAR(100),
+                source_type VARCHAR(20), 
+                file_name VARCHAR(255),
+                chunk_index INT,
+                chunk_text TEXT,
+                content_hash VARCHAR(32) UNIQUE,
+                embedding vector(768),
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+        """)
+        conn.commit()
+        cur.close()
+        conn.close()
+    except Exception as e:
+        error_details = traceback.format_exc()
+        logger.error(f"❌ Erreur d'initialisation de la table vectorielle :\n{error_details}")
 
 # --- VERIFIER SI UN HASH EXISTE DEJA ---
 def hash_exists(cur, content_hash):
@@ -110,7 +149,6 @@ def save_chunks_to_db(cur, conn, chunks, email_id, source_type, file_name=""):
     for index, chunk in enumerate(chunks):
         chunk_hash = calculate_md5(f"{email_id}_{source_type}_{file_name}_{index}_{chunk}")
         
-        # 🔍 Si le hash existe déjà en BDD, on passe directement sans appeler Ollama
         if hash_exists(cur, chunk_hash):
             continue
             
@@ -127,60 +165,73 @@ def save_chunks_to_db(cur, conn, chunks, email_id, source_type, file_name=""):
                 rows_to_insert
             )
             conn.commit()
-            print(f"✅ {len(rows_to_insert)} nouveaux chunks insérés ({source_type}) pour {email_id}.")
+            logger.info(f"✅ {len(rows_to_insert)} nouveaux chunks insérés ({source_type}) pour {email_id}.")
         except Exception as e:
             conn.rollback()
-            print(f"❌ Erreur lors de l'insertion en base : {e}")
+            error_details = traceback.format_exc()
+            logger.error(f"❌ Erreur lors de l'insertion en base :\n{error_details}")
 
 # --- PIPELINE PRINCIPAL ---
 def process_embeddings():
     init_vector_table()
-    conn = psycopg2.connect(**DB_CONFIG)
-    cur = conn.cursor()
+    try:
+        conn = psycopg2.connect(**DB_CONFIG)
+        cur = conn.cursor()
+    except Exception as e:
+        error_details = traceback.format_exc()
+        logger.error(f"❌ Connexion PostgreSQL impossible :\n{error_details}")
+        return
     
     if not os.path.exists(EMAILS_DIR):
-        print("📂 Aucun dossier d'e-mails trouvé.")
+        logger.warning("📂 Aucun dossier d'e-mails trouvé.")
+        cur.close()
+        conn.close()
         return
 
-    print("🔍 Analyse et vectorisation des e-mails...")
-    for folder_name in os.listdir(EMAILS_DIR):
-        folder_path = os.path.join(EMAILS_DIR, folder_name)
-        if not os.path.isdir(folder_path):
-            continue
-            
-        json_path = os.path.join(folder_path, "contenu_email.json")
-        if not os.path.exists(json_path):
-            continue
-            
-        with open(json_path, 'r', encoding='utf-8') as f:
-            email_data = json.load(f)
-            
-        email_id = email_data.get("id", folder_name)
-        
-        # 1. Traitement du corps de l'e-mail
-        full_text = f"Subject: {email_data.get('subject', '')}\n\n{email_data.get('body', '')}"
-        if full_text.strip():
-            chunks = chunk_text(full_text)
-            save_chunks_to_db(cur, conn, chunks, email_id, "email_body")
-        
-        # 2. Traitement des pièces jointes
-        for file_name in os.listdir(folder_path):
-            if file_name == "contenu_email.json":
+    logger.info("🔍 Analyse et vectorisation des e-mails...")
+    
+    try:
+        for folder_name in os.listdir(EMAILS_DIR):
+            folder_path = os.path.join(EMAILS_DIR, folder_name)
+            if not os.path.isdir(folder_path):
                 continue
                 
-            file_absolute_path = os.path.join(folder_path, file_name)
-            extracted_text = ""
+            json_path = os.path.join(folder_path, "contenu_email.json")
+            if not os.path.exists(json_path):
+                continue
+                
+            with open(json_path, 'r', encoding='utf-8') as f:
+                email_data = json.load(f)
+                
+            email_id = email_data.get("id", folder_name)
             
-            if file_name.lower().endswith('.pdf'):
-                extracted_text = extract_text_from_pdf(file_absolute_path)
-            elif file_name.lower().endswith('.csv'):
-                extracted_text = extract_text_from_csv(file_absolute_path)
+            full_text = f"Subject: {email_data.get('subject', '')}\n\n{email_data.get('body', '')}"
+            if full_text.strip():
+                chunks = chunk_text(full_text)
+                save_chunks_to_db(cur, conn, chunks, email_id, "email_body")
+            
+            for file_name in os.listdir(folder_path):
+                if file_name == "contenu_email.json":
+                    continue
+                    
+                file_absolute_path = os.path.join(folder_path, file_name)
+                extracted_text = ""
                 
-            if extracted_text.strip():
-                attachment_chunks = chunk_text(extracted_text)
-                save_chunks_to_db(cur, conn, attachment_chunks, email_id, "attachment", file_name)
+                if file_name.lower().endswith('.pdf'):
+                    extracted_text = extract_text_from_pdf(file_absolute_path)
+                elif file_name.lower().endswith('.csv'):
+                    extracted_text = extract_text_from_csv(file_absolute_path)
+                elif file_name.lower().endswith('.txt'):
+                    extracted_text = extract_text_from_txt(file_absolute_path)
+                    
+                if extracted_text.strip():
+                    attachment_chunks = chunk_text(extracted_text)
+                    save_chunks_to_db(cur, conn, attachment_chunks, email_id, "attachment", file_name)
+    except Exception as e:
+        error_details = traceback.format_exc()
+        logger.error(f"❌ Erreur durant le parcours des dossiers :\n{error_details}")
                 
-    print("🎉 Traitement terminé !")
+    logger.info("🎉 Traitement terminé !")
     cur.close()
     conn.close()
 

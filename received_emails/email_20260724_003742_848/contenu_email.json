@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "848",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Re: Traceability phase 1 - staging ready",
+    "Date": "Sat, 18 Jul 2026 14:35:07 -0700 (PDT)",
+    "Corps": "Hello Rami,\r\n\r\nStaging access confirmed, first test events from our simulator arrived correctly and the genealogy view resolves them as expected. Nice work.\r\n\r\nTwo more requests: we need two additional user accounts for our quality auditors (read-only), and could you document the webhook retry policy? Our MES team wants to know what happens when ProdCore is briefly unreachable during its nightly maintenance window.\r\n\r\nThanks,\r\nAnna"
+}

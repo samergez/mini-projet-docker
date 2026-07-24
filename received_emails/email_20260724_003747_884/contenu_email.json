@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "884",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Order O-2288 - blocking firmware error E-217 on all RG-40 units",
+    "Date": "Mon, 20 Jul 2026 13:45:10 -0700 (PDT)",
+    "Corps": "Dear Marco,\r\n\r\nAll four RG-40 controllers from order O-2288 raise error E-217 at initialisation when communicating with our PLC library v2.1. The fault is reproducible on every unit; screenshot attached.\r\n\r\nThis blocks our Helios retrofit test bench, so please treat it as urgent. We need either a firmware fix or replacement controllers, with a clear timeline.\r\n\r\nBest regards,\r\nKarim Dali\r\nDemo Engineering Lab"
+}

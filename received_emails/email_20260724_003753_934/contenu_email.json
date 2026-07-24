@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "934",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Questions techniques CPU PL-500 - licences confirmées",
+    "Date": "Wed, 22 Jul 2026 13:15:07 -0700 (PDT)",
+    "Corps": "Bonjour Madame Chaabane,\n\nConfirmation :\n1. PL-Convert v2 est bien inclus dans le pack de licences de la proforma PI-313, sans supplément.\n2. L'historisation des cycles sur la PL-HMI10 est couverte par la licence runtime standard livrée avec l'écran ; aucune option payante n'est requise.\n\nJe vous rejoins la fiche technique du CPU PL-500 : la section 4 précise la mémoire disponible pour les programmes convertis, utile pour votre dimensionnement.\n\nCordialement,\nFatma Zouari\nPadLock PLC Components"
+}

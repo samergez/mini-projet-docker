@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "769",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "Rapport d'incident SR-54 - alimentation banc de test",
+    "Date": "Sat, 18 Jul 2026 02:18:24 -0700 (PDT)",
+    "Corps": "Bonjour,\n\nLe rapport d'incident SR-54 est en pièce jointe. Conclusion : l'alimentation 24V/20A du banc a un étage de sortie défaillant, réparation estimée plus chère et plus longue qu'un remplacement. Ma recommandation est de remplacer le module. Merci de décider rapidement, le banc reste indisponible d'ici là.\n\nCordialement,\nOmar Gharbi\nDemo Engineering Lab"
+}

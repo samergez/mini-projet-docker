@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "904",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: RFQ - gripper kits - cycle profile and reference spec",
+    "Date": "Mon, 20 Jul 2026 15:05:09 -0700 (PDT)",
+    "Corps": "Dear Marco,\r\n\r\nCycle: 40 cases per minute continuous over two shifts, single pick position per cycle. We integrate the controls ourselves, so we only need the mechanical kit with valves and sensors pre-mounted.\r\n\r\nFor equivalence, I attach the reference datasheet of the competing unit we have been offered: 12 kg payload, 400 mm stroke, ISO flange. Your offer should match or beat these characteristics.\r\n\r\nBest regards,\r\nKarim Dali\r\nDemo Engineering Lab"
+}

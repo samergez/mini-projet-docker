@@ -1,0 +1,10 @@
+{
+    "Gmail_ID": "938",
+    "De": "samer.stage.ia@gmail.com",
+    "A": [
+        "samer.stage.ia@gmail.com"
+    ],
+    "Sujet": "RE: Solaris - questions sur l'exposition",
+    "Date": "Wed, 22 Jul 2026 13:25:08 -0700 (PDT)",
+    "Corps": "Salut Ines,\r\n\r\nL'approche capot me va. En regardant la trame d'essai, deux questions cote traitement :\r\n\r\n1. Quel temps d'exposition as-tu utilise ? A 8 t/h les grains chutent vite, et si on depasse 1000 microsecondes on risque du flou de mouvement sur les petits grains.\r\n2. La synchro LED est-elle pilotee par la camera ou par un controleur externe ?\r\n\r\nCa conditionne le choix du controleur de strobe dans la nomenclature.\r\n\r\nRami"
+}

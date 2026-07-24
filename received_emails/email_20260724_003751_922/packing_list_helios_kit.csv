@@ -1,0 +1,7 @@
+line,part_number,description,qty,unit
+1,PN-5941,component A,39,pcs
+2,PN-2983,component B,37,pcs
+3,PN-1672,component C,23,pcs
+4,PN-9728,component D,28,pcs
+5,PN-7071,component E,5,pcs
+# fictional sandbox data
