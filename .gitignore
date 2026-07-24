@@ -9,3 +9,12 @@ __pycache__/
 .pytest_cache/
 .venv/
 venv/
+# Node.js
+**/node_modules/
+dist/
+build/
+
+# Logs et emails locaux
+logs/
+*.log
+received_emails/

@@ -1,0 +1,36 @@
+# 🚀 Agent IA d'Analyse d'E-mails & de Pièces Jointes
+
+## 📄 Description du Projet
+Ce projet est un agent conversationnel intelligent propulsé par une IA locale (via Ollama). Il est conçu pour automatiser l'analyse, la recherche et la gestion d'un flux d'e-mails professionnels reçus (comprenant des fichiers JSON de contenu, des PDF, des CSV et des images), stockés et indexés localement.
+
+## 🛠️ Architecture Technique
+* **Conteneurisation :** Docker & Docker Compose
+* **Backend / API :** FastAPI (Python)
+* **Intelligence Artificielle :** Ollama (LLM local / Embeddings)
+* **Base de données :** PostgreSQL avec l'extension `pgvector` pour la recherche vectorielle (RAG)
+* **Traitement de données :** Python (gestion des fichiers JSON et pièces jointes)
+
+## 📁 Structure du Projet
+```text
+MINI PROJET DOCKER/
+│
+├── api_chat/              # Fichiers et templates de l'API de chat
+├── backend_django/        # Futur backend structuré avec Django (Bloc 2)
+├── received_emails/       # Dossier contenant les e-mails reçus (JSON + pièces jointes)
+├── chat_agent.py          # Logique de l'agent conversationnel et des tools
+├── main.py                # Point d'entrée de l'application FastAPI
+├── rag_retriever.py       # Logique de recherche RAG et vectorielle
+├── vectorize_emails.py    # Script d'indexation et de vectorisation des e-mails
+├── docker-compose.yml     # Orchestration des services Docker
+├── Dockerfile             # Configuration de l'image Docker principale
+└── README.md              # Documentation du projet
+⚙️ Comment Lancer le Projet
+Assurez-vous d'avoir Docker et Docker Compose installés sur votre machine.
+
+Clonez le dépôt et placez-vous à la racine du projet.
+
+Lancez les conteneurs avec la commande suivante :
+docker-compose up --build
+
+
+L'API est accessible et prête à traiter les requêtes de l'agent.

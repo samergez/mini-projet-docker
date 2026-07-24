@@ -28052,3 +28052,115 @@ NameError: name 'List' is not defined. Did you mean: 'list'?
 2026-07-24 18:41:11.040 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_184051_1096.
 2026-07-24 18:41:11.047 | INFO | 🎉 Traitement terminé !
 2026-07-24 18:41:11.047 | INFO | 🎉 Traitement terminé !
+2026-07-24 20:50:48.910 | INFO | 🔍 checking 1100 mails
+2026-07-24 20:50:48.910 | INFO | 🔍 checking 1100 mails
+2026-07-24 20:50:48.982 | INFO | ⏭️ skipped : 1096 e-mail(s) déjà stocké(s) en local.
+2026-07-24 20:50:48.982 | INFO | ⏭️ skipped : 1096 e-mail(s) déjà stocké(s) en local.
+2026-07-24 20:50:54.522 | INFO | ✅ 1097/1100 treated
+2026-07-24 20:50:54.522 | INFO | ✅ 1097/1100 treated
+2026-07-24 20:50:56.349 | INFO | ✅ 1098/1100 treated
+2026-07-24 20:50:56.349 | INFO | ✅ 1098/1100 treated
+2026-07-24 20:51:03.242 | INFO | ✅ 1099/1100 treated
+2026-07-24 20:51:03.242 | INFO | ✅ 1099/1100 treated
+2026-07-24 20:51:07.327 | INFO | ✅ 1100/1100 treated
+2026-07-24 20:51:07.327 | INFO | ✅ 1100/1100 treated
+2026-07-24 20:51:09.013 | INFO | 🔍 Analyse et vectorisation des e-mails...
+2026-07-24 20:51:09.013 | INFO | 🔍 Analyse et vectorisation des e-mails...
+2026-07-24 20:51:41.418 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_205054_1097.
+2026-07-24 20:51:41.418 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_205054_1097.
+2026-07-24 20:51:41.637 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_205056_1098.
+2026-07-24 20:51:41.637 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_205056_1098.
+2026-07-24 20:51:42.308 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_205103_1099.
+2026-07-24 20:51:42.308 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_205103_1099.
+2026-07-24 20:51:43.049 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour email_20260724_205103_1099.
+2026-07-24 20:51:43.049 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour email_20260724_205103_1099.
+2026-07-24 20:51:43.124 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_205107_1100.
+2026-07-24 20:51:43.124 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_205107_1100.
+2026-07-24 20:51:43.135 | INFO | 🎉 Traitement terminé !
+2026-07-24 20:51:43.135 | INFO | 🎉 Traitement terminé !
+2026-07-24 20:55:33.270 | INFO | 🔍 checking 1102 mails
+2026-07-24 20:55:33.270 | INFO | 🔍 checking 1102 mails
+2026-07-24 20:55:33.300 | INFO | ⏭️ skipped : 1100 e-mail(s) déjà stocké(s) en local.
+2026-07-24 20:55:33.300 | INFO | ⏭️ skipped : 1100 e-mail(s) déjà stocké(s) en local.
+2026-07-24 20:55:33.836 | INFO | ✅ 1101/1102 treated
+2026-07-24 20:55:33.836 | INFO | ✅ 1101/1102 treated
+2026-07-24 20:55:34.312 | INFO | ✅ 1102/1102 treated
+2026-07-24 20:55:34.312 | INFO | ✅ 1102/1102 treated
+2026-07-24 20:55:35.012 | INFO | 🔍 Analyse et vectorisation des e-mails...
+2026-07-24 20:55:35.012 | INFO | 🔍 Analyse et vectorisation des e-mails...
+2026-07-24 20:56:06.171 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_205533_1101.
+2026-07-24 20:56:06.171 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_205533_1101.
+2026-07-24 20:56:06.603 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour email_20260724_205533_1101.
+2026-07-24 20:56:06.603 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour email_20260724_205533_1101.
+2026-07-24 20:56:06.715 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_205534_1102.
+2026-07-24 20:56:06.715 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_205534_1102.
+2026-07-24 20:56:06.730 | INFO | 🎉 Traitement terminé !
+2026-07-24 20:56:06.730 | INFO | 🎉 Traitement terminé !
+2026-07-24 21:00:41.212 | INFO | 🔍 checking 1104 mails
+2026-07-24 21:00:41.212 | INFO | 🔍 checking 1104 mails
+2026-07-24 21:00:41.265 | INFO | ⏭️ skipped : 1102 e-mail(s) déjà stocké(s) en local.
+2026-07-24 21:00:41.265 | INFO | ⏭️ skipped : 1102 e-mail(s) déjà stocké(s) en local.
+2026-07-24 21:00:43.984 | INFO | ✅ 1103/1104 treated
+2026-07-24 21:00:43.984 | INFO | ✅ 1103/1104 treated
+2026-07-24 21:00:46.212 | INFO | ✅ 1104/1104 treated
+2026-07-24 21:00:46.212 | INFO | ✅ 1104/1104 treated
+2026-07-24 21:00:48.617 | INFO | 🔍 Analyse et vectorisation des e-mails...
+2026-07-24 21:00:48.617 | INFO | 🔍 Analyse et vectorisation des e-mails...
+2026-07-24 21:01:18.944 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_210043_1103.
+2026-07-24 21:01:18.944 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_210043_1103.
+2026-07-24 21:01:19.387 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour email_20260724_210043_1103.
+2026-07-24 21:01:19.387 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour email_20260724_210043_1103.
+2026-07-24 21:01:19.693 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_210046_1104.
+2026-07-24 21:01:19.693 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_210046_1104.
+2026-07-24 21:01:19.709 | INFO | 🎉 Traitement terminé !
+2026-07-24 21:01:19.709 | INFO | 🎉 Traitement terminé !
+2026-07-24 21:05:33.760 | INFO | 🔍 checking 1106 mails
+2026-07-24 21:05:33.760 | INFO | 🔍 checking 1106 mails
+2026-07-24 21:05:33.797 | INFO | ⏭️ skipped : 1104 e-mail(s) déjà stocké(s) en local.
+2026-07-24 21:05:33.797 | INFO | ⏭️ skipped : 1104 e-mail(s) déjà stocké(s) en local.
+2026-07-24 21:05:35.235 | INFO | ✅ 1105/1106 treated
+2026-07-24 21:05:35.235 | INFO | ✅ 1105/1106 treated
+2026-07-24 21:05:36.147 | INFO | ✅ 1106/1106 treated
+2026-07-24 21:05:36.147 | INFO | ✅ 1106/1106 treated
+2026-07-24 21:05:36.943 | INFO | 🔍 Analyse et vectorisation des e-mails...
+2026-07-24 21:05:36.943 | INFO | 🔍 Analyse et vectorisation des e-mails...
+2026-07-24 21:06:11.724 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_210535_1105.
+2026-07-24 21:06:11.724 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_210535_1105.
+2026-07-24 21:06:12.547 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour email_20260724_210535_1105.
+2026-07-24 21:06:12.547 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour email_20260724_210535_1105.
+2026-07-24 21:06:12.656 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_210536_1106.
+2026-07-24 21:06:12.656 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_210536_1106.
+2026-07-24 21:06:12.663 | INFO | 🎉 Traitement terminé !
+2026-07-24 21:06:12.663 | INFO | 🎉 Traitement terminé !
+2026-07-24 21:10:36.337 | INFO | 🔍 checking 1108 mails
+2026-07-24 21:10:36.337 | INFO | 🔍 checking 1108 mails
+2026-07-24 21:10:36.374 | INFO | ⏭️ skipped : 1106 e-mail(s) déjà stocké(s) en local.
+2026-07-24 21:10:36.374 | INFO | ⏭️ skipped : 1106 e-mail(s) déjà stocké(s) en local.
+2026-07-24 21:10:37.245 | INFO | ✅ 1107/1108 treated
+2026-07-24 21:10:37.245 | INFO | ✅ 1107/1108 treated
+2026-07-24 21:10:37.708 | INFO | ✅ 1108/1108 treated
+2026-07-24 21:10:37.708 | INFO | ✅ 1108/1108 treated
+2026-07-24 21:10:38.445 | INFO | 🔍 Analyse et vectorisation des e-mails...
+2026-07-24 21:10:38.445 | INFO | 🔍 Analyse et vectorisation des e-mails...
+2026-07-24 21:11:07.699 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_211037_1107.
+2026-07-24 21:11:07.699 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_211037_1107.
+2026-07-24 21:11:07.800 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_211037_1108.
+2026-07-24 21:11:07.800 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_211037_1108.
+2026-07-24 21:11:07.812 | INFO | 🎉 Traitement terminé !
+2026-07-24 21:11:07.812 | INFO | 🎉 Traitement terminé !
+2026-07-24 21:15:35.527 | INFO | 🔍 checking 1110 mails
+2026-07-24 21:15:35.527 | INFO | 🔍 checking 1110 mails
+2026-07-24 21:15:35.608 | INFO | ⏭️ skipped : 1108 e-mail(s) déjà stocké(s) en local.
+2026-07-24 21:15:35.608 | INFO | ⏭️ skipped : 1108 e-mail(s) déjà stocké(s) en local.
+2026-07-24 21:15:36.281 | INFO | ✅ 1109/1110 treated
+2026-07-24 21:15:36.281 | INFO | ✅ 1109/1110 treated
+2026-07-24 21:15:36.938 | INFO | ✅ 1110/1110 treated
+2026-07-24 21:15:36.938 | INFO | ✅ 1110/1110 treated
+2026-07-24 21:15:37.828 | INFO | 🔍 Analyse et vectorisation des e-mails...
+2026-07-24 21:15:37.828 | INFO | 🔍 Analyse et vectorisation des e-mails...
+2026-07-24 21:16:08.612 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_211536_1109.
+2026-07-24 21:16:08.612 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_211536_1109.
+2026-07-24 21:16:08.696 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_211536_1110.
+2026-07-24 21:16:08.696 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour email_20260724_211536_1110.
+2026-07-24 21:16:08.707 | INFO | 🎉 Traitement terminé !
+2026-07-24 21:16:08.707 | INFO | 🎉 Traitement terminé !

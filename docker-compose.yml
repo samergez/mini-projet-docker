@@ -82,6 +82,34 @@ services:
     networks:
       - app-network
 
+  # --- BLOC 3 : BACKEND DJANGO ---
+  backend_django:
+    image: python:3.10-slim
+    container_name: django_backend
+    working_dir: /app
+    volumes:
+      - ./backend_django:/app
+    ports:
+      - "8001:8000"
+    command: >
+      sh -c "pip install django djangorestframework django-cors-headers &&
+             python manage.py runserver 0.0.0.0:8000"
+    restart: unless-stopped
+
+  # --- BLOC 3 : FRONTEND REACT ---
+  frontend_react:
+    image: node:18-alpine
+    container_name: react_frontend
+    working_dir: /app
+    volumes:
+      - ./frontend_react:/app
+    ports:
+      - "3000:3000"
+    command: sh -c "npm install && npm run dev -- --host"
+    restart: unless-stopped
+    networks:
+      - app-network
+
 volumes:
   db_data:
   ollama_storage:
