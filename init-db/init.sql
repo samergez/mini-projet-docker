@@ -1,5 +1,3 @@
--- init-db/init.sql
-
 CREATE TABLE IF NOT EXISTS processed_emails (
     id SERIAL PRIMARY KEY,
     custom_message_id VARCHAR(255) UNIQUE NOT NULL,
@@ -22,3 +20,21 @@ VALUES
     ('ATT-02', 'MSG-102', 'Rapport_Mensuel.pdf', 'Compte rendu des activités du mois'),
     ('ATT-03', 'MSG-103', 'Facture_F2026_09.pdf', 'Facture de prestation de service')
 ON CONFLICT (attachment_id) DO NOTHING;
+
+-- BLOC 3 : Suppression de l'ancienne table d'embeddings et recréation avec metadata (JSONB)
+DROP TABLE IF EXISTS email_embeddings;
+
+CREATE EXTENSION IF NOT EXISTS vector;
+
+CREATE TABLE email_embeddings (
+    id SERIAL PRIMARY KEY,
+    email_id VARCHAR(100),
+    source_type VARCHAR(20), 
+    file_name VARCHAR(255),
+    chunk_index INT,
+    chunk_text TEXT,
+    content_hash VARCHAR(32) UNIQUE,
+    embedding vector(768),
+    metadata JSONB,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

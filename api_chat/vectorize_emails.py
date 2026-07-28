@@ -9,22 +9,17 @@ from pypdf import PdfReader
 import logging
 import traceback
 
-# --- CONFIGURATION STRICTE DES LOGS (Tâche 1) ---
+# --- CONFIGURATION STRICTE DES LOGS ---
 logger = logging.getLogger("vectorizer_logger")
 logger.setLevel(logging.DEBUG)
 
-# Format précis : Date, Heure exacte avec millisecondes, Niveau de log, Message
 log_format = logging.Formatter('%(asctime)s.%(msecs)03d | %(levelname)s | %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
-
-# Sécurité : Création du dossier logs s'il n'existe pas encore
 os.makedirs('/app/logs', exist_ok=True)
 
-# Option A : Écriture dans TON fichier logs/reception.log
 file_handler = logging.FileHandler('/app/logs/reception.log', encoding='utf-8')
 file_handler.setFormatter(log_format)
 logger.addHandler(file_handler)
 
-# Option B : Affichage simultané en console
 stream_handler = logging.StreamHandler()
 stream_handler.setFormatter(log_format)
 logger.addHandler(stream_handler)
@@ -45,11 +40,9 @@ EMAILS_DIR = "/app/received_emails"
 CHUNK_SIZE = 500  
 CHUNK_OVERLAP = 50  
 
-# --- GESTION DES DOUBLONS PAR HACHAGE ---
 def calculate_md5(text):
     return hashlib.md5(text.encode('utf-8')).hexdigest()
 
-# --- DECOUPAGE (CHUNKING) ---
 def chunk_text(text, size=CHUNK_SIZE, overlap=CHUNK_OVERLAP):
     chunks = []
     start = 0
@@ -59,7 +52,6 @@ def chunk_text(text, size=CHUNK_SIZE, overlap=CHUNK_OVERLAP):
         start += size - overlap
     return chunks
 
-# --- GENERER LES VECTEURS (EMBEDDING) ---
 def get_ollama_embedding(text):
     try:
         response = requests.post(
@@ -74,7 +66,6 @@ def get_ollama_embedding(text):
         logger.error(f"❌ Erreur Ollama sur le chunk :\n{error_details}")
         return None
 
-# --- EXTRACTION DES PIÈCES JOINTES ---
 def extract_text_from_pdf(pdf_path):
     text = ""
     try:
@@ -110,7 +101,6 @@ def extract_text_from_txt(txt_path):
         logger.error(f"❌ Impossible de lire le fichier TXT {txt_path} :\n{error_details}")
     return text
 
-# --- INITIALISATION DE LA TABLE ---
 def init_vector_table():
     try:
         conn = psycopg2.connect(**DB_CONFIG)
@@ -127,6 +117,7 @@ def init_vector_table():
                 chunk_text TEXT,
                 content_hash VARCHAR(32) UNIQUE,
                 embedding vector(768),
+                metadata JSONB,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
         """)
@@ -137,14 +128,13 @@ def init_vector_table():
         error_details = traceback.format_exc()
         logger.error(f"❌ Erreur d'initialisation de la table vectorielle :\n{error_details}")
 
-# --- VERIFIER SI UN HASH EXISTE DEJA ---
 def hash_exists(cur, content_hash):
     cur.execute("SELECT 1 FROM email_embeddings WHERE content_hash = %s LIMIT 1;", (content_hash,))
     return cur.fetchone() is not None
 
-# --- INSERTION DES CHUNKS EN BASE ---
-def save_chunks_to_db(cur, conn, chunks, email_id, source_type, file_name=""):
+def save_chunks_to_db(cur, conn, chunks, email_id, source_type, file_name="", metadata=None):
     rows_to_insert = []
+    metadata_json = json.dumps(metadata) if metadata else None
     
     for index, chunk in enumerate(chunks):
         chunk_hash = calculate_md5(f"{email_id}_{source_type}_{file_name}_{index}_{chunk}")
@@ -154,14 +144,14 @@ def save_chunks_to_db(cur, conn, chunks, email_id, source_type, file_name=""):
             
         vector = get_ollama_embedding(chunk)
         if vector:
-            rows_to_insert.append((email_id, source_type, file_name, index, chunk, chunk_hash, vector))
+            rows_to_insert.append((email_id, source_type, file_name, index, chunk, chunk_hash, vector, metadata_json))
     
     if rows_to_insert:
         try:
             execute_values(
                 cur,
-                """INSERT INTO email_embeddings (email_id, source_type, file_name, chunk_index, chunk_text, content_hash, embedding)
-                   VALUES %s ON CONFLICT (content_hash) DO NOTHING;""",
+                """INSERT INTO email_embeddings (email_id, source_type, file_name, chunk_index, chunk_text, content_hash, embedding, metadata)
+                    VALUES %s ON CONFLICT (content_hash) DO NOTHING;""",
                 rows_to_insert
             )
             conn.commit()
@@ -171,7 +161,6 @@ def save_chunks_to_db(cur, conn, chunks, email_id, source_type, file_name=""):
             error_details = traceback.format_exc()
             logger.error(f"❌ Erreur lors de l'insertion en base :\n{error_details}")
 
-# --- PIPELINE PRINCIPAL ---
 def process_embeddings():
     init_vector_table()
     try:
@@ -188,7 +177,7 @@ def process_embeddings():
         conn.close()
         return
 
-    logger.info("🔍 Analyse et vectorisation des e-mails...")
+    logger.info("🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...")
     
     try:
         for folder_name in os.listdir(EMAILS_DIR):
@@ -203,12 +192,29 @@ def process_embeddings():
             with open(json_path, 'r', encoding='utf-8') as f:
                 email_data = json.load(f)
                 
-            email_id = email_data.get("id", folder_name)
+            email_id = email_data.get("Gmail_ID") or email_data.get("id", folder_name)
             
-            full_text = f"Subject: {email_data.get('subject', '')}\n\n{email_data.get('body', '')}"
+            # Gestion du champ 'A' qui peut être une liste ou une chaîne
+            recipient_field = email_data.get("A") or email_data.get("to") or email_data.get("recipient") or ""
+            if isinstance(recipient_field, list):
+                recipient_str = ", ".join(recipient_field)
+            else:
+                recipient_str = str(recipient_field)
+
+            # Mapping exact avec les clés de ton exemple JSON
+            email_metadata = {
+                "from": email_data.get("De") or email_data.get("from") or email_data.get("sender") or "",
+                "to": recipient_str,
+                "date": email_data.get("Date") or email_data.get("date") or "",
+                "title": email_data.get("Sujet") or email_data.get("subject") or email_data.get("title") or ""
+            }
+            
+            body_text = email_data.get("Corps") or email_data.get("body") or ""
+            full_text = f"Subject: {email_metadata['title']}\n\n{body_text}"
+            
             if full_text.strip():
                 chunks = chunk_text(full_text)
-                save_chunks_to_db(cur, conn, chunks, email_id, "email_body")
+                save_chunks_to_db(cur, conn, chunks, email_id, "email_body", metadata=email_metadata)
             
             for file_name in os.listdir(folder_path):
                 if file_name == "contenu_email.json":
@@ -226,12 +232,12 @@ def process_embeddings():
                     
                 if extracted_text.strip():
                     attachment_chunks = chunk_text(extracted_text)
-                    save_chunks_to_db(cur, conn, attachment_chunks, email_id, "attachment", file_name)
+                    save_chunks_to_db(cur, conn, attachment_chunks, email_id, "attachment", file_name, metadata=email_metadata)
     except Exception as e:
         error_details = traceback.format_exc()
         logger.error(f"❌ Erreur durant le parcours des dossiers :\n{error_details}")
                 
-    logger.info("🎉 Traitement terminé !")
+    logger.info("🎉 Traitement et vectorisation terminés avec succès !")
     cur.close()
     conn.close()
 

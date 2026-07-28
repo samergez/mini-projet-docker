@@ -1838,3 +1838,56 @@ groq.BadRequestError: Error code: 400 - {'error': {'message': "Failed to call a 
 [2026-07-24 07:06:12.731] [INFO] [chat_agent.py:64 -> run_chat_agent()] : ⚙️ Exécution du Tool 'search_emails_by_date' avec les arguments : {'target_date': '2026-07-18'}
 [2026-07-24 07:06:12.764] [INFO] [chat_agent.py:71 -> run_chat_agent()] : 🤖 4. Génération de la réponse finale par Groq...
 [2026-07-24 07:06:13.099] [INFO] [main.py:33 -> chat_with_ai()] : 📤 Réponse renvoyée avec succès à l'interface HTML.
+[2026-07-28 18:12:39.663] [INFO] [main.py:28 -> chat_with_ai()] : 📥 Reçu depuis l'interface graphique : 'salut'
+[2026-07-28 18:12:39.665] [INFO] [chat_agent.py:25 -> run_chat_agent()] : 🔍 1. Initialisation de la requête pour : 'salut'
+[2026-07-28 18:12:39.668] [INFO] [chat_agent.py:45 -> run_chat_agent()] : 🤖 2. Envoi de la requête à Groq (avec support des Tools)...
+[2026-07-28 18:12:42.037] [INFO] [main.py:33 -> chat_with_ai()] : 📤 Réponse renvoyée avec succès à l'interface HTML.
+[2026-07-28 18:12:58.907] [INFO] [main.py:28 -> chat_with_ai()] : 📥 Reçu depuis l'interface graphique : 'Donne-moi le résumé du mail envoyé le 2026-07-18'
+[2026-07-28 18:12:58.909] [INFO] [chat_agent.py:25 -> run_chat_agent()] : 🔍 1. Initialisation de la requête pour : 'Donne-moi le résumé du mail envoyé le 2026-07-18'
+[2026-07-28 18:12:58.911] [INFO] [chat_agent.py:45 -> run_chat_agent()] : 🤖 2. Envoi de la requête à Groq (avec support des Tools)...
+[2026-07-28 18:12:59.448] [INFO] [chat_agent.py:56 -> run_chat_agent()] : 🛠️ 3. L'agent a décidé d'utiliser un Tool !
+[2026-07-28 18:12:59.453] [INFO] [chat_agent.py:64 -> run_chat_agent()] : ⚙️ Exécution du Tool 'search_emails_by_date' avec les arguments : {'target_date': '2026-07-18'}
+[2026-07-28 18:12:59.495] [INFO] [chat_agent.py:64 -> run_chat_agent()] : ⚙️ Exécution du Tool 'search_emails_by_date' avec les arguments : {'target_date': '2026-07-18'}
+[2026-07-28 18:12:59.510] [INFO] [chat_agent.py:64 -> run_chat_agent()] : ⚙️ Exécution du Tool 'get_email_attachments' avec les arguments : {'email_id': None, 'file_extension': 'pdf'}
+[2026-07-28 18:12:59.525] [INFO] [chat_agent.py:71 -> run_chat_agent()] : 🤖 4. Génération de la réponse finale par Groq...
+[2026-07-28 18:12:59.948] [INFO] [main.py:33 -> chat_with_ai()] : 📤 Réponse renvoyée avec succès à l'interface HTML.
+[2026-07-28 18:13:14.975] [INFO] [main.py:28 -> chat_with_ai()] : 📥 Reçu depuis l'interface graphique : 'combien d'e-mails contiennent une pièce jointe ou un fichier PDF'
+[2026-07-28 18:13:14.977] [INFO] [chat_agent.py:25 -> run_chat_agent()] : 🔍 1. Initialisation de la requête pour : 'combien d'e-mails contiennent une pièce jointe ou un fichier PDF'
+[2026-07-28 18:13:14.982] [INFO] [chat_agent.py:45 -> run_chat_agent()] : 🤖 2. Envoi de la requête à Groq (avec support des Tools)...
+[2026-07-28 18:13:15.525] [INFO] [chat_agent.py:56 -> run_chat_agent()] : 🛠️ 3. L'agent a décidé d'utiliser un Tool !
+[2026-07-28 18:13:15.527] [INFO] [chat_agent.py:64 -> run_chat_agent()] : ⚙️ Exécution du Tool 'get_email_attachments' avec les arguments : {'email_id': None, 'file_extension': 'pdf'}
+[2026-07-28 18:13:15.597] [INFO] [chat_agent.py:71 -> run_chat_agent()] : 🤖 4. Génération de la réponse finale par Groq...
+[2026-07-28 18:13:16.005] [INFO] [main.py:33 -> chat_with_ai()] : 📤 Réponse renvoyée avec succès à l'interface HTML.
+[2026-07-28 18:13:28.590] [INFO] [main.py:28 -> chat_with_ai()] : 📥 Reçu depuis l'interface graphique : 'combien de mail contienne un attachement compte les tous les txt , les pdf , les csv , les png'
+[2026-07-28 18:13:28.592] [INFO] [chat_agent.py:25 -> run_chat_agent()] : 🔍 1. Initialisation de la requête pour : 'combien de mail contienne un attachement compte les tous les txt , les pdf , les csv , les png'
+[2026-07-28 18:13:28.597] [INFO] [chat_agent.py:45 -> run_chat_agent()] : 🤖 2. Envoi de la requête à Groq (avec support des Tools)...
+[2026-07-28 18:13:28.922] [INFO] [chat_agent.py:56 -> run_chat_agent()] : 🛠️ 3. L'agent a décidé d'utiliser un Tool !
+[2026-07-28 18:13:28.927] [INFO] [chat_agent.py:64 -> run_chat_agent()] : ⚙️ Exécution du Tool 'get_email_attachments' avec les arguments : {'email_id': None, 'file_extension': 'txt, pdf, csv, png'}
+[2026-07-28 18:13:28.951] [INFO] [chat_agent.py:71 -> run_chat_agent()] : 🤖 4. Génération de la réponse finale par Groq...
+[2026-07-28 18:13:29.112] [INFO] [main.py:33 -> chat_with_ai()] : 📤 Réponse renvoyée avec succès à l'interface HTML.
+[2026-07-28 18:13:38.944] [INFO] [main.py:28 -> chat_with_ai()] : 📥 Reçu depuis l'interface graphique : 'Quels sont les e-mails ou ines est mentionnée ?'
+[2026-07-28 18:13:38.947] [INFO] [chat_agent.py:25 -> run_chat_agent()] : 🔍 1. Initialisation de la requête pour : 'Quels sont les e-mails ou ines est mentionnée ?'
+[2026-07-28 18:13:38.950] [INFO] [chat_agent.py:45 -> run_chat_agent()] : 🤖 2. Envoi de la requête à Groq (avec support des Tools)...
+[2026-07-28 18:13:40.436] [INFO] [chat_agent.py:56 -> run_chat_agent()] : 🛠️ 3. L'agent a décidé d'utiliser un Tool !
+[2026-07-28 18:13:40.447] [INFO] [chat_agent.py:64 -> run_chat_agent()] : ⚙️ Exécution du Tool 'search_emails_by_person' avec les arguments : {'person_name': 'Inès'}
+[2026-07-28 18:13:40.504] [INFO] [chat_agent.py:71 -> run_chat_agent()] : 🤖 4. Génération de la réponse finale par Groq...
+[2026-07-28 18:13:41.012] [INFO] [main.py:33 -> chat_with_ai()] : 📤 Réponse renvoyée avec succès à l'interface HTML.
+[2026-07-28 18:18:06.951] [INFO] [main.py:28 -> chat_with_ai()] : 📥 Reçu depuis l'interface graphique : 'Quels sont les e-mails ou ines est mentionnée ?'
+[2026-07-28 18:18:06.955] [INFO] [chat_agent.py:25 -> run_chat_agent()] : 🔍 1. Initialisation de la requête pour : 'Quels sont les e-mails ou ines est mentionnée ?'
+[2026-07-28 18:18:06.958] [INFO] [chat_agent.py:45 -> run_chat_agent()] : 🤖 2. Envoi de la requête à Groq (avec support des Tools)...
+[2026-07-28 18:18:07.640] [ERROR] [logger_config.py:46 -> log_exception_with_traceback()] : 🚨 Erreur sur la requête : 'Quels sont les e-mails ou ines est mentionnée ?' !
+TYPE ERREUR  : BadRequestError
+DETAILS      : Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_emails_by_person>{"person_name": "Jeanne D&#39;Arc"}'}}
+STACK TRACE  :
+Traceback (most recent call last):
+  File "/app/chat_agent.py", line 46, in run_chat_agent
+    response = groq_client.chat.completions.create(
+  File "/usr/local/lib/python3.10/site-packages/groq/resources/chat/completions.py", line 462, in create
+    return self._post(
+  File "/usr/local/lib/python3.10/site-packages/groq/_base_client.py", line 1284, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/usr/local/lib/python3.10/site-packages/groq/_base_client.py", line 1071, in request
+    raise self._make_status_error_from_response(err.response) from None
+groq.BadRequestError: Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_emails_by_person>{"person_name": "Jeanne D&#39;Arc"}'}}
+
+[2026-07-28 18:18:07.641] [INFO] [main.py:33 -> chat_with_ai()] : 📤 Réponse renvoyée avec succès à l'interface HTML.

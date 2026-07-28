@@ -82,7 +82,7 @@ services:
     networks:
       - app-network
 
-  # --- BLOC 3 : BACKEND DJANGO ---
+ # --- BLOC 3 : BACKEND DJANGO ---
   backend_django:
     image: python:3.10-slim
     container_name: django_backend
@@ -92,9 +92,11 @@ services:
     ports:
       - "8001:8000"
     command: >
-      sh -c "pip install django djangorestframework django-cors-headers &&
+      sh -c "pip install --no-cache-dir -r requirements.txt &&
              python manage.py runserver 0.0.0.0:8000"
     restart: unless-stopped
+    networks:
+      - app-network
 
   # --- BLOC 3 : FRONTEND REACT ---
   frontend_react:
