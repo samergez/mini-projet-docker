@@ -23,5 +23,20 @@
         "id": 6,
         "user_id": 1,
         "text": "salut"
+    },
+    {
+        "id": 7,
+        "user_id": 1,
+        "text": "test 1"
+    },
+    {
+        "id": 8,
+        "user_id": 1,
+        "text": "test 2"
+    },
+    {
+        "id": 9,
+        "user_id": 2,
+        "text": "kaki kakou"
     }
 ]

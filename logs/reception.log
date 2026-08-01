@@ -38238,3 +38238,303 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://ollam
 2026-07-28 18:16:10.461 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1195.
 2026-07-28 18:16:10.469 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
 2026-07-28 18:16:10.469 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-28 18:35:33.849 | INFO | 🔍 checking 1197 mails
+2026-07-28 18:35:33.849 | INFO | 🔍 checking 1197 mails
+2026-07-28 18:35:33.871 | INFO | ⏭️ skipped : 1195 e-mail(s) déjà stocké(s) en local.
+2026-07-28 18:35:33.871 | INFO | ⏭️ skipped : 1195 e-mail(s) déjà stocké(s) en local.
+2026-07-28 18:35:34.683 | INFO | ✅ 1196/1197 treated
+2026-07-28 18:35:34.683 | INFO | ✅ 1196/1197 treated
+2026-07-28 18:35:35.207 | INFO | ✅ 1197/1197 treated
+2026-07-28 18:35:35.207 | INFO | ✅ 1197/1197 treated
+2026-07-28 18:35:36.177 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-28 18:35:36.177 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-28 18:35:59.939 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1196.
+2026-07-28 18:35:59.939 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1196.
+2026-07-28 18:36:00.112 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1197.
+2026-07-28 18:36:00.112 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1197.
+2026-07-28 18:36:00.121 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-28 18:36:00.121 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-28 18:50:36.359 | INFO | 🔍 checking 1199 mails
+2026-07-28 18:50:36.359 | INFO | 🔍 checking 1199 mails
+2026-07-28 18:50:36.383 | INFO | ⏭️ skipped : 1197 e-mail(s) déjà stocké(s) en local.
+2026-07-28 18:50:36.383 | INFO | ⏭️ skipped : 1197 e-mail(s) déjà stocké(s) en local.
+2026-07-28 18:50:37.318 | INFO | ✅ 1198/1199 treated
+2026-07-28 18:50:37.318 | INFO | ✅ 1198/1199 treated
+2026-07-28 18:50:37.954 | INFO | ✅ 1199/1199 treated
+2026-07-28 18:50:37.954 | INFO | ✅ 1199/1199 treated
+2026-07-28 18:50:39.746 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-28 18:50:39.746 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-28 18:51:11.102 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1198.
+2026-07-28 18:51:11.102 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1198.
+2026-07-28 18:51:11.260 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1199.
+2026-07-28 18:51:11.260 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1199.
+2026-07-28 18:51:11.268 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-28 18:51:11.268 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 10:05:33.066 | INFO | 🔍 checking 1201 mails
+2026-07-31 10:05:33.066 | INFO | 🔍 checking 1201 mails
+2026-07-31 10:05:33.150 | INFO | ⏭️ skipped : 1199 e-mail(s) déjà stocké(s) en local.
+2026-07-31 10:05:33.150 | INFO | ⏭️ skipped : 1199 e-mail(s) déjà stocké(s) en local.
+2026-07-31 10:05:33.682 | INFO | ✅ 1200/1201 treated
+2026-07-31 10:05:33.682 | INFO | ✅ 1200/1201 treated
+2026-07-31 10:05:34.206 | INFO | ✅ 1201/1201 treated
+2026-07-31 10:05:34.206 | INFO | ✅ 1201/1201 treated
+2026-07-31 10:05:34.943 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 10:05:34.943 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 10:06:15.302 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1200.
+2026-07-31 10:06:15.302 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1200.
+2026-07-31 10:06:15.545 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1201.
+2026-07-31 10:06:15.545 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1201.
+2026-07-31 10:06:15.555 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 10:06:15.555 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 10:10:32.926 | INFO | 🔍 checking 1203 mails
+2026-07-31 10:10:32.926 | INFO | 🔍 checking 1203 mails
+2026-07-31 10:10:33.139 | INFO | ⏭️ skipped : 1201 e-mail(s) déjà stocké(s) en local.
+2026-07-31 10:10:33.139 | INFO | ⏭️ skipped : 1201 e-mail(s) déjà stocké(s) en local.
+2026-07-31 10:10:33.821 | INFO | ✅ 1202/1203 treated
+2026-07-31 10:10:33.821 | INFO | ✅ 1202/1203 treated
+2026-07-31 10:10:34.418 | INFO | ✅ 1203/1203 treated
+2026-07-31 10:10:34.418 | INFO | ✅ 1203/1203 treated
+2026-07-31 10:10:35.453 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 10:10:35.453 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 10:11:51.486 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1202.
+2026-07-31 10:11:51.486 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1202.
+2026-07-31 10:11:51.663 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1203.
+2026-07-31 10:11:51.663 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1203.
+2026-07-31 10:11:51.682 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 10:11:51.682 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 10:15:32.736 | INFO | 🔍 checking 1205 mails
+2026-07-31 10:15:32.736 | INFO | 🔍 checking 1205 mails
+2026-07-31 10:15:32.761 | INFO | ⏭️ skipped : 1203 e-mail(s) déjà stocké(s) en local.
+2026-07-31 10:15:32.761 | INFO | ⏭️ skipped : 1203 e-mail(s) déjà stocké(s) en local.
+2026-07-31 10:15:33.326 | INFO | ✅ 1204/1205 treated
+2026-07-31 10:15:33.326 | INFO | ✅ 1204/1205 treated
+2026-07-31 10:15:33.807 | INFO | ✅ 1205/1205 treated
+2026-07-31 10:15:33.807 | INFO | ✅ 1205/1205 treated
+2026-07-31 10:15:34.578 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 10:15:34.578 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 10:16:17.915 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1204.
+2026-07-31 10:16:17.915 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1204.
+2026-07-31 10:16:18.266 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1205.
+2026-07-31 10:16:18.266 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1205.
+2026-07-31 10:16:18.279 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 10:16:18.279 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 10:20:33.857 | INFO | 🔍 checking 1207 mails
+2026-07-31 10:20:33.857 | INFO | 🔍 checking 1207 mails
+2026-07-31 10:20:33.880 | INFO | ⏭️ skipped : 1205 e-mail(s) déjà stocké(s) en local.
+2026-07-31 10:20:33.880 | INFO | ⏭️ skipped : 1205 e-mail(s) déjà stocké(s) en local.
+2026-07-31 10:20:35.145 | INFO | ✅ 1206/1207 treated
+2026-07-31 10:20:35.145 | INFO | ✅ 1206/1207 treated
+2026-07-31 10:20:35.823 | INFO | ✅ 1207/1207 treated
+2026-07-31 10:20:35.823 | INFO | ✅ 1207/1207 treated
+2026-07-31 10:20:36.858 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 10:20:36.858 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 10:21:10.985 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1206.
+2026-07-31 10:21:10.985 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1206.
+2026-07-31 10:21:11.229 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1207.
+2026-07-31 10:21:11.229 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1207.
+2026-07-31 10:21:11.258 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 10:21:11.258 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 10:25:32.231 | INFO | 🔍 checking 1209 mails
+2026-07-31 10:25:32.231 | INFO | 🔍 checking 1209 mails
+2026-07-31 10:25:32.257 | INFO | ⏭️ skipped : 1207 e-mail(s) déjà stocké(s) en local.
+2026-07-31 10:25:32.257 | INFO | ⏭️ skipped : 1207 e-mail(s) déjà stocké(s) en local.
+2026-07-31 10:25:32.738 | INFO | ✅ 1208/1209 treated
+2026-07-31 10:25:32.738 | INFO | ✅ 1208/1209 treated
+2026-07-31 10:25:33.152 | INFO | ✅ 1209/1209 treated
+2026-07-31 10:25:33.152 | INFO | ✅ 1209/1209 treated
+2026-07-31 10:25:33.810 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 10:25:33.810 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 10:26:09.286 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1208.
+2026-07-31 10:26:09.286 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1208.
+2026-07-31 10:26:09.676 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour 1208.
+2026-07-31 10:26:09.676 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour 1208.
+2026-07-31 10:26:09.834 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1209.
+2026-07-31 10:26:09.834 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1209.
+2026-07-31 10:26:09.842 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 10:26:09.842 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 17:34:16.270 | INFO | 🔍 checking 1211 mails
+2026-07-31 17:34:16.270 | INFO | 🔍 checking 1211 mails
+2026-07-31 17:34:16.418 | INFO | ⏭️ skipped : 1209 e-mail(s) déjà stocké(s) en local.
+2026-07-31 17:34:16.418 | INFO | ⏭️ skipped : 1209 e-mail(s) déjà stocké(s) en local.
+2026-07-31 17:34:17.033 | INFO | ✅ 1210/1211 treated
+2026-07-31 17:34:17.033 | INFO | ✅ 1210/1211 treated
+2026-07-31 17:34:17.489 | INFO | ✅ 1211/1211 treated
+2026-07-31 17:34:17.489 | INFO | ✅ 1211/1211 treated
+2026-07-31 17:34:18.296 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 17:34:18.296 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 17:35:03.430 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1210.
+2026-07-31 17:35:03.430 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1210.
+2026-07-31 17:35:03.875 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1211.
+2026-07-31 17:35:03.875 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1211.
+2026-07-31 17:35:03.882 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 17:35:03.882 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 17:35:32.307 | INFO | 🔍 checking 1213 mails
+2026-07-31 17:35:32.307 | INFO | 🔍 checking 1213 mails
+2026-07-31 17:35:32.332 | INFO | ⏭️ skipped : 1211 e-mail(s) déjà stocké(s) en local.
+2026-07-31 17:35:32.332 | INFO | ⏭️ skipped : 1211 e-mail(s) déjà stocké(s) en local.
+2026-07-31 17:35:33.219 | INFO | ✅ 1212/1213 treated
+2026-07-31 17:35:33.219 | INFO | ✅ 1212/1213 treated
+2026-07-31 17:35:33.677 | INFO | ✅ 1213/1213 treated
+2026-07-31 17:35:33.677 | INFO | ✅ 1213/1213 treated
+2026-07-31 17:35:34.707 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 17:35:34.707 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 17:36:13.708 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1212.
+2026-07-31 17:36:13.708 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1212.
+2026-07-31 17:47:30.572 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1213.
+2026-07-31 17:47:30.572 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1213.
+2026-07-31 17:47:30.579 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 17:47:30.579 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 17:50:32.904 | INFO | 🔍 checking 1215 mails
+2026-07-31 17:50:32.904 | INFO | 🔍 checking 1215 mails
+2026-07-31 17:50:32.942 | INFO | ⏭️ skipped : 1213 e-mail(s) déjà stocké(s) en local.
+2026-07-31 17:50:32.942 | INFO | ⏭️ skipped : 1213 e-mail(s) déjà stocké(s) en local.
+2026-07-31 17:50:33.515 | INFO | ✅ 1214/1215 treated
+2026-07-31 17:50:33.515 | INFO | ✅ 1214/1215 treated
+2026-07-31 17:50:33.956 | INFO | ✅ 1215/1215 treated
+2026-07-31 17:50:33.956 | INFO | ✅ 1215/1215 treated
+2026-07-31 17:50:34.826 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 17:50:34.826 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 17:51:10.830 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1214.
+2026-07-31 17:51:10.830 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1214.
+2026-07-31 17:51:11.030 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour 1214.
+2026-07-31 17:51:11.030 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour 1214.
+2026-07-31 17:51:11.167 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1215.
+2026-07-31 17:51:11.167 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1215.
+2026-07-31 17:51:11.187 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 17:51:11.187 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 17:55:32.615 | INFO | 🔍 checking 1217 mails
+2026-07-31 17:55:32.615 | INFO | 🔍 checking 1217 mails
+2026-07-31 17:55:32.682 | INFO | ⏭️ skipped : 1215 e-mail(s) déjà stocké(s) en local.
+2026-07-31 17:55:32.682 | INFO | ⏭️ skipped : 1215 e-mail(s) déjà stocké(s) en local.
+2026-07-31 17:55:33.435 | INFO | ✅ 1216/1217 treated
+2026-07-31 17:55:33.435 | INFO | ✅ 1216/1217 treated
+2026-07-31 17:55:34.092 | INFO | ✅ 1217/1217 treated
+2026-07-31 17:55:34.092 | INFO | ✅ 1217/1217 treated
+2026-07-31 17:55:35.181 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 17:55:35.181 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 17:56:18.392 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1216.
+2026-07-31 17:56:18.392 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1216.
+2026-07-31 17:56:18.554 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1217.
+2026-07-31 17:56:18.554 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1217.
+2026-07-31 17:56:18.560 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 17:56:18.560 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 18:00:32.666 | INFO | 🔍 checking 1219 mails
+2026-07-31 18:00:32.666 | INFO | 🔍 checking 1219 mails
+2026-07-31 18:00:32.688 | INFO | ⏭️ skipped : 1217 e-mail(s) déjà stocké(s) en local.
+2026-07-31 18:00:32.688 | INFO | ⏭️ skipped : 1217 e-mail(s) déjà stocké(s) en local.
+2026-07-31 18:00:33.227 | INFO | ✅ 1218/1219 treated
+2026-07-31 18:00:33.227 | INFO | ✅ 1218/1219 treated
+2026-07-31 18:00:33.817 | INFO | ✅ 1219/1219 treated
+2026-07-31 18:00:33.817 | INFO | ✅ 1219/1219 treated
+2026-07-31 18:00:34.826 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 18:00:34.826 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 18:01:15.020 | INFO | ✅ 2 nouveaux chunks insérés (email_body) pour 1218.
+2026-07-31 18:01:15.020 | INFO | ✅ 2 nouveaux chunks insérés (email_body) pour 1218.
+2026-07-31 18:01:15.330 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour 1218.
+2026-07-31 18:01:15.330 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour 1218.
+2026-07-31 18:01:15.728 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour 1218.
+2026-07-31 18:01:15.728 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour 1218.
+2026-07-31 18:01:15.889 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1219.
+2026-07-31 18:01:15.889 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1219.
+2026-07-31 18:01:15.897 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 18:01:15.897 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 18:05:33.391 | INFO | 🔍 checking 1221 mails
+2026-07-31 18:05:33.391 | INFO | 🔍 checking 1221 mails
+2026-07-31 18:05:33.419 | INFO | ⏭️ skipped : 1219 e-mail(s) déjà stocké(s) en local.
+2026-07-31 18:05:33.419 | INFO | ⏭️ skipped : 1219 e-mail(s) déjà stocké(s) en local.
+2026-07-31 18:05:33.933 | INFO | ✅ 1220/1221 treated
+2026-07-31 18:05:33.933 | INFO | ✅ 1220/1221 treated
+2026-07-31 18:05:34.538 | INFO | ✅ 1221/1221 treated
+2026-07-31 18:05:34.538 | INFO | ✅ 1221/1221 treated
+2026-07-31 18:05:35.339 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 18:05:35.339 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 18:06:13.794 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1220.
+2026-07-31 18:06:13.794 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1220.
+2026-07-31 18:06:14.083 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour 1220.
+2026-07-31 18:06:14.083 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour 1220.
+2026-07-31 18:06:14.399 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1221.
+2026-07-31 18:06:14.399 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1221.
+2026-07-31 18:06:14.405 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 18:06:14.405 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 18:10:33.080 | INFO | 🔍 checking 1223 mails
+2026-07-31 18:10:33.080 | INFO | 🔍 checking 1223 mails
+2026-07-31 18:10:33.238 | INFO | ⏭️ skipped : 1221 e-mail(s) déjà stocké(s) en local.
+2026-07-31 18:10:33.238 | INFO | ⏭️ skipped : 1221 e-mail(s) déjà stocké(s) en local.
+2026-07-31 18:10:34.127 | INFO | ✅ 1222/1223 treated
+2026-07-31 18:10:34.127 | INFO | ✅ 1222/1223 treated
+2026-07-31 18:10:34.782 | INFO | ✅ 1223/1223 treated
+2026-07-31 18:10:34.782 | INFO | ✅ 1223/1223 treated
+2026-07-31 18:10:35.983 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 18:10:35.983 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 18:11:09.925 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1222.
+2026-07-31 18:11:09.925 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1222.
+2026-07-31 18:11:10.075 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1223.
+2026-07-31 18:11:10.075 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1223.
+2026-07-31 18:11:10.107 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 18:11:10.107 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 18:15:35.072 | INFO | 🔍 checking 1225 mails
+2026-07-31 18:15:35.072 | INFO | 🔍 checking 1225 mails
+2026-07-31 18:15:35.128 | INFO | ⏭️ skipped : 1223 e-mail(s) déjà stocké(s) en local.
+2026-07-31 18:15:35.128 | INFO | ⏭️ skipped : 1223 e-mail(s) déjà stocké(s) en local.
+2026-07-31 18:15:35.723 | INFO | ✅ 1224/1225 treated
+2026-07-31 18:15:35.723 | INFO | ✅ 1224/1225 treated
+2026-07-31 18:15:36.402 | INFO | ✅ 1225/1225 treated
+2026-07-31 18:15:36.402 | INFO | ✅ 1225/1225 treated
+2026-07-31 18:15:37.924 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 18:15:37.924 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 18:16:59.580 | INFO | ✅ 2 nouveaux chunks insérés (email_body) pour 1224.
+2026-07-31 18:16:59.580 | INFO | ✅ 2 nouveaux chunks insérés (email_body) pour 1224.
+2026-07-31 18:16:59.862 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1225.
+2026-07-31 18:16:59.862 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1225.
+2026-07-31 18:16:59.942 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 18:16:59.942 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 18:20:32.968 | INFO | 🔍 checking 1227 mails
+2026-07-31 18:20:32.968 | INFO | 🔍 checking 1227 mails
+2026-07-31 18:20:33.031 | INFO | ⏭️ skipped : 1225 e-mail(s) déjà stocké(s) en local.
+2026-07-31 18:20:33.031 | INFO | ⏭️ skipped : 1225 e-mail(s) déjà stocké(s) en local.
+2026-07-31 18:20:33.673 | INFO | ✅ 1226/1227 treated
+2026-07-31 18:20:33.673 | INFO | ✅ 1226/1227 treated
+2026-07-31 18:20:34.250 | INFO | ✅ 1227/1227 treated
+2026-07-31 18:20:34.250 | INFO | ✅ 1227/1227 treated
+2026-07-31 18:20:35.328 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 18:20:35.328 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-07-31 18:21:58.062 | INFO | ✅ 2 nouveaux chunks insérés (email_body) pour 1226.
+2026-07-31 18:21:58.062 | INFO | ✅ 2 nouveaux chunks insérés (email_body) pour 1226.
+2026-07-31 18:21:58.362 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1227.
+2026-07-31 18:21:58.362 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1227.
+2026-07-31 18:21:58.430 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-07-31 18:21:58.430 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-08-01 17:25:33.310 | INFO | 🔍 checking 1229 mails
+2026-08-01 17:25:33.310 | INFO | 🔍 checking 1229 mails
+2026-08-01 17:25:33.328 | INFO | ⏭️ skipped : 1227 e-mail(s) déjà stocké(s) en local.
+2026-08-01 17:25:33.328 | INFO | ⏭️ skipped : 1227 e-mail(s) déjà stocké(s) en local.
+2026-08-01 17:25:33.884 | INFO | ✅ 1228/1229 treated
+2026-08-01 17:25:33.884 | INFO | ✅ 1228/1229 treated
+2026-08-01 17:25:34.524 | INFO | ✅ 1229/1229 treated
+2026-08-01 17:25:34.524 | INFO | ✅ 1229/1229 treated
+2026-08-01 17:25:35.313 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-08-01 17:25:35.313 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-08-01 17:26:13.998 | INFO | ✅ 2 nouveaux chunks insérés (email_body) pour 1228.
+2026-08-01 17:26:13.998 | INFO | ✅ 2 nouveaux chunks insérés (email_body) pour 1228.
+2026-08-01 17:26:14.321 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1229.
+2026-08-01 17:26:14.321 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1229.
+2026-08-01 17:26:14.431 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-08-01 17:26:14.431 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-08-01 17:30:39.640 | INFO | 🔍 checking 1231 mails
+2026-08-01 17:30:39.640 | INFO | 🔍 checking 1231 mails
+2026-08-01 17:30:39.683 | INFO | ⏭️ skipped : 1229 e-mail(s) déjà stocké(s) en local.
+2026-08-01 17:30:39.683 | INFO | ⏭️ skipped : 1229 e-mail(s) déjà stocké(s) en local.
+2026-08-01 17:30:40.732 | INFO | ✅ 1230/1231 treated
+2026-08-01 17:30:40.732 | INFO | ✅ 1230/1231 treated
+2026-08-01 17:30:41.456 | INFO | ✅ 1231/1231 treated
+2026-08-01 17:30:41.456 | INFO | ✅ 1231/1231 treated
+2026-08-01 17:30:42.496 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-08-01 17:30:42.496 | INFO | 🔍 Analyse et vectorisation des e-mails avec métadonnées JSON...
+2026-08-01 17:31:13.643 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1230.
+2026-08-01 17:31:13.643 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1230.
+2026-08-01 17:31:13.989 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour 1230.
+2026-08-01 17:31:13.989 | INFO | ✅ 1 nouveaux chunks insérés (attachment) pour 1230.
+2026-08-01 17:31:14.218 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1231.
+2026-08-01 17:31:14.218 | INFO | ✅ 1 nouveaux chunks insérés (email_body) pour 1231.
+2026-08-01 17:31:14.224 | INFO | 🎉 Traitement et vectorisation terminés avec succès !
+2026-08-01 17:31:14.224 | INFO | 🎉 Traitement et vectorisation terminés avec succès !

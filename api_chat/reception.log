@@ -1891,3 +1891,10 @@ Traceback (most recent call last):
 groq.BadRequestError: Error code: 400 - {'error': {'message': "Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=search_emails_by_person>{"person_name": "Jeanne D&#39;Arc"}'}}
 
 [2026-07-28 18:18:07.641] [INFO] [main.py:33 -> chat_with_ai()] : 📤 Réponse renvoyée avec succès à l'interface HTML.
+[2026-07-31 10:05:14.142] [INFO] [main.py:28 -> chat_with_ai()] : 📥 Reçu depuis l'interface graphique : 'Quels sont les e-mails ou ines est mentionnée ?'
+[2026-07-31 10:05:14.144] [INFO] [chat_agent.py:25 -> run_chat_agent()] : 🔍 1. Initialisation de la requête pour : 'Quels sont les e-mails ou ines est mentionnée ?'
+[2026-07-31 10:05:14.149] [INFO] [chat_agent.py:45 -> run_chat_agent()] : 🤖 2. Envoi de la requête à Groq (avec support des Tools)...
+[2026-07-31 10:05:14.535] [INFO] [chat_agent.py:56 -> run_chat_agent()] : 🛠️ 3. L'agent a décidé d'utiliser un Tool !
+[2026-07-31 10:05:14.539] [INFO] [chat_agent.py:64 -> run_chat_agent()] : ⚙️ Exécution du Tool 'search_emails_by_person' avec les arguments : {'person_name': 'Inès'}
+[2026-07-31 10:05:14.567] [INFO] [chat_agent.py:71 -> run_chat_agent()] : 🤖 4. Génération de la réponse finale par Groq...
+[2026-07-31 10:05:14.730] [INFO] [main.py:33 -> chat_with_ai()] : 📤 Réponse renvoyée avec succès à l'interface HTML.
