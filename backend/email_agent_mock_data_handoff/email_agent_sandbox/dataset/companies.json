@@ -1,0 +1,205 @@
+[
+ {
+  "company_id": "demo_lab",
+  "name": "Demo Engineering Lab",
+  "type": "internal",
+  "domain": "demo-lab.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "orion_line",
+  "name": "Orion Line Components",
+  "type": "client",
+  "domain": "orion-line.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "cobalt_assembly",
+  "name": "Cobalt Assembly Works",
+  "type": "client",
+  "domain": "cobalt-assembly.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "vertex_vision",
+  "name": "Vertex Vision Parts",
+  "type": "supplier",
+  "domain": "vertex-vision.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "northbridge_sensor",
+  "name": "Northbridge Sensor Supply",
+  "type": "supplier",
+  "domain": "northbridge-sensor.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "medroute_freight",
+  "name": "MedRoute Freight Sim",
+  "type": "logistics",
+  "domain": "medroute-sim.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "customs_test",
+  "name": "Customs Test Desk",
+  "type": "government_style",
+  "domain": "customs-test.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "fiscal_test",
+  "name": "Fiscal Test Center",
+  "type": "government_style",
+  "domain": "fiscal-test.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "clearbank_demo",
+  "name": "ClearBank Demo",
+  "type": "bank",
+  "domain": "clearbank-demo.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "helios_pack",
+  "name": "Helios Packaging Systems",
+  "type": "client",
+  "domain": "helios-pack.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "atlas_dairy",
+  "name": "Atlas Dairy Process",
+  "type": "client",
+  "domain": "atlas-dairy.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "ferro_forge",
+  "name": "FerroForge Metalworks",
+  "type": "client",
+  "domain": "ferro-forge.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "quantum_textile",
+  "name": "Quantum Textile Group",
+  "type": "client",
+  "domain": "quantum-textile.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "solaris_agro",
+  "name": "Solaris Agro Industries",
+  "type": "client",
+  "domain": "solaris-agro.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "nordwind_auto",
+  "name": "Nordwind Automotive Parts",
+  "type": "client",
+  "domain": "nordwind-auto.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "cedar_pharma",
+  "name": "Cedar Pharma Labs",
+  "type": "client",
+  "domain": "cedar-pharma.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "bluewave_bottling",
+  "name": "BlueWave Bottling Co",
+  "type": "client",
+  "domain": "bluewave-bottling.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "granite_cement",
+  "name": "Granite Cement Works",
+  "type": "client",
+  "domain": "granite-cement.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "delta_drives",
+  "name": "Delta Drives GmbH",
+  "type": "supplier",
+  "domain": "delta-drives.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "lumina_optics",
+  "name": "Lumina Optics Ltd",
+  "type": "supplier",
+  "domain": "lumina-optics.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "robust_robotics",
+  "name": "Robust Robotics SRL",
+  "type": "supplier",
+  "domain": "robust-robotics.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "padlock_plc",
+  "name": "PadLock PLC Components",
+  "type": "supplier",
+  "domain": "padlock-plc.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "iron_cable",
+  "name": "IronCable Industrial",
+  "type": "supplier",
+  "domain": "iron-cable.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "prime_pack",
+  "name": "PrimePack Machinery",
+  "type": "supplier",
+  "domain": "prime-pack.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "swiftcargo",
+  "name": "SwiftCargo Express Sim",
+  "type": "logistics",
+  "domain": "swiftcargo-sim.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "social_fund_test",
+  "name": "Social Fund Test Office",
+  "type": "government_style",
+  "domain": "social-fund-test.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "techline_news",
+  "name": "TechLine Newsletter Sim",
+  "type": "noise",
+  "domain": "techline-news.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "expo_events",
+  "name": "Expo Events Sim",
+  "type": "noise",
+  "domain": "expo-events.example.test",
+  "fictional": true
+ },
+ {
+  "company_id": "officesup_demo",
+  "name": "OfficeSupply Demo Store",
+  "type": "noise",
+  "domain": "officesup-demo.example.test",
+  "fictional": true
+ }
+]

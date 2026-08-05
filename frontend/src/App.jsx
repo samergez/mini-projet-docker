@@ -14,7 +14,10 @@ function App() {
 
     const userMessage = input;
     setInput('');
-    setMessages((prev) => [...prev, { sender: 'user', text: userMessage }]);
+    
+    // On met à jour l'historique local incluant le nouveau message de l'utilisateur
+    const updatedMessages = [...messages, { sender: 'user', text: userMessage }];
+    setMessages(updatedMessages);
     setLoading(true);
 
     try {
@@ -23,7 +26,10 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ prompt: userMessage }),
+        body: JSON.stringify({ 
+          prompt: userMessage, 
+          history: updatedMessages // <-- Envoie l'historique complet pour que le backend se souvienne du contexte
+        }),
       });
 
       const data = await response.json();

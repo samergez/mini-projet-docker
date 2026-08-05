@@ -16,37 +16,38 @@ services:
     networks:
       - app-network
 
-  api_chat:
-    image: python:3.10-slim
-    user: root
-    dns:
-      - 8.8.8.8
-      - 8.8.4.4
-    environment:
-      - PYTHONUNBUFFERED=1
-      - GROQ_API_KEY=${GROQ_API_KEY}
-      - SMTP_EMAIL=${SMTP_EMAIL}      
-      - SMTP_PASSWORD=${SMTP_PASSWORD} 
-      - DB_USER=${DB_USER}
-      - DB_PASSWORD=${DB_PASSWORD}
-      - DB_NAME=${DB_NAME}
-      - DB_PORT=${DB_PORT}
-      - OLLAMA_URL=http://ollama:11434
-    volumes:
-      - ./api_chat:/app
-      - ./email_agent_mock_data_handoff/email_agent_sandbox/dataset:/app/dataset
-      - ./logs:/app/logs
-      - ./received_emails:/app/received_emails
-    working_dir: /app
-    ports:
-      - "8000:8000"
-    entrypoint: sh /app/entrypoint.sh
-    restart: always
-    depends_on:
-      - db_service
-      - ollama
-    networks:
-      - app-network
+  # --- ANCIEN SERVICE API_CHAT (Mis en commentaire car obsolète) ---
+  # api_chat:
+  #   image: python:3.10-slim
+  #   user: root
+  #   dns:
+  #     - 8.8.8.8
+  #     - 8.8.4.4
+  #   environment:
+  #     - PYTHONUNBUFFERED=1
+  #     - GROQ_API_KEY=${GROQ_API_KEY}
+  #     - SMTP_EMAIL=${SMTP_EMAIL}      
+  #     - SMTP_PASSWORD=${SMTP_PASSWORD} 
+  #     - DB_USER=${DB_USER}
+  #     - DB_PASSWORD=${DB_PASSWORD}
+  #     - DB_NAME=${DB_NAME}
+  #     - DB_PORT=${DB_PORT}
+  #     - OLLAMA_URL=http://ollama:11434
+  #   volumes:
+  #     - ./api_chat:/app
+  #     - ./email_agent_mock_data_handoff/email_agent_sandbox/dataset:/app/dataset
+  #     - ./logs:/app/logs
+  #     - ./received_emails:/app/received_emails
+  #   working_dir: /app
+  #   ports:
+  #     - "8000:8000"
+  #   entrypoint: sh /app/entrypoint.sh
+  #   restart: always
+  #   depends_on:
+  #     - db_service
+  #     - ollama
+  #   networks:
+  #     - app-network
 
   mailserver:
     image: axllent/mailpit
@@ -92,27 +93,38 @@ services:
     volumes:
       - ./backend:/app
     ports:
-      - "8001:8000"
+      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
     env_file:
       - .env   # <-- Permet de charger automatiquement ton fichier .env
-    command: sh -c "pip install --no-cache-dir pydantic groq psycopg2-binary requests && python manage.py runserver 0.0.0.0:8000"
     restart: unless-stopped
     networks:
       - app-network
 
-  # --- NOUVEAU FRONTEND REACT (Application Chat) ---
   frontend:
-    image: node:18-alpine
-    container_name: react_chat_frontend
-    working_dir: /app
+    build: ./frontend
+    container_name: frontend_service
+    ports:
+      - "5173:5173"
     volumes:
       - ./frontend:/app
-    ports:
-      - "3000:3000"
-    command: sh -c "npm install && npm run dev -- --host"
-    restart: unless-stopped
+      - /app/node_modules
     networks:
       - app-network
+
+  # --- NOUVEAU FRONTEND REACT (Application Chat) ---
+  # frontend:
+  #   image: node:18-alpine
+  #   container_name: react_chat_frontend
+  #   working_dir: /app
+  #   volumes:
+  #     - ./frontend:/app
+  #   ports:
+  #     - "3000:3000"
+  #   command: sh -c "npm install && npm run dev -- --host"
+  #   restart: unless-stopped
+  #   networks:
+  #     - app-network
 
   # --- ANCIEN BACKEND DJANGO TEMPORAIRE "todo" (Mis en commentaire) ---
   # backend_django:

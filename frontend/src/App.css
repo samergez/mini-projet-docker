@@ -52,6 +52,7 @@ body {
   background-color: #e2e8f0;
   color: #333;
   align-self: flex-start;
+  white-space: pre-line; /* <--- C'est ici qu'il faut l'ajouter ! */
 }
 
 .chat-form {

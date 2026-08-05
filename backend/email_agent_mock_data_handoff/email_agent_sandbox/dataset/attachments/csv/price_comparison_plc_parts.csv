@@ -1,0 +1,6 @@
+supplier,item,unit_price_eur,lead_time_weeks,notes
+Vertex Vision,PLC option,1284,5,fictional
+Northbridge,PLC option,5355,5,fictional
+Delta Drives,PLC option,8379,8,fictional
+Lumina Optics,PLC option,7717,4,fictional
+# fictional sandbox data

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-hf$)_y=i3#hm+5g-_#ejfrk3lu6k1z0z^_2=9^2ry_jz#z)0y#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,11 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Ajout de CORS headers
+    'corsheaders',
     # Ajout de notre application de chat
     'chat_app',
 ]
 
 MIDDLEWARE = [
+    # Le middleware CORS doit être placé le plus haut possible
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -50,6 +54,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+# Configuration CORS pour autoriser le Frontend React
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -148,7 +158,7 @@ LOGGING = {
             'formatter': 'simple',
         },
         'file': {
-            'level': 'ERROR',
+            'level': 'INFO',  # <-- Modifié d'ERROR à INFO pour capturer aussi les succès et avertissements
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'backend_chat.log'),
             'formatter': 'verbose',
