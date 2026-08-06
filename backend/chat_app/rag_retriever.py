@@ -176,7 +176,7 @@ def search_emails_by_date(target_date: str) -> List[Dict[str, Any]]:
                     try:
                         target_parts = target_date.split("-")
                         months_map = {'01': 'jan', '02': 'feb', '03': 'mar', '04': 'apr', '05': 'may', '06': 'jun', 
-                                      '07': 'jul', '08': 'aug', '09': 'sep', '10': 'oct', '11': 'nov', '12': 'dec'}
+                                     '07': 'jul', '08': 'aug', '09': 'sep', '10': 'oct', '11': 'nov', '12': 'dec'}
                         m_str = months_map.get(target_parts[1], '')
                         
                         if target_parts[2] in date_str and m_str.lower() in date_str.lower() and target_parts[0] in date_str:
@@ -416,6 +416,111 @@ def search_emails_by_subject(keyword: str) -> List[Dict[str, Any]]:
     return results
 
 
+def get_emails_advanced_filter(name: Optional[str] = None, date_from: Optional[str] = None, date_to: Optional[str] = None) -> List[Dict[str, Any]]:
+    """
+    Récupère les e-mails avec filtres optionnels sur le nom de la personne et/ou une plage de dates.
+    Si aucun paramètre n'est fourni, renvoie tous les e-mails sans aucun tri.
+    Récupère le contenu textuel ainsi que les pièces jointes associées.
+    """
+    results = []
+    conn = None
+    try:
+        conn = get_db_connection()
+        with conn.cursor() as cur:
+            query_sql = """
+                SELECT 
+                    email_id, 
+                    chunk_text, 
+                    metadata,
+                    source_type,
+                    file_name
+                FROM email_embeddings;
+            """
+            cur.execute(query_sql)
+            rows = cur.fetchall()
+            
+            start_dt = datetime.strptime(date_from, "%Y-%m-%d").date() if date_from else None
+            end_dt = datetime.strptime(date_to, "%Y-%m-%d").date() if date_to else None
+            
+            emails_dict = {}
+            
+            for row in rows:
+                email_id = str(row.get('email_id'))
+                if not email_id:
+                    continue
+                
+                if email_id not in emails_dict:
+                    emails_dict[email_id] = {
+                        "email_id": email_id,
+                        "content": "",
+                        "date": None,
+                        "sender": "",
+                        "attachments": []
+                    }
+                
+                text = row.get('chunk_text', '')
+                if text and not emails_dict[email_id]["content"]:
+                    emails_dict[email_id]["content"] = text
+                
+                meta = row.get('metadata')
+                if isinstance(meta, str):
+                    try:
+                        meta = json.loads(meta)
+                    except Exception:
+                        meta = {}
+                
+                if isinstance(meta, dict):
+                    if not emails_dict[email_id]["date"]:
+                        emails_dict[email_id]["date"] = meta.get('date')
+                    if not emails_dict[email_id]["sender"]:
+                        emails_dict[email_id]["sender"] = meta.get('sender') or meta.get('from') or meta.get('author', '')
+                
+                source_type = row.get('source_type')
+                file_name = row.get('file_name')
+                if source_type == 'attachment' or file_name:
+                    if file_name and file_name not in emails_dict[email_id]["attachments"]:
+                        emails_dict[email_id]["attachments"].append(file_name)
+
+            for email_id, data in emails_dict.items():
+                match = True
+                
+                if name:
+                    name_clean = name.strip().lower()
+                    sender_str = str(data["sender"]).lower()
+                    content_str = str(data["content"]).lower()
+                    if name_clean not in sender_str and name_clean not in content_str:
+                        match = False
+                
+                if match and (start_dt or end_dt):
+                    date_str = data["date"]
+                    if not date_str:
+                        match = False
+                    else:
+                        parsed_dt = parse_any_date(date_str)
+                        if not parsed_dt:
+                            match = False
+                        else:
+                            email_date = parsed_dt.date()
+                            if start_dt and email_date < start_dt:
+                                match = False
+                            if end_dt and email_date > end_dt:
+                                match = False
+                
+                if match:
+                    results.append(data)
+                    
+    except Exception as e:
+        print(f"❌ Erreur get_emails_advanced_filter : {e}")
+    finally:
+        if conn:
+            try:
+                conn.close()
+            except Exception:
+                pass
+                
+    return results
+
+
 # =====================================================================
 # --- SCHÉMAS DES TOOLS POUR L'API GROQ ---
 # =====================================================================
@@ -510,6 +615,31 @@ TOOLS_SCHEMA = [
                     "keyword": {"type": "string", "description": "Le mot-clé à rechercher (ex: Facture, Urgent)"}
                 },
                 "required": ["keyword"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_emails_advanced_filter",
+            "description": "Récupère les e-mails avec des filtres optionnels sur le nom (expéditeur ou contenu) et/ou une plage de dates (date_from, date_to au format YYYY-MM-DD). Si aucun paramètre n'est fourni, renvoie tous les e-mails avec leurs pièces jointes.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": ["string", "null"],
+                        "description": "Nom de la personne à rechercher (expéditeur ou dans le texte)."
+                    },
+                    "date_from": {
+                        "type": ["string", "null"],
+                        "description": "Date de début minimale au format YYYY-MM-DD."
+                    },
+                    "date_to": {
+                        "type": ["string", "null"],
+                        "description": "Date de fin maximale au format YYYY-MM-DD."
+                    }
+                },
+                "required": []
             }
         }
     }

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
+import EmailDashboard from './EmailDashboard';
 
 function App() {
+  const [currentView, setCurrentView] = useState('dashboard');
+
   const [messages, setMessages] = useState([
     { sender: 'bot', text: 'Bonjour ! Comment puis-je vous aider avec vos e-mails ?' }
   ]);
@@ -15,7 +18,6 @@ function App() {
     const userMessage = input;
     setInput('');
     
-    // On met à jour l'historique local incluant le nouveau message de l'utilisateur
     const updatedMessages = [...messages, { sender: 'user', text: userMessage }];
     setMessages(updatedMessages);
     setLoading(true);
@@ -28,7 +30,7 @@ function App() {
         },
         body: JSON.stringify({ 
           prompt: userMessage, 
-          history: updatedMessages // <-- Envoie l'historique complet pour que le backend se souvienne du contexte
+          history: updatedMessages 
         }),
       });
 
@@ -45,26 +47,64 @@ function App() {
   };
 
   return (
-    <div className="chat-container">
-      <h2>Assistant E-mails RAG</h2>
-      <div className="messages-box">
-        {messages.map((msg, index) => (
-          <div key={index} className={`message ${msg.sender}`}>
-            <span>{msg.text}</span>
-          </div>
-        ))}
-        {loading && <div className="message bot"><em>L'agent réfléchit...</em></div>}
-      </div>
+    <div className="app-container">
+      {/* Barre de navigation stylisée avec le thème */}
+      <nav style={{ display: 'flex', justifyContent: 'center', gap: '10px', padding: '15px', background: '#2b2b2b', borderBottom: '1px solid #444' }}>
+        <button 
+          onClick={() => setCurrentView('dashboard')}
+          style={{ 
+            padding: '8px 16px', 
+            cursor: 'pointer', 
+            background: currentView === 'dashboard' ? '#8109E0' : '#444', 
+            color: '#fff', 
+            border: 'none', 
+            borderRadius: '4px', 
+            fontWeight: 'bold' 
+          }}
+        >
+          Tableau de bord (Expéditeurs)
+        </button>
+        <button 
+          onClick={() => setCurrentView('chat')}
+          style={{ 
+            padding: '8px 16px', 
+            cursor: 'pointer', 
+            background: currentView === 'chat' ? '#8109E0' : '#444', 
+            color: '#fff', 
+            border: 'none', 
+            borderRadius: '4px', 
+            fontWeight: 'bold' 
+          }}
+        >
+          Assistant Chat RAG
+        </button>
+      </nav>
 
-      <form onSubmit={sendMessage} className="chat-form">
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Posez votre question ici..."
-        />
-        <button type="submit">Envoyer</button>
-      </form>
+      {currentView === 'dashboard' ? (
+        <EmailDashboard />
+      ) : (
+        <div className="chat-container">
+          <h2>Assistant E-mails RAG</h2>
+          <div className="messages-box">
+            {messages.map((msg, index) => (
+              <div key={index} className={`message ${msg.sender}`}>
+                <span>{msg.text}</span>
+              </div>
+            ))}
+            {loading && <div className="message bot"><em>L'agent réfléchit...</em></div>}
+          </div>
+
+          <form onSubmit={sendMessage} className="chat-form">
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Posez votre question ici..."
+            />
+            <button type="submit">Envoyer</button>
+          </form>
+        </div>
+      )}
     </div>
   );
 }
