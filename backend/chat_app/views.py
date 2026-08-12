@@ -19,7 +19,8 @@ class ChatAPIView(APIView):
         if serializer.is_valid():
             try:
                 logger.info("Requête POST reçue et validée sur /api/chat/")
-                # Appel de la logique métier (service.py)
+                # Appel de la logique métier (service.py) en passant tout validated_data 
+                # (qui contient maintenant le prompt, l'historique et le model_name)
                 result = process_chat_logic(serializer.validated_data)
                 logger.info("Traitement de la requête terminé avec succès.")
                 return Response(result, status=status.HTTP_200_OK)

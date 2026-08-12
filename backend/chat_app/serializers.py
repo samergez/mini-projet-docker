@@ -6,3 +6,4 @@ class ChatSerializer(serializers.Serializer):
     history = serializers.ListField(
         child=serializers.DictField(), required=False, default=list
     )
+    model_name = serializers.CharField(required=False, default="llama-3.1-8b-instant")

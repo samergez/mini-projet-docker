@@ -10,6 +10,7 @@ class ChatInputPayload(BaseModel):
     prompt: str = Field(..., min_length=1)
     history: Optional[List[Dict[str, str]]] = Field(default=None, description="Historique des messages de la conversation")
     metadata_filters: Optional[Dict[str, Any]] = None
+    model_name: Optional[str] = Field(default="llama-3.1-8b-instant", description="Nom du modèle LLM choisi par l'utilisateur")
 
 def process_chat_logic(data: dict) -> dict:
     """
@@ -23,12 +24,13 @@ def process_chat_logic(data: dict) -> dict:
     user_prompt = validated_data.prompt
     chat_history = validated_data.history or []
     metadata = validated_data.metadata_filters or {}
+    model_name = validated_data.model_name
     
-    logger.info(f"Prompt validé avec succès : '{user_prompt}' avec historique de {len(chat_history)} messages.")
+    logger.info(f"Prompt validé avec succès : '{user_prompt}' avec historique de {len(chat_history)} messages (Modèle : {model_name}).")
     logger.info(f"xxxxxxxxxxxxxxx'{chat_history}'")
     
-    # 2. Appel de ton Chat Agent en lui passant l'historique
-    ai_response = run_chat_agent(user_query=user_prompt, history=chat_history)
+    # 2. Appel de ton Chat Agent en lui passant l'historique et le modèle choisi
+    ai_response = run_chat_agent(user_query=user_prompt, history=chat_history, model_name=model_name)
     
     logger.info("Traitement par l'Agent IA terminé avec succès.")
     
@@ -36,5 +38,6 @@ def process_chat_logic(data: dict) -> dict:
         "status": "success",
         "prompt": user_prompt,
         "response": ai_response,
-        "metadata_used": metadata
+        "metadata_used": metadata,
+        "model_used": model_name
     }

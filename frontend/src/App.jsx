@@ -4,6 +4,7 @@ import EmailDashboard from './EmailDashboard';
 
 function App() {
   const [currentView, setCurrentView] = useState('dashboard');
+  const [selectedModel, setSelectedModel] = useState('llama-3.1-8b-instant'); // État pour le modèle sélectionné
 
   const [messages, setMessages] = useState([
     { sender: 'bot', text: 'Bonjour ! Comment puis-je vous aider avec vos e-mails ?' }
@@ -30,7 +31,8 @@ function App() {
         },
         body: JSON.stringify({ 
           prompt: userMessage, 
-          history: updatedMessages 
+          history: updatedMessages,
+          model_name: selectedModel // Envoi dynamique du modèle choisi
         }),
       });
 
@@ -84,7 +86,24 @@ function App() {
         <EmailDashboard />
       ) : (
         <div className="chat-container">
-          <h2>Assistant E-mails RAG</h2>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+            <h2>Assistant E-mails RAG</h2>
+            
+            {/* Sélecteur de modèle d'IA */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <label htmlFor="modelSelect" style={{ color: '#fff', fontSize: '14px' }}>Modèle :</label>
+              <select 
+                id="modelSelect"
+                value={selectedModel} 
+                onChange={(e) => setSelectedModel(e.target.value)}
+                style={{ padding: '6px 10px', borderRadius: '4px', background: '#333', color: '#fff', border: '1px solid #555' }}
+              >
+                <option value="llama-3.1-8b-instant">Groq (llama-3.1)</option>
+                <option value="glm-5.2">GLM (5.2)</option>
+              </select>
+            </div>
+          </div>
+
           <div className="messages-box">
             {messages.map((msg, index) => (
               <div key={index} className={`message ${msg.sender}`}>

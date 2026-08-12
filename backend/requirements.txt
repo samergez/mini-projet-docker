@@ -1,3 +1,4 @@
 django>=5.2,<6.0
 django-cors-headers
 psycopg2-binary
+zhipuai
