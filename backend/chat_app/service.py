@@ -25,6 +25,7 @@ def process_chat_logic(data: dict) -> dict:
     metadata = validated_data.metadata_filters or {}
     
     logger.info(f"Prompt validé avec succès : '{user_prompt}' avec historique de {len(chat_history)} messages.")
+    logger.info(f"xxxxxxxxxxxxxxx'{chat_history}'")
     
     # 2. Appel de ton Chat Agent en lui passant l'historique
     ai_response = run_chat_agent(user_query=user_prompt, history=chat_history)

@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Ajout de Django REST Framework
+    'rest_framework',
     # Ajout de CORS headers
     'corsheaders',
     # Ajout de notre application de chat

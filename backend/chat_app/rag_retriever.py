@@ -58,7 +58,7 @@ def get_query_embedding(query: str) -> List[float]:
         return []
 
 
-def retrieve_relevant_emails(query: str, limit: int = 5) -> List[DocumentChunk]:
+def retrieve_relevant_emails(query: str, limit: int = 10) -> List[DocumentChunk]:
     chunks = []
     query_vector = get_query_embedding(query)
     if not query_vector:
@@ -143,22 +143,26 @@ def parse_any_date(date_input: Any) -> datetime:
 
 
 def search_emails_by_date(target_date: str) -> List[Dict[str, Any]]:
-    """Recherche et renvoie les e-mails avec leur date explicite."""
+    """Recherche les e-mails de manière robuste en comparant directement les portions de dates."""
     results = []
     conn = None
     try:
         conn = get_db_connection()
         with conn.cursor() as cur:
+            # On récupère les e-mails ayant une date
             query_sql = "SELECT email_id, chunk_text, metadata FROM email_embeddings WHERE metadata->>'date' IS NOT NULL;"
             cur.execute(query_sql)
             rows = cur.fetchall()
             
-            target_dt = datetime.strptime(target_date, "%Y-%m-%d").date() # 2026-07-18
+            target_dt = datetime.strptime(target_date, "%Y-%m-%d").date()
+            
+            seen_emails = set()
             
             for row in rows:
-                if len(results) >= 3:
-                    break
-                    
+                email_id = str(row.get('email_id'))
+                if email_id in seen_emails:
+                    continue  # Évite les doublons si plusieurs chunks pour le même email
+                
                 meta = row.get('metadata')
                 if isinstance(meta, str):
                     try:
@@ -167,34 +171,20 @@ def search_emails_by_date(target_date: str) -> List[Dict[str, Any]]:
                         continue
                 
                 date_str = str(meta.get('date', ''))
-                matched = False
-                
                 parsed_dt = parse_any_date(date_str)
+                
                 if parsed_dt and parsed_dt.date() == target_dt:
-                    matched = True
-                else:
-                    try:
-                        target_parts = target_date.split("-")
-                        months_map = {'01': 'jan', '02': 'feb', '03': 'mar', '04': 'apr', '05': 'may', '06': 'jun', 
-                                     '07': 'jul', '08': 'aug', '09': 'sep', '10': 'oct', '11': 'nov', '12': 'dec'}
-                        m_str = months_map.get(target_parts[1], '')
-                        
-                        if target_parts[2] in date_str and m_str.lower() in date_str.lower() and target_parts[0] in date_str:
-                            matched = True
-                    except Exception:
-                        pass
-
-                if matched:
+                    seen_emails.add(email_id)
                     text = row.get('chunk_text', '')
                     if len(text) > 400:
                         text = text[:400] + "..."
                         
                     results.append({
-                        "email_id": str(row.get('email_id')), 
+                        "email_id": email_id, 
                         "date": date_str,
                         "content": text
                     })
-                    
+                
     except Exception as e:
         print(f"❌ Erreur Tool search_emails_by_date : {e}")
     finally:
@@ -221,12 +211,7 @@ def search_emails_between_dates(start_date: str, end_date: str) -> List[Dict[str
             start_dt = datetime.strptime(start_date, "%Y-%m-%d").date()
             end_dt = datetime.strptime(end_date, "%Y-%m-%d").date()
             
-            print(f"🔍 [DEBUG] Plage cible : {start_dt} au {end_dt} | Lignes analysées : {len(rows)}")
-            
             for row in rows:
-                if len(results) >= 5:
-                    break
-                    
                 meta = row.get('metadata')
                 if isinstance(meta, str):
                     try:
@@ -253,8 +238,6 @@ def search_emails_between_dates(start_date: str, end_date: str) -> List[Dict[str
                         "date": str(date_str),
                         "content": text
                     })
-                    
-            print(f"✅ [DEBUG] Nombre d'e-mails trouvés : {len(results)}")
             
     except Exception as e:
         print(f"❌ Erreur Tool search_emails_between_dates : {e}")
@@ -273,7 +256,7 @@ def search_emails_by_person(person_name: str) -> List[Dict[str, Any]]:
     try:
         conn = get_db_connection()
         with conn.cursor() as cur:
-            query_sql = "SELECT email_id, chunk_text FROM email_embeddings WHERE chunk_text ILIKE %s LIMIT 3;"
+            query_sql = "SELECT email_id, chunk_text FROM email_embeddings WHERE chunk_text ILIKE %s;"
             cur.execute(query_sql, (f"%{person_name}%",))
             rows = cur.fetchall()
             for row in rows:
@@ -346,15 +329,13 @@ def get_email_attachments(email_id: Optional[str] = None, file_extension: Option
                 query_sql = """
                     SELECT DISTINCT email_id, file_name 
                     FROM email_embeddings 
-                    WHERE source_type = 'attachment' AND email_id = %s
-                    LIMIT 5;
+                    WHERE source_type = 'attachment' AND email_id = %s;
                 """
                 cur.execute(query_sql, (email_id,))
                 rows = cur.fetchall()
                 for row in rows:
                     results.append(dict(row))
     except Exception as e:
-        print("❌ [DEBUG TOOL ERROR] L'EXCEPTION EXACTE EST :")
         print(traceback.format_exc())
         results.append({"error": str(e)})
     finally:
@@ -374,7 +355,7 @@ def get_email_by_id(email_id: str) -> List[Dict[str, Any]]:
     try:
         conn = get_db_connection()
         with conn.cursor() as cur:
-            query_sql = "SELECT email_id, chunk_text FROM email_embeddings WHERE email_id = %s LIMIT 5;"
+            query_sql = "SELECT email_id, chunk_text FROM email_embeddings WHERE email_id = %s;"
             cur.execute(query_sql, (email_id,))
             rows = cur.fetchall()
             for row in rows:
@@ -391,13 +372,13 @@ def get_email_by_id(email_id: str) -> List[Dict[str, Any]]:
 
 
 def search_emails_by_subject(keyword: str) -> List[Dict[str, Any]]:
-    """Recherche des e-mails dont le sujet ou le contenu contient un mot-clé spécifique."""
+    """Recherche des e-mails en fonction d'un mot-clé spécifique."""
     results = []
     conn = None
     try:
         conn = get_db_connection()
         with conn.cursor() as cur:
-            query_sql = "SELECT email_id, chunk_text FROM email_embeddings WHERE chunk_text ILIKE %s LIMIT 20;"
+            query_sql = "SELECT email_id, chunk_text FROM email_embeddings WHERE chunk_text ILIKE %s;"
             cur.execute(query_sql, (f"%{keyword}%",))
             rows = cur.fetchall()
             for row in rows:
@@ -417,11 +398,7 @@ def search_emails_by_subject(keyword: str) -> List[Dict[str, Any]]:
 
 
 def get_emails_advanced_filter(name: Optional[str] = None, date_from: Optional[str] = None, date_to: Optional[str] = None) -> List[Dict[str, Any]]:
-    """
-    Récupère les e-mails avec filtres optionnels sur le nom de la personne et/ou une plage de dates.
-    Si aucun paramètre n'est fourni, renvoie tous les e-mails sans aucun tri.
-    Récupère le contenu textuel ainsi que les pièces jointes associées.
-    """
+    """Récupère les e-mails avec filtres optionnels sur le nom de la personne et/ou une plage de dates."""
     results = []
     conn = None
     try:

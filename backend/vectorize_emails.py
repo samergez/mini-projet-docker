@@ -128,9 +128,7 @@ def init_vector_table():
         error_details = traceback.format_exc()
         logger.error(f"❌ Erreur d'initialisation de la table vectorielle :\n{error_details}")
 
-def hash_exists(cur, content_hash):
-    cur.execute("SELECT 1 FROM email_embeddings WHERE content_hash = %s LIMIT 1;", (content_hash,))
-    return cur.fetchone() is not None
+# 🚀 Suppression de la fonction hash_exists() superflue (pré-vol supprimé)
 
 def save_chunks_to_db(cur, conn, chunks, email_id, source_type, file_name="", metadata=None):
     rows_to_insert = []
@@ -139,15 +137,13 @@ def save_chunks_to_db(cur, conn, chunks, email_id, source_type, file_name="", me
     for index, chunk in enumerate(chunks):
         chunk_hash = calculate_md5(f"{email_id}_{source_type}_{file_name}_{index}_{chunk}")
         
-        if hash_exists(cur, chunk_hash):
-            continue
-            
         vector = get_ollama_embedding(chunk)
         if vector:
             rows_to_insert.append((email_id, source_type, file_name, index, chunk, chunk_hash, vector, metadata_json))
     
     if rows_to_insert:
         try:
+            # 🚀 Utilisation de ON CONFLICT DO NOTHING pour gérer l'idempotence nativement en BDD
             execute_values(
                 cur,
                 """INSERT INTO email_embeddings (email_id, source_type, file_name, chunk_index, chunk_text, content_hash, embedding, metadata)
@@ -155,7 +151,7 @@ def save_chunks_to_db(cur, conn, chunks, email_id, source_type, file_name="", me
                 rows_to_insert
             )
             conn.commit()
-            logger.info(f"✅ {len(rows_to_insert)} nouveaux chunks insérés ({source_type}) pour {email_id}.")
+            logger.info(f"✅ {len(rows_to_insert)} chunks traités ({source_type}) pour {email_id}.")
         except Exception as e:
             conn.rollback()
             error_details = traceback.format_exc()

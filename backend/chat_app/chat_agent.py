@@ -12,7 +12,8 @@ from .rag_retriever import (
     search_emails_by_person,
     get_email_attachments,
     get_email_by_id,
-    search_emails_by_subject
+    search_emails_by_subject,
+    get_emails_advanced_filter
 )
 
 logger = logging.getLogger(__name__)
@@ -31,6 +32,7 @@ AVAILABLE_TOOLS = {
     "get_email_attachments": get_email_attachments,
     "get_email_by_id": get_email_by_id,
     "search_emails_by_subject": search_emails_by_subject,
+    "get_emails_advanced_filter": get_emails_advanced_filter,
 }
 
 def run_chat_agent(user_query: str, history: Optional[List[Dict[str, str]]] = None) -> str:
@@ -42,20 +44,23 @@ def run_chat_agent(user_query: str, history: Optional[List[Dict[str, str]]] = No
     current_model = os.getenv("AI_MODEL", "llama-3.1-8b-instant")
     history = history or []
     
+    # 🚀 TRONCATURE DE L'HISTORIQUE : On garde uniquement les 4 derniers messages
+    trimmed_history = history[-4:] if len(history) > 4 else history
+    
     try:
         system_instructions = (
             "Tu es un assistant IA expert en recherche d'e-mails et analyse RAG.\n"
             "RÈGLES STRICTES DE FONCTIONNEMENT :\n"
-            "1. À CHAQUE FOIS que l'utilisateur pose une question sur des e-mails (recherche par mot-clé, par sujet, par personne, par date ou par intervalle de dates), TU DOIS IMPÉRATIVEMENT appeler l'outil correspondant. Ne réponds jamais de mémoire.\n"
-            "2. Si l'utilisateur mentionne un mot-clé comme 'Urgent' ou 'Facture', utilise immédiatement l'outil 'search_emails_by_subject'.\n"
-            "3. Ne donne JAMAIS de conseils de programmation, de code Python ou de requêtes SQL à l'utilisateur.\n"
-            "4. Si l'outil retourne des résultats vides, indique simplement et sobrement à l'utilisateur qu'aucun e-mail n'a été trouvé pour cette période, sans inventer de prétexte.\n"
-            "5. Ne mentionne jamais d'erreur technique dans ta réponse."
+            "1. L'outil 'get_email_by_id' ne doit être utilisé QUE si l'utilisateur fournit un identifiant numérique exact (ex: un nombre comme 711).\n"
+            "2. Si l'utilisateur cherche un e-mail ou demande son ID à partir d'un nom de projet, d'un sujet ou d'un intitulé (ex: 'Sprint S29', 'Facture'), tu dois utiliser les outils de recherche textuelle (`search_emails_by_subject` ou `get_emails_advanced_filter`), jamais `get_email_by_id` directement.\n"
+            "3. N'utilise jamais l'outil 'search_emails_by_person' avec des termes vagues comme 'personne'.\n"
+            "4. INTERDICTION absolue d'afficher des balises techniques comme <function=...> dans tes réponses.\n"
+            "5. Si un outil ne renvoie rien, réponds simplement qu'aucun e-mail n'a été trouvé."
         )
 
         messages = [{"role": "system", "content": system_instructions}]
 
-        for msg in history[:-1]:
+        for msg in trimmed_history:
             role = "assistant" if msg.get("sender") == "bot" else "user"
             messages.append({"role": role, "content": msg.get("text", "")})
 
@@ -71,9 +76,12 @@ def run_chat_agent(user_query: str, history: Optional[List[Dict[str, str]]] = No
 
         response_message = response.choices[0].message
 
+        # Si le modèle décide d'appeler des outils
         if response_message.tool_calls:
             logger.info("🛠️ 3. L'agent a décidé d'utiliser un Tool !")
-            tool_outputs_summary = []
+            
+            # On ajoute la réponse initiale de l'assistant (qui contient les tool_calls) dans la conversation
+            messages.append(response_message)
 
             for tool_call in response_message.tool_calls:
                 function_name = tool_call.function.name
@@ -85,33 +93,39 @@ def run_chat_agent(user_query: str, history: Optional[List[Dict[str, str]]] = No
                 if function_name in AVAILABLE_TOOLS:
                     function_to_call = AVAILABLE_TOOLS[function_name]
                     tool_output = function_to_call(**function_args)
-                    tool_outputs_summary.append(json.dumps(tool_output, ensure_ascii=False))
+                    
+                    # Troncature optionnelle si le texte est trop long
+                    tool_output_str = json.dumps(tool_output, ensure_ascii=False)
+                    if len(tool_output_str) > 2000:
+                        tool_output_str = tool_output_str[:2000] + "... [Texte tronqué]"
+                else:
+                    logger.error(f"Tool '{function_name}' non implémenté")
+                    tool_output_str = json.dumps({"error": "outil indisponible"}, ensure_ascii=False)
 
-            logger.info("🤖 4. Génération de la réponse finale par Groq avec le contexte...")
-            
-            clean_messages = [
-                {
-                    "role": "system", 
-                    "content": (
-                        "Tu réponds à l'utilisateur de manière claire et structurée en te basant STRICTEMENT sur les résultats de la base de données fournis. "
-                        "INTERDICTION absolue de générer du code (Python, SQL, etc.) ou de donner des conseils techniques. "
-                        "Si les résultats sont vides, dis simplement qu'aucun e-mail n'a été trouvé."
-                    )
-                }
-            ]
-            
-            for msg in history[:-1]:
-                role = "assistant" if msg.get("sender") == "bot" else "user"
-                clean_messages.append({"role": role, "content": msg.get("text", "")})
+                # Ajout du résultat de l'outil avec le rôle 'tool' requis par l'API
+                messages.append({
+                    "tool_call_id": tool_call.id,
+                    "role": "tool",
+                    "name": function_name,
+                    "content": tool_output_str,
+                })
 
-            clean_messages.append({
-                "role": "user", 
-                "content": f"Résultat de la base de données : {tool_outputs_summary}\n\nQuestion posée : {user_query}"
+            logger.info("🤖 4. Génération de la réponse finale par Groq avec les résultats des outils...")
+            
+            # 🚀 Ajout d'une consigne de sécurité anti-bafouillage
+            messages.append({
+                "role": "system", 
+                "content": (
+                    "RÈGLE ABSOLUE : Tu dois rédiger un résumé clair, en français, des e-mails fournis ci-dessus ou donner l'information demandée (comme les ID trouvés). "
+                    "INTERDICTION formelle d'afficher des balises techniques comme <function=...> ou du code JSON brut. "
+                    "Fais des phrases complètes pour l'utilisateur."
+                )
             })
 
             second_response = groq_client.chat.completions.create(
                 model=current_model,
-                messages=clean_messages
+                messages=messages,
+                temperature=0.1  # 🌡️ On baisse la température pour forcer le déterminisme et la stabilité !
             )
             return second_response.choices[0].message.content
 

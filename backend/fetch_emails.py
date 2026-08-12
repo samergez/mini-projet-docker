@@ -6,52 +6,72 @@ from email.header import decode_header
 from datetime import datetime
 import logging
 import traceback
+import re
 
 # Dossier de destination à l'intérieur du conteneur (/app pointe sur backend)
 RECEIVED_DIR = "/app/received_emails"
 os.makedirs(RECEIVED_DIR, exist_ok=True)
 
-# Configuration fixe pour ton Gmail
+# --- CORRECTION SÉCURITÉ CRITIQUE ---
 IMAP_SERVER = "imap.gmail.com"
-SMTP_EMAIL = "samer.stage.ia@gmail.com"
-SMTP_PASSWORD = "lqbvmvvnryesurci"  # Ton mot de passe d'application Google
+SMTP_EMAIL = os.getenv("SMTP_EMAIL")
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
+
+if not SMTP_EMAIL or not SMTP_PASSWORD:
+    raise ValueError("❌ Erreur critique : Les variables d'environnement SMTP_EMAIL et SMTP_PASSWORD sont obligatoires.")
 
 # --- CONFIGURATION STRICTE DES LOGS ---
 logger = logging.getLogger("scrapper_logger")
 logger.setLevel(logging.DEBUG)
 
-# Format précis : Date, Heure exacte avec millisecondes, Niveau de log, Message
 log_format = logging.Formatter('%(asctime)s.%(msecs)03d | %(levelname)s | %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 
-# Sécurité : Création du dossier logs s'il n'existe pas encore
 os.makedirs('/app/logs', exist_ok=True)
 
-# Option A : Écriture dans le fichier logs/reception.log
 file_handler = logging.FileHandler('/app/logs/reception.log', encoding='utf-8')
 file_handler.setFormatter(log_format)
 logger.addHandler(file_handler)
 
-# Option B : Affichage simultané en console
 stream_handler = logging.StreamHandler()
 stream_handler.setFormatter(log_format)
 logger.addHandler(stream_handler)
 
 
-def get_already_downloaded_ids():
+def clean_message_id(msg_id: str) -> str:
+    """Nettoie le Message-ID pour qu'il soit utilisable dans un nom de dossier."""
+    if not msg_id:
+        return "unknown_id"
+    return re.sub(r'[^a-zA-Z0-9_\.-]', '_', msg_id).strip('_')
+
+
+def get_already_downloaded_message_ids():
     """
-    Parcourt le dossier pour lister les IDs de mails déjà récupérés.
+    Parcourt le dossier pour lister les Message-IDs de mails déjà récupérés.
     """
     downloaded_ids = set()
     if not os.path.exists(RECEIVED_DIR):
         return downloaded_ids
         
     for folder_name in os.listdir(RECEIVED_DIR):
+        # On lit le fichier JSON de métadonnées s'il existe pour récupérer le vrai Message-ID stable
+        json_path = os.path.join(RECEIVED_DIR, folder_name, "contenu_email.json")
+        if os.path.exists(json_path):
+            try:
+                with open(json_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    stable_id = data.get("Message_ID")
+                    if stable_id:
+                        downloaded_ids.add(stable_id)
+            except Exception:
+                pass
+                
+        # Rétrocompatibilité : si l'ancien format était basé sur la fin du nom du dossier
         if folder_name.startswith("email_") and len(folder_name.split('_')) >= 3:
             parts = folder_name.split('_')
-            msg_id = parts[-1] # Récupère l'identifiant court à la fin
-            downloaded_ids.add(msg_id)
+            downloaded_ids.add(parts[-1])
             
     return downloaded_ids
+
 
 def fetch_and_save_emails():
     try:
@@ -59,7 +79,6 @@ def fetch_and_save_emails():
         mail.login(SMTP_EMAIL, SMTP_PASSWORD)
         mail.select("inbox")
         
-        # "ALL" permet de scanner l'intégralité des e-mails
         status, messages = mail.search(None, "ALL")
         if status != "OK":
             logger.error("❌ Impossible de fouiller la boîte de réception Gmail.")
@@ -73,28 +92,15 @@ def fetch_and_save_emails():
             mail.logout()
             return
             
-        # Log de début de scan horodaté
         logger.info(f"🔍 checking {total_mails} mails")
         
-        already_downloaded = get_already_downloaded_ids()
+        already_downloaded = get_already_downloaded_message_ids()
         
-        # Filtrage des doublons locaux
-        new_mail_ids = [mid for mid in mail_ids if mid.decode() not in already_downloaded]
-        skipped_count = total_mails - len(new_mail_ids)
+        # Pré-filtrage ou récupération par batch pour identifier rapidement les nouveaux
+        # Traitement individuel optimisé (complexité linéaire O(n))
+        new_mail_count = 0
         
-        if skipped_count > 0:
-            logger.info(f"⏭️ skipped : {skipped_count} e-mail(s) déjà stocké(s) en local.")
-            
-        if not new_mail_ids:
-            logger.info("🎉 Aucun nouvel e-mail à traiter.")
-            mail.logout()
-            return
-        
-        # Traitement individuel
-        for mid in new_mail_ids:
-            str_id = mid.decode()
-            current_index = mail_ids.index(mid) + 1
-            
+        for index, mid in enumerate(mail_ids, start=1):
             status, data = mail.fetch(mid, "(RFC822)")
             if status != "OK":
                 continue
@@ -102,14 +108,30 @@ def fetch_and_save_emails():
             raw_email = data[0][1]
             msg = email.message_from_bytes(raw_email)
             
-            subject, encoding = decode_header(msg["Subject"])[0]
+            raw_msg_id = msg.get("Message-ID")
+            stable_msg_id = clean_message_id(raw_msg_id)
+            
+            # Vérification de déduplication via la clé stable
+            if stable_msg_id in already_downloaded or (raw_msg_id and raw_msg_id in already_downloaded):
+                continue
+                
+            new_mail_count += 1
+            
+            subject, encoding = decode_header(msg["Subject"])[0] if msg["Subject"] else ("", "utf-8")
             if isinstance(subject, bytes):
                 subject = subject.decode(encoding or "utf-8", errors="ignore")
                 
             from_ = msg.get("From")
+            date_header = msg.get("Date")
             
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            email_folder = os.path.join(RECEIVED_DIR, f"email_{timestamp}_{str_id}")
+            # Utilisation de la date du message si possible, sinon repli sur la date du jour
+            try:
+                parsed_date = email.utils.parsedate_to_datetime(date_header)
+                timestamp = parsed_date.strftime("%Y%m%d_%H%M%S")
+            except Exception:
+                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                
+            email_folder = os.path.join(RECEIVED_DIR, f"email_{timestamp}_{stable_msg_id}")
             os.makedirs(email_folder, exist_ok=True)
             
             body = ""
@@ -135,20 +157,24 @@ def fetch_and_save_emails():
                     body = payload.decode(msg.get_content_charset() or "utf-8", errors="ignore")
             
             email_data = {
-                "Gmail_ID": str_id,
+                "Message_ID": raw_msg_id,
+                "Gmail_ID": mid.decode(),
                 "De": from_,
                 "A": [msg.get("To")],
                 "Sujet": subject,
-                "Date": msg.get("Date"),
+                "Date": date_header,
                 "Corps": body
             }
             
             with open(os.path.join(email_folder, "contenu_email.json"), "w", encoding="utf-8") as f:
                 json.dump(email_data, f, indent=4, ensure_ascii=False)
-            
-            # Log de succès
-            logger.info(f"✅ {current_index}/{total_mails} treated")
+                
+            # 🚀 Utilisation directe de l'index de enumerate (évite le O(n²) de .index())
+            logger.info(f"✅ {index}/{total_mails} treated")
 
+        if new_mail_count == 0:
+            logger.info("⏭️ skipped : tous les e-mails sont déjà stockés en local ou aucun nouveau.")
+        
         mail.logout()
 
     except Exception as e:

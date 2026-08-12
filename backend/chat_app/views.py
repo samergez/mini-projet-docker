@@ -3,7 +3,6 @@ import traceback
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.renderers import JSONRenderer
 from rest_framework import status
 from .serializers import ChatSerializer
 from .service import process_chat_logic
@@ -38,8 +37,6 @@ class ChatAPIView(APIView):
 
 
 class EmailAdvancedFilterAPIView(APIView):
-    renderer_classes = [JSONRenderer]
-
     def get(self, request):
         # Récupération des query parameters (ex: ?name=...&date_from=...&date_to=...)
         name = request.GET.get('name', None)

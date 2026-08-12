@@ -16,9 +16,12 @@ DB_PASSWORD = os.getenv("DB_PASSWORD", "mdp_samer")
 DB_NAME = os.getenv("DB_NAME", "test_db")
 DB_PORT = os.getenv("DB_PORT", "5432")
 
-# Identifiants saisis en dur pour contourner le blocage d'environnement de Cron
-SMTP_EMAIL = "samer.stage.ia@gmail.com"
-SMTP_PASSWORD = "lqbvmvvnryesurci"
+# --- CORRECTION SÉCURITÉ CRITIQUE ---
+SMTP_EMAIL = os.getenv("SMTP_EMAIL")
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
+
+if not SMTP_EMAIL or not SMTP_PASSWORD:
+    raise ValueError("❌ Erreur critique : Les variables d'environnement SMTP_EMAIL et SMTP_PASSWORD sont obligatoires.")
 
 DATASET_FILE = "/app/dataset/emails_dataset.json"
 
@@ -31,14 +34,21 @@ def get_db_connection():
         port=DB_PORT
     )
 
-def email_already_processed(custom_id):
+def get_already_processed_ids():
+    """Charge tous les identifiants déjà traités en une seule fois."""
+    processed_ids = set()
     conn = get_db_connection()
-    cur = conn.cursor()
-    cur.execute("SELECT 1 FROM processed_emails WHERE custom_message_id = %s;", (custom_id,))
-    exists = cur.fetchone() is not None
-    cur.close()
-    conn.close()
-    return exists
+    try:
+        with conn.cursor() as cur:
+            cur.execute("SELECT custom_message_id FROM processed_emails;")
+            rows = cur.fetchall()
+            for row in rows:
+                processed_ids.add(row[0])
+    except Exception as e:
+        print(f"⚠️ Erreur lors du chargement des e-mails traités : {e}")
+    finally:
+        conn.close()
+    return processed_ids
 
 def save_to_db(custom_id, recipient, status="sent"):
     conn = get_db_connection()
@@ -132,13 +142,17 @@ def process_single_email():
         return
 
     print(f"🔍 Scan du dataset ({len(messages)} e-mails trouvés)...")
+    
+    # 🚀 Optimisation : Chargement unique en mémoire des IDs déjà traités
+    already_processed = get_already_processed_ids()
 
     for email_data in messages:
         custom_id = email_data.get("message_id") or email_data.get("id")
         if not custom_id:
             continue
 
-        if email_already_processed(custom_id):
+        # 🚀 Optimisation : Vérification en O(1) en mémoire au lieu d'un SELECT par ligne
+        if custom_id in already_processed:
             continue
 
         subject = email_data.get("subject", "Sans objet")
