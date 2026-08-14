@@ -1,5 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import SenderDetail from './SenderDetail';
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
+} from 'chart.js';
+import { Bar } from 'react-chartjs-2';
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+);
 
 const EmailDashboard = () => {
     const [sendersData, setSendersData] = useState([]);
@@ -75,9 +94,64 @@ const EmailDashboard = () => {
     if (loading) return <div style={{ padding: '20px', textAlign: 'center', color: '#fff' }}>Chargement du dashboard...</div>;
     if (error) return <div style={{ padding: '20px', textAlign: 'center', color: '#ff6b6b' }}>Erreur : {error}</div>;
 
-    // Calculs pour les barres de graphiques (pourcentage par rapport au max)
-    const maxProjectCount = Math.max(...projectsData.map(p => p.email_ids?.length || 1), 1);
-    const maxClientCount = Math.max(...clientsData.map(c => c.email_ids?.length || 1), 1);
+    // Configuration des données pour Chart.js - Projets
+    const projectLabels = projectsData.map(p => p.name);
+    const projectCounts = projectsData.map(p => p.email_ids?.length || 0);
+
+    const chartProjectsData = {
+        labels: projectLabels,
+        datasets: [{
+            label: 'Nombre d\'e-mails',
+            data: projectCounts,
+            backgroundColor: ['#ff2222', '#2299ff', '#77cc77', '#ffdd66', '#ff88cc', '#aa44ff', '#ff8822'],
+            borderRadius: 6,
+        }],
+    };
+
+    // Configuration des données pour Chart.js - Clients
+    const clientLabels = clientsData.map(c => c.name);
+    const clientCounts = clientsData.map(c => c.email_ids?.length || 0);
+
+    const chartClientsData = {
+        labels: clientLabels,
+        datasets: [{
+            label: 'Nombre d\'e-mails',
+            data: clientCounts,
+            backgroundColor: ['#00D26A', '#2299ff', '#ffdd66', '#ff88cc', '#aa44ff', '#ff2222', '#ff8822'],
+            borderRadius: 6,
+        }],
+    };
+
+    const chartOptions = {
+        responsive: true,
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                callbacks: {
+                    footer: (tooltipItems) => {
+                        const index = tooltipItems[0].dataIndex;
+                        const item = tooltipItems[0].chart.data.sourceData?.[index];
+                        return item?.description ? `\nDescription: ${item.description}` : '';
+                    }
+                }
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: { color: '#aaa', stepSize: 1 },
+                grid: { color: '#444' }
+            },
+            x: {
+                ticks: { color: '#fff', font: { size: 11 } },
+                grid: { display: false }
+            }
+        }
+    };
+
+    // Injection des données sources dans l'objet chart pour les tooltips
+    chartProjectsData.sourceData = projectsData;
+    chartClientsData.sourceData = clientsData;
 
     return (
         <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto', fontFamily: 'Arial, sans-serif' }}>
@@ -119,23 +193,8 @@ const EmailDashboard = () => {
                 {projectsData.length === 0 ? (
                     <p style={{ color: '#888', fontSize: '14px' }}>Aucun projet chargé.</p>
                 ) : (
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                        {projectsData.map((proj, idx) => {
-                            const count = proj.email_ids?.length || 0;
-                            const percentage = (count / maxProjectCount) * 100;
-                            return (
-                                <div key={idx}>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '14px', marginBottom: '5px' }}>
-                                        <span style={{ fontWeight: 'bold' }}>{proj.name}</span>
-                                        <span style={{ color: '#bbb' }}>{count} e-mail(s)</span>
-                                    </div>
-                                    <div style={{ background: '#444', borderRadius: '4px', height: '10px', width: '100%', overflow: 'hidden' }}>
-                                        <div style={{ background: '#8109E0', height: '100%', width: `${percentage}%`, transition: 'width 0.5s ease' }}></div>
-                                    </div>
-                                    <span style={{ fontSize: '12px', color: '#888' }}>{proj.description}</span>
-                                </div>
-                            );
-                        })}
+                    <div style={{ padding: '10px 0' }}>
+                        <Bar data={chartProjectsData} options={chartOptions} />
                     </div>
                 )}
             </div>
@@ -148,23 +207,8 @@ const EmailDashboard = () => {
                 {clientsData.length === 0 ? (
                     <p style={{ color: '#888', fontSize: '14px' }}>Aucun client chargé.</p>
                 ) : (
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                        {clientsData.map((client, idx) => {
-                            const count = client.email_ids?.length || 0;
-                            const percentage = (count / maxClientCount) * 100;
-                            return (
-                                <div key={idx}>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '14px', marginBottom: '5px' }}>
-                                        <span style={{ fontWeight: 'bold' }}>{client.name}</span>
-                                        <span style={{ color: '#bbb' }}>{count} e-mail(s)</span>
-                                    </div>
-                                    <div style={{ background: '#444', borderRadius: '4px', height: '10px', width: '100%', overflow: 'hidden' }}>
-                                        <div style={{ background: '#00D26A', height: '100%', width: `${percentage}%`, transition: 'width 0.5s ease' }}></div>
-                                    </div>
-                                    <span style={{ fontSize: '12px', color: '#888' }}>{client.description}</span>
-                                </div>
-                            );
-                        })}
+                    <div style={{ padding: '10px 0' }}>
+                        <Bar data={chartClientsData} options={chartOptions} />
                     </div>
                 )}
             </div>
