@@ -4,13 +4,23 @@ import EmailDashboard from './EmailDashboard';
 
 function App() {
   const [currentView, setCurrentView] = useState('dashboard');
-  const [selectedModel, setSelectedModel] = useState('llama-3.1-8b-instant'); // État pour le modèle sélectionné
+  const [selectedModel, setSelectedModel] = useState('llama-3.1-8b-instant');
 
-  const [messages, setMessages] = useState([
-    { sender: 'bot', text: 'Bonjour ! Comment puis-je vous aider avec vos e-mails ?' }
-  ]);
+  // Stocker l'historique des messages par modèle de manière indépendante
+  const [chatHistories, setChatHistories] = useState({
+    'llama-3.1-8b-instant': [
+      { sender: 'bot', text: 'Bonjour ! Je suis Groq. Comment puis-je vous aider avec vos e-mails ?' }
+    ],
+    'glm-5.2': [
+      { sender: 'bot', text: 'Bonjour ! Je suis GLM (5.2). Comment puis-je vous aider avec vos e-mails ?' }
+    ]
+  });
+
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+
+  // Récupérer les messages du modèle actuellement actif
+  const messages = chatHistories[selectedModel] || [];
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -19,8 +29,12 @@ function App() {
     const userMessage = input;
     setInput('');
     
+    // Mettre à jour l'historique uniquement pour le modèle en cours
     const updatedMessages = [...messages, { sender: 'user', text: userMessage }];
-    setMessages(updatedMessages);
+    setChatHistories((prev) => ({
+      ...prev,
+      [selectedModel]: updatedMessages
+    }));
     setLoading(true);
 
     try {
@@ -32,17 +46,24 @@ function App() {
         body: JSON.stringify({ 
           prompt: userMessage, 
           history: updatedMessages,
-          model_name: selectedModel // Envoi dynamique du modèle choisi
+          model_name: selectedModel
         }),
       });
 
       const data = await response.json();
       const botReply = data.response || data.message || "Réponse reçue du serveur.";
 
-      setMessages((prev) => [...prev, { sender: 'bot', text: botReply }]);
+      // Ajouter la réponse du bot dans l'historique du modèle actif
+      setChatHistories((prev) => ({
+        ...prev,
+        [selectedModel]: [...prev[selectedModel], { sender: 'bot', text: botReply }]
+      }));
     } catch (error) {
       console.error("Erreur de connexion:", error);
-      setMessages((prev) => [...prev, { sender: 'bot', text: "Désolé, impossible de contacter le serveur." }]);
+      setChatHistories((prev) => ({
+        ...prev,
+        [selectedModel]: [...prev[selectedModel], { sender: 'bot', text: "Désolé, impossible de contacter le serveur." }]
+      }));
     } finally {
       setLoading(false);
     }
